@@ -1,0 +1,336 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+import React, { useState, useEffect } from 'react';
+import MapContainers from './map';
+import { getAirCraft, getAirCraftDetails } from '../../Service/index';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
+import CSVDATA from './../../store/csvjson_1.json';
+import { toast } from 'react-toastify';
+import TripList from './TripList';
+
+interface FlightReview {
+  flightId: any;
+  data: [];
+}
+
+function Analyze(props: any) {
+  const [loader, setLoader] = useState(true);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const [flights, setFlights] = useState([]);
+  const [selectedFlight, setSelectedFlight] = useState('');
+  const [todayDate, setTodayDate] = useState(new Date());
+  //const [airCraftjson, setAirCraftJson] = useState([]);
+  const [airCraftjson, setAirCraftJson] = useState(CSVDATA);
+  const [airCraftsIds, setAirCraftdIds] = useState([166, 165]);
+  const [selectedAicraftId, changeSelectedAircraftId] = useState(166);
+  const [addtoReviewFlights, setAddtoReviewFlights] = useState<FlightReview[]>(
+    []
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 300);
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, [startDate, endDate]);
+
+  const getData = async () => {
+    if (startDate && endDate) {
+      try {
+        const formattedStartDate = startDate
+          ? moment(startDate).format('DD-MM-YYYY')
+          : null;
+        const formattedEndDate = endDate
+          ? moment(endDate).format('DD-MM-YYYY')
+          : null;
+        const airCraftData = await getAirCraft(
+          formattedStartDate,
+          formattedEndDate,
+          selectedAicraftId
+        );
+        console.log(airCraftData);
+        if (airCraftData && !airCraftData.status) {
+          const airCrafts = [] as any;
+          for (let k in airCraftData) {
+            airCrafts.push(airCraftData[k]);
+          }
+          setFlights(airCrafts);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
+  const endDateChange = async (date: any) => {
+    setEndDate(date);
+  };
+
+  const startDateChange = async (date: any) => {
+    setStartDate(date);
+  };
+
+  const getFlightData = async () => {
+    // const airCrafts = CSVDATA as  any;
+    // setAirCraftJson(airCrafts);
+    try {
+      if (selectedFlight) {
+        if (addtoReviewFlights.length > 0) {
+          let index = addtoReviewFlights.findIndex(
+            (item) => item.flightId === selectedFlight
+          );
+          if (index > -1) {
+            toast.error('Trip Already Added');
+            return;
+          }
+        }
+        const airCraftDetails = await getAirCraftDetails(selectedFlight);
+        if (airCraftDetails && !airCraftDetails.status) {
+          const airCrafts = [] as any;
+          for (let k in airCraftDetails) {
+            airCrafts.push(airCraftDetails[k]);
+          }
+          let obj = {
+            flightId: selectedFlight,
+            data: airCrafts,
+          };
+          setAddtoReviewFlights((old) => [...old, obj]);
+          let newArr = [...airCraftjson];
+          newArr = newArr.concat(airCrafts);
+          setAirCraftJson(newArr);
+          //setAirCraftJson(airCrafts);
+        } else {
+          setAirCraftJson([]);
+        }
+      }
+    } catch (err) {
+      setAirCraftJson([]);
+    }
+  };
+
+  return (
+    <React.Fragment>
+      <div className='loading' style={{ display: loader ? 'block' : 'none' }}>
+        <img src='https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif' />
+      </div>
+      <div className='container-fluid content-body vh-100'>
+        <div className='row'>
+          <div className='col-md-3 my-4'>
+            <div className='sidebar-wrapper noheight-wrapper p-4'>
+              <label className='text-left d-block mb-3'>
+                Select Flight Details
+              </label>
+              <div className='row'>
+                <div className='dd-style w-100'>
+                  <div className='col-md-12 mb-3'>
+                    <div className='select-dropdown'>
+                      <select
+                        className='form-control'
+                        id='select2'
+                        onChange={(e: any) => {
+                          changeSelectedAircraftId(e.target.value);
+                        }}
+                        value={selectedAicraftId}
+                      >
+                        {airCraftsIds.map((aircraft) => {
+                          return (
+                            <option value={aircraft} key={aircraft}>
+                              {aircraft}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                  <div className='col-md-12 mb-3 customDatePickerWidth'>
+                    {/* <div className="select-dropdown"> */}
+                    <DatePicker
+                      wrapperClassName='datePicker'
+                      selected={startDate}
+                      onChange={(date: any) => startDateChange(date)}
+                      placeholderText='To Date'
+                      maxDate={todayDate ? todayDate : null}
+                    />
+                    {/* </div> */}
+                  </div>
+                  <div className='col-md-12 mb-3 customDatePickerWidth'>
+                    {/* <div className="select-dropdown"> */}
+                    <DatePicker
+                      wrapperClassName='datePicker'
+                      selected={endDate}
+                      onChange={(date: any) => endDateChange(date)}
+                      placeholderText='From Date'
+                      maxDate={todayDate ? todayDate : null}
+                    />
+                    {/* </div> */}
+                  </div>
+                  <div className='col-md-12 mb-3'>
+                    <div className='select-dropdown'>
+                      <select
+                        className='form-control'
+                        id='select2'
+                        onChange={(e: any) => {
+                          console.log(e.target.value);
+                          setSelectedFlight(e.target.value);
+                        }}
+                      >
+                        <option value=''>Select Flight By</option>
+                        {flights.map(({ aircraftid }) => {
+                          console.log(aircraftid);
+                          return (
+                            <option value={aircraftid} key={aircraftid}>
+                              {aircraftid}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div className='col-md-12 mb-3'>
+                  <div className='button-block d-flex justify-content-end'>
+                    <button
+                      type='button'
+                      className='btn btn-primary'
+                      onClick={getFlightData}
+                    >
+                      Add to Review
+                    </button>
+                  </div>
+                </div>
+              </div>
+              {addtoReviewFlights.map((item) => (
+                <TripList flightData={item} />
+              ))}
+
+              {/* <div className='side-card p-3 mb-3 text-left cl-white'>
+                <p className='m-0'>
+                  Trip 2021-10-22 15:03:04 pm <span>|</span> 2021-10-22 08:33:14
+                  pm
+                </p>
+                <h1 className='my-3'>162</h1>
+                <div className='d-flex'>
+                  <p className='side-card-level'>Departure</p>
+                  <p>Xxxxxxxxx</p>
+                </div>
+                <div className='d-flex'>
+                  <p className='side-card-level'>Departure Time</p>
+                  <p>Xxxxxxxxx</p>
+                </div>
+                <div className='d-flex'>
+                  <p className='side-card-level'>Duration</p>
+                  <p>Xxxxxxxxx</p>
+                </div>
+                <div className='d-flex'>
+                  <p className='side-card-level'>Arrival</p>
+                  <p>Xxxxxxxxx</p>
+                </div>
+                <div className='d-flex justify-content-between align-items-center mt-3'>
+                  <p>1 Knot</p>
+                  <span>|</span>
+                  <p>627 m</p>
+                  <span>|</span>
+                  <p>08:33:14 pm</p>
+                  <label className='cl-yellow'>Status</label>
+                </div>
+              </div> */}
+              <div className='side-card trip-replay p-3 mb-3 text-left cl-white'>
+                <div className='d-flex justify-content-between'>
+                  <h3>Trip Replay</h3>
+                  <div className='d-flex justify-content-end'>
+                    <span className='mr-3'> {'<<'} </span>
+                    <span className='ml-3'> {'>>'} </span>
+                  </div>
+                </div>
+                <div className='progress-path mt-5 mb-4'></div>
+                <div className='d-flex justify-content-between'>
+                  <p>
+                    Trip Start <span className='d-block'>05:33:44</span>
+                  </p>
+                  <p>
+                    Trip End <span className='d-block'>08:50:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='col-md-9 my-4'>
+            <div className='maparea-container mb-4'>
+              <div className='craftAnalitic-detail d-flex align-items-center justify-content-between p-4'>
+                <div className='d-flex leftBox-area'>
+                  <div className='d-flex align-items-center'>
+                    <div className='loader-circle'></div>
+                    <h2>
+                      67%
+                      <span className='d-block'>Fuel</span>
+                    </h2>
+                  </div>
+                  <div className='d-flex align-items-center'>
+                    <div className='loader-circle yellow-circle'></div>
+                    <h2>
+                      300 KTS
+                      <span className='d-block'>True Air Speed</span>
+                    </h2>
+                  </div>
+                  <div className='d-flex align-items-center'>
+                    <div className='loader-circle green-circle'></div>
+                    <h2>
+                      290KTS
+                      <span className='d-block'>Ground Speed</span>
+                    </h2>
+                  </div>
+                </div>
+                <div className='d-flex'>
+                  <i className='fas fa-ellipsis-v fa-icon-size'></i>
+                </div>
+              </div>
+
+              <MapContainers mapJson={airCraftjson} />
+              {/* <div className="addArea-name cl-white">
+                            <h2 className="mb-3">Add Name of the Area</h2>
+                            <input type="text" className="form-control mb-3" ></input>
+                            <button type="button" className="btn btn-primary">Add Name</button>
+                        </div> */}
+            </div>
+
+            <div className='charting-window p-4 cl-white'>
+              <div className='d-flex justify-content-between'>
+                <h2>Reporting And Charting Window</h2>
+                <div className='d-flex justify-content-between text-left Charting-detail-width'>
+                  <div className='d-flex align-items-center'>
+                    <h1>
+                      6567 KM
+                      <span className='d-block'>Great Circle Distance</span>
+                    </h1>
+                  </div>
+                  <div className='d-flex align-items-center'>
+                    <h1>
+                      19.079
+                      <span className='d-block'>latitude</span>
+                    </h1>
+                  </div>
+                  <div className='d-flex align-items-center'>
+                    <h1>
+                      78.14
+                      <span className='d-block'>Longitude</span>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <div className='d-block text-left'>
+                <p>V | 454 | date Time Stamp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+}
+
+export default Analyze;

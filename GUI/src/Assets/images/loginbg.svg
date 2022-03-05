@@ -1,0 +1,66 @@
+<svg id="Group_244" data-name="Group 244" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1120" height="1080" viewBox="0 0 1120 1080">
+  <defs>
+    <linearGradient id="linear-gradient" y1="1" x2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5c6ccd"/>
+      <stop offset="1" stop-color="#5753b5"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_179" data-name="Rectangle 179" width="1120" height="1080" fill="url(#linear-gradient)"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#a7a7ff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#54d8ff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect id="Rectangle_176" data-name="Rectangle 176" width="1120" height="1080" fill="#24204b"/>
+  <g id="Group_4" data-name="Group 4" clip-path="url(#clip-path)">
+    <g id="Products_Sold_Graph" data-name="Products Sold Graph" transform="translate(-767.553 319.65)" opacity="0.201">
+      <path id="Filled.Graph" d="M330,822.827V577.385s431.906,160.989,777,171.1c373.155-9.8,437.771-78.7,728.431-171.1,248.382-77.019,496.085-98.157,733.835-92.715s443.818,88.642,724.656,97.169c495.431-34.351,748.2-208.025,781.674-280.561V914.109L330,914.382Z" transform="translate(-330 -298.414)" opacity="0.7" fill="url(#linear-gradient-2)"/>
+      <path id="Line.Graph" d="M313,524.853s429.117,164.827,768.408,168.375,469.613-85.057,729.487-168.156,506.926-97.281,734.376-94.488,448.561,89.875,728.027,94.5,731.585-150.528,781.861-279.841" transform="translate(-309.563 -245.24)" fill="none" stroke="#a3a0fb" stroke-width="2"/>
+      <g id="Mar.Ellipse" transform="translate(1484.868 267.186)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="12.259" cy="12.259" r="12.259" stroke="none"/>
+        <circle cx="12.259" cy="12.259" r="11.259" fill="none"/>
+      </g>
+      <g id="Feb.Ellipse" transform="translate(988.583 419.878)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="12.259" cy="12.259" r="12.259" stroke="none"/>
+        <circle cx="12.259" cy="12.259" r="11.259" fill="none"/>
+      </g>
+    </g>
+    <g id="Products_Sold_Graph-2" data-name="Products Sold Graph" transform="translate(-945.353 581.775)" opacity="0.201">
+      <path id="Filled.Graph-2" data-name="Filled.Graph" d="M330,822.827V577.385s431.906,160.989,777,171.1c373.155-9.8,437.771-78.7,728.431-171.1,248.382-77.019,496.085-98.157,733.835-92.715s443.818,88.642,724.656,97.169c495.431-34.351,748.2-208.025,781.674-280.561V914.109L330,914.382Z" transform="translate(-330 -298.414)" opacity="0.7" fill="url(#linear-gradient-2)"/>
+      <path id="Line.Graph-2" data-name="Line.Graph" d="M313,524.853s429.117,164.827,768.408,168.375,469.613-85.057,729.487-168.156,506.926-97.281,734.376-94.488,448.561,89.875,728.027,94.5,731.585-150.528,781.861-279.841" transform="translate(-309.563 -245.24)" fill="none" stroke="#a3a0fb" stroke-width="2"/>
+      <g id="Mar.Ellipse-2" data-name="Mar.Ellipse" transform="translate(1484.868 267.186)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="12.259" cy="12.259" r="12.259" stroke="none"/>
+        <circle cx="12.259" cy="12.259" r="11.259" fill="none"/>
+      </g>
+    </g>
+    <g id="Total_Views_Graph" data-name="Total Views Graph" transform="translate(-986.019 344.74)" opacity="0.201">
+      <path id="Filled.Graph-3" data-name="Filled.Graph" d="M330,729.221v-374.8S751.549,727.05,1097.833,741.074c386.367-3.158,389.534-193.446,729.051-297.616C2111.117,361.663,2328,584.782,2565.752,590.224s401.832-152.916,726.195-163.918c420.25,16.568,757.471,228.141,783.639,239.517V820.5L330,820.775Z" transform="translate(-327.678 -354.422)" opacity="0.7" fill="url(#linear-gradient-4)"/>
+      <path id="Line.Graph-3" data-name="Line.Graph" d="M312.953,279.164s434.669,379.5,774.381,383.044,455.88-223.6,728.643-300.177S2325.361,508.1,2553.091,510.9s445.768-167.271,725.58-162.649S3878.4,481.513,4055.26,582.992" transform="translate(-312.953 -275.989)" fill="none" stroke="#54d8ff" stroke-width="2"/>
+      <g id="May.Ellipse" transform="translate(2940.421 57.949)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="12.259" cy="12.259" r="12.259" stroke="none"/>
+        <circle cx="12.259" cy="12.259" r="11.259" fill="none"/>
+      </g>
+      <g id="Mar.Ellipse-3" data-name="Mar.Ellipse" transform="translate(1597.597 57.019)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="12.259" cy="12.259" r="12.259" stroke="none"/>
+        <circle cx="12.259" cy="12.259" r="11.259" fill="none"/>
+      </g>
+    </g>
+    <g id="Total_Views_Graph-2" data-name="Total Views Graph" transform="translate(-1409.832 468.869)" opacity="0.201">
+      <path id="Filled.Graph-4" data-name="Filled.Graph" d="M330,729.221v-374.8S751.549,727.05,1097.833,741.074c386.367-3.158,389.534-193.446,729.051-297.616C2111.117,361.663,2328,584.782,2565.752,590.224s401.832-152.916,726.195-163.918c420.25,16.568,757.471,228.141,783.639,239.517V820.5L330,820.775Z" transform="translate(-329.078 -354.422)" opacity="0.7" fill="url(#linear-gradient-4)"/>
+      <path id="Line.Graph-4" data-name="Line.Graph" d="M312.953,279.164s434.669,379.5,774.381,383.044,455.88-223.6,728.643-300.177S2325.361,508.1,2553.091,510.9s445.768-167.271,725.58-162.649S3878.4,481.513,4055.26,582.992" transform="translate(-312.953 -275.989)" fill="none" stroke="#54d8ff" stroke-width="2"/>
+      <g id="Apr.Ellipse" transform="translate(2361.814 205.118)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="12.259" cy="12.259" r="12.259" stroke="none"/>
+        <circle cx="12.259" cy="12.259" r="11.259" fill="none"/>
+      </g>
+      <g id="Mar.Ellipse-4" data-name="Mar.Ellipse" transform="translate(1482.325 71.755)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="12.259" cy="12.259" r="12.259" stroke="none"/>
+        <circle cx="12.259" cy="12.259" r="11.259" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
