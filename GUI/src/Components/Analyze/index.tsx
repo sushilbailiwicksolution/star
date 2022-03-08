@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import MapContainers from './map';
 import { getAirCraft, getAirCraftDetails } from '../../Service/index';
 import DatePicker from 'react-datepicker';
@@ -8,10 +8,13 @@ import moment from 'moment';
 import CSVDATA from './../../store/csvjson_1.json';
 import { toast } from 'react-toastify';
 import TripList from './TripList';
+import TripReplay from './TripReplay';
+import { RouteSelectedContext } from './RouteSelectedContext';
 
 interface FlightReview {
   flightId: any;
   data: [];
+  flightNumber: any;
 }
 
 function Analyze(props: any) {
@@ -21,13 +24,16 @@ function Analyze(props: any) {
   const [flights, setFlights] = useState([]);
   const [selectedFlight, setSelectedFlight] = useState('');
   const [todayDate, setTodayDate] = useState(new Date());
-  //const [airCraftjson, setAirCraftJson] = useState([]);
-  const [airCraftjson, setAirCraftJson] = useState(CSVDATA);
+  const [airCraftjson, setAirCraftJson] = useState([]);
+  // const [airCraftjson, setAirCraftJson] = useState(CSVDATA);
   const [airCraftsIds, setAirCraftdIds] = useState([166, 165]);
   const [selectedAicraftId, changeSelectedAircraftId] = useState(166);
   const [addtoReviewFlights, setAddtoReviewFlights] = useState<FlightReview[]>(
     []
   );
+  const [selectedTripReplayFlight, setSelectedTripReplayFlight] = useState('');
+  const [selectedTripIndex, setSelectedTripIndex] = useState(0);
+  const [selectedTripArray, setSelectedTripArray] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -67,6 +73,22 @@ function Analyze(props: any) {
     }
   };
 
+  const onClickedRouteItem = (flightId: any, routeIndex: any) => {
+    if (selectedTripReplayFlight == flightId) {
+      let index = addtoReviewFlights.findIndex(
+        (item: any) => item.flightId === flightId
+      );
+      let data = addtoReviewFlights[index].data;
+      setSelectedTripArray(data);
+    }
+    setSelectedTripIndex(routeIndex);
+  };
+
+  const onClickedMaker = (flightId: any, index: any) => {
+    console.log('onClickedMaker', 'flightId ', flightId, ' index ', index);
+    onClickedRouteItem(flightId, index);
+  };
+
   const endDateChange = async (date: any) => {
     setEndDate(date);
   };
@@ -98,11 +120,16 @@ function Analyze(props: any) {
           let obj = {
             flightId: selectedFlight,
             data: airCrafts,
+            flightNumber: selectedAicraftId,
           };
           setAddtoReviewFlights((old) => [...old, obj]);
           let newArr = [...airCraftjson];
           newArr = newArr.concat(airCrafts);
           setAirCraftJson(newArr);
+          if (selectedTripArray.length < 1) {
+            setSelectedTripReplayFlight(obj.flightId);
+            setSelectedTripArray(obj.data);
+          }
           //setAirCraftJson(airCrafts);
         } else {
           setAirCraftJson([]);
@@ -181,7 +208,6 @@ function Analyze(props: any) {
                       >
                         <option value=''>Select Flight By</option>
                         {flights.map(({ aircraftid }) => {
-                          console.log(aircraftid);
                           return (
                             <option value={aircraftid} key={aircraftid}>
                               {aircraftid}
@@ -205,58 +231,18 @@ function Analyze(props: any) {
                 </div>
               </div>
               {addtoReviewFlights.map((item) => (
-                <TripList flightData={item} />
+                <RouteSelectedContext.Provider
+                  value={{ onClickedRouteItem: onClickedRouteItem }}
+                >
+                  <TripList flightData={item} />
+                </RouteSelectedContext.Provider>
               ))}
 
-              {/* <div className='side-card p-3 mb-3 text-left cl-white'>
-                <p className='m-0'>
-                  Trip 2021-10-22 15:03:04 pm <span>|</span> 2021-10-22 08:33:14
-                  pm
-                </p>
-                <h1 className='my-3'>162</h1>
-                <div className='d-flex'>
-                  <p className='side-card-level'>Departure</p>
-                  <p>Xxxxxxxxx</p>
-                </div>
-                <div className='d-flex'>
-                  <p className='side-card-level'>Departure Time</p>
-                  <p>Xxxxxxxxx</p>
-                </div>
-                <div className='d-flex'>
-                  <p className='side-card-level'>Duration</p>
-                  <p>Xxxxxxxxx</p>
-                </div>
-                <div className='d-flex'>
-                  <p className='side-card-level'>Arrival</p>
-                  <p>Xxxxxxxxx</p>
-                </div>
-                <div className='d-flex justify-content-between align-items-center mt-3'>
-                  <p>1 Knot</p>
-                  <span>|</span>
-                  <p>627 m</p>
-                  <span>|</span>
-                  <p>08:33:14 pm</p>
-                  <label className='cl-yellow'>Status</label>
-                </div>
-              </div> */}
-              <div className='side-card trip-replay p-3 mb-3 text-left cl-white'>
-                <div className='d-flex justify-content-between'>
-                  <h3>Trip Replay</h3>
-                  <div className='d-flex justify-content-end'>
-                    <span className='mr-3'> {'<<'} </span>
-                    <span className='ml-3'> {'>>'} </span>
-                  </div>
-                </div>
-                <div className='progress-path mt-5 mb-4'></div>
-                <div className='d-flex justify-content-between'>
-                  <p>
-                    Trip Start <span className='d-block'>05:33:44</span>
-                  </p>
-                  <p>
-                    Trip End <span className='d-block'>08:50:00</span>
-                  </p>
-                </div>
-              </div>
+              <TripReplay
+                selectedTripArray={selectedTripArray}
+                selectedTripIndex={selectedTripIndex}
+                selectedTripReplayFlight={selectedTripReplayFlight}
+              ></TripReplay>
             </div>
           </div>
           <div className='col-md-9 my-4'>
@@ -290,7 +276,11 @@ function Analyze(props: any) {
                 </div>
               </div>
 
-              <MapContainers mapJson={airCraftjson} />
+              {/* <MapContainers mapJson={airCraftjson} /> */}
+              <MapContainers
+                mapJson={addtoReviewFlights}
+                onClickedMaker={onClickedMaker}
+              />
               {/* <div className="addArea-name cl-white">
                             <h2 className="mb-3">Add Name of the Area</h2>
                             <input type="text" className="form-control mb-3" ></input>

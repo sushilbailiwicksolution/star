@@ -32,6 +32,7 @@ function Reports(props: any) {
   const [endDate, setEndDate] = useState();
   const [todayDate, setTodayDate] = useState(new Date());
   const [flights, setFlights] = useState([]);
+  const [airCraftsIds, setAirCraftdIds] = useState([166, 165]);
   const [selectedAicraftId, changeSelectedAircraftId] = useState(166);
   const [selectedFlight, setSelectedFlight] = useState('');
 
@@ -213,12 +214,21 @@ function Reports(props: any) {
                     <div className='row'>
                       <div className='col-md-12 mb-3'>
                         <div className='select-dropdown'>
-                          <select className='form-control' id='select4'>
-                            <option>Assets</option>
-                            <option>a</option>
-                            <option>b</option>
-                            <option>c</option>
-                            <option>d</option>
+                          <select
+                            className='form-control'
+                            id='select4'
+                            onChange={(e: any) => {
+                              changeSelectedAircraftId(e.target.value);
+                            }}
+                            value={selectedAicraftId}
+                          >
+                            {airCraftsIds.map((aircraft) => {
+                              return (
+                                <option value={aircraft} key={aircraft}>
+                                  {aircraft}
+                                </option>
+                              );
+                            })}
                           </select>
                         </div>
                       </div>

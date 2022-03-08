@@ -18,6 +18,7 @@ const mapStyle = [
     ],
   },
 ];
+
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
@@ -60,6 +61,7 @@ export class MapContainer extends Component {
           }}
         />
       ),
+      selectedMarker: null,
     };
   }
 
@@ -76,6 +78,7 @@ export class MapContainer extends Component {
   loadMapData = () => {
     // const { allLastLngs } = this.state;
     let allLastLngs = this.props.mapJson;
+    console.log('allLastLngs', allLastLngs);
     if (allLastLngs.length === 0) {
       return false;
     }
@@ -84,105 +87,47 @@ export class MapContainer extends Component {
     });
     let allStores = [];
     let polylineData = [];
-    let zoomLevel = allLastLngs.length > 400 ? 6 : 3;
-    const displayMarkers = allLastLngs.map((store, index) => {
-      // let remainder = index % 5;
-      // if(index === 0 || index === allLastLngs.length - 1 || remainder === 0) {
-      // const { Latitude, Longitude } = store;
-      const Latitude = parseFloat(store.gps_lat);
-      const Longitude = parseFloat(store.gps_long);
-      if (Latitude && Longitude) {
-        const uniqueKey =
-          Latitude.toString() + Longitude.toString() + index.toString();
-        let replacedKey = uniqueKey.replace(/\./g, '');
-        replacedKey = parseInt(replacedKey);
-        allStores.push(store);
-        polylineData.push({ lat: Latitude, lng: Longitude });
-        // let icon = {
-        //   path: 'M4.692,10.001c0,3.174,2.583,5.756,5.759,5.756s5.758-2.582,5.758-5.756c0-3.175-2.582-5.759-5.758-5.759   S4.692,6.826,4.692,10.001z M5.698,10.001c0-2.545,2.012-4.624,4.529-4.741l-2.56,3.208v2.956l1.948-2.44v5.69   C7.393,14.277,5.698,12.336,5.698,10.001z M15.203,10.001c0,2.334-1.695,4.278-3.916,4.672v-5.69l1.947,2.44V8.468l-2.56-3.208   C13.191,5.378,15.203,7.456,15.203,10.001z',
-        //   scale: 1,
-        //   rotation: parseFloat(store.heading),
-        //   //fillColor: '#0b85ef',
-        //   fillColor: '#ffffff',
-        //   fillOpacity: 1,
-        //   strokeWeight: 0,
-        //   strokeOpacity: 0,
-        //   anchor: { x: 12, y: 0 },
-        // };
+    let zoomLevel = allLastLngs[0].data.length > 400 ? 6 : 3;
+    let displayMarkers;
 
-        const icon = {
-          path: 'M4.692,10.001c0,3.174,2.583,5.756,5.759,5.756s5.758-2.582,5.758-5.756c0-3.175-2.582-5.759-5.758-5.759   S4.692,6.826,4.692,10.001z M5.698,10.001c0-2.545,2.012-4.624,4.529-4.741l-2.56,3.208v2.956l1.948-2.44v5.69   C7.393,14.277,5.698,12.336,5.698,10.001z M15.203,10.001c0,2.334-1.695,4.278-3.916,4.672v-5.69l1.947,2.44V8.468l-2.56-3.208   C13.191,5.378,15.203,7.456,15.203,10.001z',
-          fillColor: '#ffffff',
-          rotation: parseFloat(store.heading),
-          fillOpacity: 1,
-          strokeWeight: 1,
-          scale: 1.5,
-          strokeColor: '#0b85ef',
-          strokeOpacity: 1,
-          anchor: { x: 12, y: 0 },
-        };
+    allLastLngs.forEach((item) => {
+      let flightId = item.flightId;
+      displayMarkers = item.data.map((store, index) => {
+        // let remainder = index % 5;
+        // if(index === 0 || index === allLastLngs.length - 1 || remainder === 0) {
+        // const { Latitude, Longitude } = store;
+        const Latitude = parseFloat(store.gps_lat);
+        const Longitude = parseFloat(store.gps_long);
+        if (Latitude && Longitude) {
+          const uniqueKey =
+            Latitude.toString() + Longitude.toString() + index.toString();
+          let replacedKey = uniqueKey.replace(/\./g, '');
+          replacedKey = parseInt(replacedKey);
+          allStores.push(store);
+          polylineData.push({ lat: Latitude, lng: Longitude });
 
-        // icon = {
-        //   url: `https://stardev-38337.web.app/up.png?i=${index}`,
-        //   anchor: { x: 5, y: 9 }
-        // };
-        // let ref = React.createRef();
-        return (
-          <Marker
-            key={uniqueKey}
-            id={uniqueKey}
-            className={`marker_${index}`}
-            position={{
-              lat: Latitude,
-              lng: Longitude,
-            }}
-            icon={icon}
-            onMouseover={this.showInfoWindow}
-            // onMouseover = { (e) => { e.icon.scale=2; console.log(e.icon)} }
-            onMouseout={this.hideInfoWindow}
-            onClick={this.handleMarkerClick}
-            data={store}
-          />
-        );
-      } else {
-        return null;
-      }
-      // }
+          let icon = this._getIcon(1.5, store.heading);
+          let className = `marker_${index}`;
+
+          let position = {
+            lat: Latitude,
+            lng: Longitude,
+          };
+          return this._getMarker(
+            uniqueKey,
+            flightId,
+            index,
+            position,
+            icon,
+            store,
+            store.heading
+          );
+        } else {
+          return null;
+        }
+        // }
+      });
     });
-
-    // let initialLength = allStores.length;
-    // let i = 0;
-    // let k = 0;
-    // const iconInterval = setInterval(() => {
-    // // setTimeout(() => {
-    //   console.log(allStores.length, 'length', initialLength, i);
-    //   if(initialLength > 0) {
-    //     allStores.forEach((st, index) => {
-    //       const markerUrl = `https://stardev-38337.web.app/up.png?i=${k}`
-    //       const marker = document.querySelector(`[src="${markerUrl}"]`)
-    //       k++;
-    //       console.log(markerUrl, marker);
-    //       if (marker) { // when it hasn't loaded, it's null
-    //         allStores.splice(index, 1);
-    //         i++;
-    //         // console.log(st.Heading);
-    //         // console.log('loaded')
-    //         marker.style.transform = `rotate(${parseFloat(st.heading)}deg)`
-    //         // marker.style.marginTop = "12px";
-    //       }
-    //       if(i === initialLength) {
-    //         clearInterval(iconInterval);
-    //         setTimeout(() => {
-    //           this.setState({
-    //             loader: false
-    //           })
-    //         }, 3000)
-    //       }
-    //     })
-    //   }
-
-    //   // console.log('i', i);
-    // }, 5000)
 
     this.setState(
       {
@@ -215,13 +160,6 @@ export class MapContainer extends Component {
   };
 
   showInfoWindow = (props, marker) => {
-    // console.log(marker, props);
-    // try {
-    //   props.icon.scale = 2;
-    // } catch (err) {
-    //   console.log(err);
-    // }
-
     this.setState({
       activeMarker: marker,
       selectedPlace: props,
@@ -230,12 +168,85 @@ export class MapContainer extends Component {
   };
 
   handleMarkerClick = (props, marker) => {
-    // console.log('On Marker Click', props);
-    // try {
-    //   props.icon.scale = 3;
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    let routeId = props.id;
+    this.props.onClickedMaker(props.flightId, props.markerIndex);
+    let alreadySelectedMarker = this.state.selectedMarker;
+    let changePreviousSelectedMarker = false;
+    let previousSelectedMarker;
+    let previousSelectedIndex;
+    let index = this.state.displayMarkers.findIndex((item, index) => {
+      if (item && item.props && item.props.id === routeId) return true;
+    });
+    let rotation = this.state.displayMarkers[index].props.rotation;
+    let className = this.state.displayMarkers[index].props.className;
+    let position = this.state.displayMarkers[index].props.position;
+    let data = this.state.displayMarkers[index].props.data;
+    let flightId = this.state.displayMarkers[index].props.flightId;
+    let markerIndex = this.state.displayMarkers[index].props.markerIndex;
+    let scaleValue = 3;
+
+    if (alreadySelectedMarker) {
+      alreadySelectedMarker = alreadySelectedMarker.props;
+      console.log('alreadySelectedMarker', alreadySelectedMarker);
+      if (alreadySelectedMarker.id == routeId) {
+        scaleValue = alreadySelectedMarker.icon.scale == 3 ? 1.5 : 3;
+      } else {
+        changePreviousSelectedMarker = true;
+        previousSelectedIndex = this.state.displayMarkers.findIndex(
+          (item, index) => {
+            if (
+              item &&
+              item.props &&
+              item.props.id === alreadySelectedMarker.id
+            )
+              return true;
+          }
+        );
+        let previousRotation = alreadySelectedMarker.rotation;
+        let previousclassName = alreadySelectedMarker.className;
+        let previousposition = alreadySelectedMarker.position;
+        let previousdata = alreadySelectedMarker.data;
+        let previousflightId = alreadySelectedMarker.flightId;
+        let previousMarkerIndex = alreadySelectedMarker.markerIndex;
+
+        let previousSelectedIcon = this._getIcon(1.5, previousRotation);
+
+        previousSelectedMarker = this._getMarker(
+          alreadySelectedMarker.id,
+          previousflightId,
+          previousMarkerIndex,
+          previousposition,
+          previousSelectedIcon,
+          previousdata,
+          previousRotation
+        );
+      }
+    }
+
+    let updatedIcon = this._getIcon(scaleValue, rotation);
+    let updateMarker = this._getMarker(
+      routeId,
+      flightId,
+      markerIndex,
+      position,
+      updatedIcon,
+      data,
+      rotation
+    );
+
+    // 1. Make a shallow copy of the items
+    let displayMarkers = [...this.state.displayMarkers];
+    displayMarkers[index] = updateMarker;
+    if (changePreviousSelectedMarker) {
+      displayMarkers[previousSelectedIndex] = previousSelectedMarker;
+    }
+
+    // 2. Set the state to our new copy
+    this.setState({ displayMarkers }, () => {});
+    this.setState({ selectedMarker: updateMarker }, () => {
+      this.forceUpdate();
+    });
+    // this.forceUpdate();
   };
 
   hideInfoWindow = (props) => {
@@ -377,6 +388,39 @@ export class MapContainer extends Component {
         ),
       });
     }
+  }
+
+  _getIcon(scale, rotation) {
+    return {
+      path: 'M4.692,10.001c0,3.174,2.583,5.756,5.759,5.756s5.758-2.582,5.758-5.756c0-3.175-2.582-5.759-5.758-5.759   S4.692,6.826,4.692,10.001z M5.698,10.001c0-2.545,2.012-4.624,4.529-4.741l-2.56,3.208v2.956l1.948-2.44v5.69   C7.393,14.277,5.698,12.336,5.698,10.001z M15.203,10.001c0,2.334-1.695,4.278-3.916,4.672v-5.69l1.947,2.44V8.468l-2.56-3.208   C13.191,5.378,15.203,7.456,15.203,10.001z',
+      fillColor: '#ffffff',
+      rotation: parseFloat(rotation),
+      fillOpacity: 1,
+      strokeWeight: 1,
+      scale: scale,
+      strokeColor: '#0b85ef',
+      strokeOpacity: 1,
+      anchor: { x: 12, y: 0 },
+    };
+  }
+  _getMarker(uniqueKey, flightId, index, position, icon, data, rotation) {
+    return (
+      <Marker
+        key={uniqueKey}
+        id={uniqueKey}
+        flightId={flightId}
+        markerIndex={index}
+        className={`marker_${index}`}
+        position={position}
+        icon={icon}
+        onMouseover={this.showInfoWindow}
+        // onMouseover = { (e) => { e.icon.scale=2; console.log(e.icon)} }
+        onMouseout={this.hideInfoWindow}
+        onClick={this.handleMarkerClick}
+        data={data}
+        rotation={rotation}
+      />
+    );
   }
 
   render() {

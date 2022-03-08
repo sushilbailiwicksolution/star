@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import LeftPanel from "./LeftPanel";
+import { getLayer } from '../../Service/index';
 
 function Plan(props: any) {
     const [loader, setLoader] = useState(true);
-
+    const [reportList, updateReportsList] = useState([
+        {
+            'name': '' as string,
+            'id': 0 as number
+        },
+    ]);
     useEffect(() => {
+        updateReportsList([]);
         setTimeout(() => {
+            getLayer().then(layers => {
+                updateReportsList(layers.result);
+            });
             setLoader(false);
         }, 300)
     }, [])
@@ -36,6 +46,7 @@ function Plan(props: any) {
                             <table className="table table-striped table-dark mt-5">
                                 <thead>
                                     <tr>
+                                        <th scope="col">#</th>
                                         <th scope="col">Customer</th>
                                         <th scope="col">Layer Name</th>
                                         <th scope="col">Created By</th>
@@ -46,62 +57,28 @@ function Plan(props: any) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>starads</td>
-                                        <td>Test_layers</td>
-                                        <td>TrooQA</td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-eye" aria-hidden="true"></i>
-                                        </td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-file" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-trash" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-key" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>starads</td>
-                                        <td>Test_layers</td>
-                                        <td>TrooQA</td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-eye" aria-hidden="true"></i>
-                                        </td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-file" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-trash" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-key" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>starads</td>
-                                        <td>Test_layers</td>
-                                        <td>TrooQA</td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-eye" aria-hidden="true"></i>
-                                        </td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-file" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-trash" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-key" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>starads</td>
-                                        <td>Test_layers</td>
-                                        <td>TrooQA</td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-eye" aria-hidden="true"></i>
-                                        </td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-file" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-trash" aria-hidden="true"></i></td>
-                                        <td className="table-icon-cell">
-                                            <i className="fa fa-key" aria-hidden="true"></i></td>
-                                    </tr>
+                                    {reportList.map((reports, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{index + 1}</td>
+                                                <td>starads</td>
+                                                <td>
+                                                    {reports['name']}
+                                                </td>
+                                                <td>TrooQA</td>
+                                                <td className="table-icon-cell">
+                                                    <i className="fa fa-eye" aria-hidden="true"></i>
+                                                </td>
+                                                <td className="table-icon-cell">
+                                                    <i className="fa fa-file" aria-hidden="true"></i></td>
+                                                <td className="table-icon-cell">
+                                                    <i className="fa fa-trash" aria-hidden="true"></i></td>
+                                                <td className="table-icon-cell">
+                                                    <i className="fa fa-key" aria-hidden="true"></i></td>
+                                            </tr>
+                                        );
+                                    })}
+                                    
                                 </tbody>
                             </table>
                         </div>
