@@ -80,16 +80,24 @@ export class MapContainer extends Component {
     let allLastLngs = this.props.mapJson;
     console.log('allLastLngs', allLastLngs);
     if (allLastLngs.length === 0) {
+      this.setState({
+        loader: false,
+        polylineData: [],
+        displayMarkers: [],
+        polyLine: null,
+      });
       return false;
     }
-    this.setState({
-      loader: true,
-    });
+
     let allStores = [];
     let polylineData = [];
     let zoomLevel = allLastLngs[0].data.length > 400 ? 6 : 3;
     let displayMarkers;
-
+    this.setState({
+      loader: true,
+      polylineData: [],
+      displayMarkers: [],
+    });
     allLastLngs.forEach((item) => {
       let flightId = item.flightId;
       displayMarkers = item.data.map((store, index) => {

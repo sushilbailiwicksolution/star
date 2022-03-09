@@ -2,17 +2,24 @@ import React, { memo } from 'react';
 import FlightRoute from './FlightRoute';
 
 const TripList = (props: any) => {
-  const { flightData } = props;
+  const { flightData, deleteFlightRoutes } = props;
   const departureLatLong =
     flightData.data[0].gps_lat + ',' + flightData.data[0].gps_long;
   const departureTime = flightData.data[0].date_time;
   let lastIndex = flightData.data.length - 1;
   const arrivalTime = flightData.data[lastIndex].date_time;
-  console.log('props', props);
+  const deleteItem = () => {
+    deleteFlightRoutes(flightData.flightId);
+  };
   return (
     <div className='mb-2'>
       <div className='side-card p-3 mb-3 text-left cl-white'>
-        <p className='m-0'>{flightData.flightId}</p>
+        <div className='m-0 header-flightId'>
+          <p>{flightData.flightId}</p>
+          <span className='crossItem' onClick={deleteItem}>
+            X
+          </span>
+        </div>
         <h1 className='my-3'>{flightData.flightNumber}</h1>
         <div className='d-flex'>
           <p className='side-card-level'>Departure</p>

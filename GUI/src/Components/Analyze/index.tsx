@@ -17,6 +17,12 @@ interface FlightReview {
   flightNumber: any;
 }
 
+interface selectionInterface {
+  selectedTripReplayFlight: any;
+  selectedTripArray: [];
+  selectedTripIndex: any;
+}
+
 function Analyze(props: any) {
   const [loader, setLoader] = useState(true);
   const [startDate, setStartDate] = useState();
@@ -74,14 +80,26 @@ function Analyze(props: any) {
   };
 
   const onClickedRouteItem = (flightId: any, routeIndex: any) => {
+    console.log('flightId', flightId, 'routeIndex', routeIndex);
     if (selectedTripReplayFlight == flightId) {
       let index = addtoReviewFlights.findIndex(
         (item: any) => item.flightId === flightId
       );
       let data = addtoReviewFlights[index].data;
       setSelectedTripArray(data);
+    } else {
+      setSelectedTripReplayFlight(flightId);
     }
     setSelectedTripIndex(routeIndex);
+  };
+
+  const deleteFlightRoutes = (flightId: any) => {
+    let filteredArray = addtoReviewFlights.filter(
+      (item) => item.flightId != flightId
+    );
+    if (filteredArray.length > 0) {
+    }
+    setAddtoReviewFlights(filteredArray);
   };
 
   const onClickedMaker = (flightId: any, index: any) => {
@@ -230,11 +248,19 @@ function Analyze(props: any) {
                   </div>
                 </div>
               </div>
-              {addtoReviewFlights.map((item) => (
+              {addtoReviewFlights.map((item, index) => (
                 <RouteSelectedContext.Provider
-                  value={{ onClickedRouteItem: onClickedRouteItem }}
+                  value={{
+                    onClickedRouteItem,
+                    selectedTripIndex,
+                    selectedTripReplayFlight,
+                  }}
                 >
-                  <TripList flightData={item} />
+                  <TripList
+                    key={`${index}${item.flightId}`}
+                    flightData={item}
+                    deleteFlightRoutes={deleteFlightRoutes}
+                  />
                 </RouteSelectedContext.Provider>
               ))}
 
@@ -242,6 +268,7 @@ function Analyze(props: any) {
                 selectedTripArray={selectedTripArray}
                 selectedTripIndex={selectedTripIndex}
                 selectedTripReplayFlight={selectedTripReplayFlight}
+                onClickedRouteItem={onClickedRouteItem}
               ></TripReplay>
             </div>
           </div>
@@ -280,6 +307,8 @@ function Analyze(props: any) {
               <MapContainers
                 mapJson={addtoReviewFlights}
                 onClickedMaker={onClickedMaker}
+                selectedTripIndex={selectedTripIndex}
+                selectedTripReplayFlight={selectedTripReplayFlight}
               />
               {/* <div className="addArea-name cl-white">
                             <h2 className="mb-3">Add Name of the Area</h2>

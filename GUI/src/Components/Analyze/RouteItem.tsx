@@ -1,18 +1,33 @@
-import React, { memo, useContext } from 'react';
+import React, { memo, useContext, useEffect, useRef, useState } from 'react';
 import { RouteSelectedContext } from './RouteSelectedContext';
 
-const RouteItem = (props: any) => {
-  const { index, item, flightId } = props;
+const RouteItem = React.forwardRef((props: any, ref: any) => {
+  const { index, item, flightId, showTrue } = props;
   const value: any = useContext(RouteSelectedContext);
+  let selectedTripIndex = value.selectedTripIndex;
+  let selectedTripReplayFlight = value.selectedTripReplayFlight;
   const onClick = (flightId: any, routeIndex: any) => {
-    console.log('flightId', flightId, 'routeIndex', routeIndex);
     value.onClickedRouteItem(flightId, routeIndex);
   };
+  useEffect(() => {
+    console.log('showTrue', showTrue);
+    if (showTrue) {
+      ref.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, [selectedTripIndex]);
 
   return (
     <div
       id={`${flightId}-${index}`}
-      className='row route-container p-2'
+      ref={(el) => (ref.current = el)}
+      className={`row route-container p-2 ${
+        index == selectedTripIndex && flightId == selectedTripReplayFlight
+          ? ' selected-trip'
+          : ''
+      }`}
       onClick={() => onClick(flightId, index)}
     >
       <div className='col-4 p-0'>
@@ -49,6 +64,6 @@ const RouteItem = (props: any) => {
       </div>
     </div>
   );
-};
+});
 
 export default memo(RouteItem);

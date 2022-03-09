@@ -1,13 +1,44 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
+import _ from 'lodash';
 
 const TripReplay = (props: any) => {
-  const { selectedTripArray, selectedTripIndex, selectedTripReplayFlight } =
-    props;
+  const {
+    selectedTripArray,
+    selectedTripIndex,
+    selectedTripReplayFlight,
+    onClickedRouteItem,
+  } = props;
   const [tripValue, setTripValue] = useState(selectedTripIndex);
+
   const onChange = (event: any) => {
-    console.log('onchange', event.target.value);
     setTripValue(event.target.value);
+    debounce(selectedTripReplayFlight, event.target.value);
   };
+
+  const increaseIndex = () => {
+    if (Number(tripValue) > -1) {
+      let value = Number(tripValue) + 1;
+      setTripValue(value);
+      onClickedRouteItem(selectedTripReplayFlight, value);
+    }
+  };
+
+  const decreaseIndex = () => {
+    if (Number(tripValue) > 0) {
+      let value = Number(tripValue) - 1;
+      setTripValue(value);
+      onClickedRouteItem(selectedTripReplayFlight, value);
+    }
+  };
+
+  const debounce = useCallback(
+    _.debounce((flightId: any, value: string) => {
+      console.log('selectedTripReplayFlight', flightId, 'index', value);
+      onClickedRouteItem(flightId, value);
+      // send the server request here
+    }, 1000),
+    []
+  );
 
   useEffect(() => {
     //console.log('selectedTripIndex', selectedTripIndex);
@@ -20,8 +51,14 @@ const TripReplay = (props: any) => {
         <div className='d-flex justify-content-between'>
           <h3>Trip Replay</h3>
           <div className='d-flex justify-content-end'>
-            <span className='mr-3'> {'<<'} </span>
-            <span className='ml-3'> {'>>'} </span>
+            <span className='mr-3' onClick={decreaseIndex}>
+              {' '}
+              {'<<'}{' '}
+            </span>
+            <span className='ml-3' onClick={increaseIndex}>
+              {' '}
+              {'>>'}{' '}
+            </span>
           </div>
         </div>
         {/* <div className='progress-path mt-5 mb-4'></div> */}
