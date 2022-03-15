@@ -3,8 +3,6 @@ import FlightRoute from './FlightRoute';
 
 const TripList = (props: any) => {
   const { flightData, deleteFlightRoutes } = props;
-  const departureLatLong =
-    flightData.data[0].gps_lat + ',' + flightData.data[0].gps_long;
   const departureTime = flightData.data[0].date_time;
   let lastIndex = flightData.data.length - 1;
   const arrivalTime = flightData.data[lastIndex].date_time;
@@ -23,7 +21,7 @@ const TripList = (props: any) => {
         <h1 className='my-3'>{flightData.flightNumber}</h1>
         <div className='d-flex'>
           <p className='side-card-level'>Departure</p>
-          <p>{departureLatLong}</p>
+          <p>{flightData.departure}</p>
         </div>
         <div className='d-flex'>
           <p className='side-card-level'>Departure Time</p>
@@ -31,7 +29,7 @@ const TripList = (props: any) => {
         </div>
         <div className='d-flex'>
           <p className='side-card-level'>Duration</p>
-          <p>Xxxxxxxxx</p>
+          <p>{flightData.duration}</p>
         </div>
         <div className='d-flex'>
           <p className='side-card-level'>Arrival</p>

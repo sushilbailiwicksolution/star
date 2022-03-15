@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
-const rootReducer = combineReducers({});
+import reportReducer from './ReportReducer';
+const rootReducer = combineReducers({ reportReducer });
 
 export default rootReducer;

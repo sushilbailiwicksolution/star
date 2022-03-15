@@ -2,10 +2,12 @@
     background-color: $cl-primary-darkest;
     //height: 98vh;
 }
+
 .left-slidearea {
     width: 300px;
     margin-left: 15px;
 }
+
 .right-area {
     // width: calc(100% - 315px);
     padding: 0 15px;
@@ -13,19 +15,17 @@
     flex: 1;
 }
 
-
 .sidebar-wrapper {
     background-color: $cl-primary-darker;
-    height: 80vh;
+    // height: 80vh;
+    height: auto;
     border-radius: 0.8rem;
     margin-bottom: 10rem;
     position: relative;
-
     label {
         color: $cl-white;
         cursor: pointer;
     }
-
     .toggle_arrow {
         position: absolute;
         right: -8px;
@@ -43,6 +43,7 @@
         cursor: pointer;
     }
 }
+
 .rounded-plus {
     height: 2.5rem;
     width: 2.5rem;
@@ -50,8 +51,8 @@
     align-items: center;
     background: #3a9de3;
     border-radius: 50%;
-
 }
+
 .fa-icon-size {
     font-size: 2rem;
     color: $cl-white;
@@ -65,14 +66,12 @@
         margin: 0;
         padding: 0;
         text-align: left;
-
         li {
             display: inline-block;
             &:not(:last-child) {
                 margin-right: 1.5rem;
             }
         }
-
         a {
             text-decoration: none;
             color: $cl-gray-light;
@@ -93,36 +92,34 @@
         padding-top: 0.6rem;
         padding-bottom: 1rem;
         font-size: 1.4rem;
-
         &:not(:first-child) {
             border-bottom: 1px solid $cl-primary;
         }
-        
-        &.active, &:hover {
+        &.active,
+        &:hover {
             background-color: $cl-primary;
             cursor: pointer;
         }
-
         i {
             color: #3a9de3;
             font-size: 1.6rem;
         }
-
-        input[type=checkbox] {
+        input[type="checkbox"] {
             opacity: 0.3;
-
             &:checked {
                 opacity: 1;
             }
         }
     }
 }
+
 .user-list {
     li {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
     }
 }
+
 .small-text {
     color: $cl-grey-text;
     font-size: 1.2rem;

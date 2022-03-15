@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { resolve } from 'dns';
-import { API_URL } from '../Config/siteConfig';
+import { API_URL, GOOGLE_API_KEY } from '../Config/siteConfig';
 const defaultContentType = 'application/json';
 
 export const getAirCraft = (startDate, endDate, airCraftId) => {
@@ -9,10 +9,10 @@ export const getAirCraft = (startDate, endDate, airCraftId) => {
     // http://103.10.234.248:8081/getLatestNFlights/{assetId}/{last_20_records}
     // http://103.10.234.248:8081/getFlightsForAsset/166/04-02-2020 22|04-02-2020 23
     // `http://103.10.234.248:8081/getFlights/date/${startDate}:22|${endDate}:21`
+    //let apiUrl = `http://103.10.234.248:8081/getFlightsForAsset/${airCraftId}/${startDate} 00|${endDate} 23`;
+    let apiUrl = `http://103.10.234.158:8081/getFlightsForAsset/${airCraftId}/${startDate} 00|${endDate} 23`;
     axios
-      .get(
-        `http://103.10.234.248:8081/getFlightsForAsset/${airCraftId}/${startDate} 00|${endDate} 23`
-      )
+      .get(apiUrl)
       .then((results) => {
         const resultData = results && results.data ? results.data : false;
         if (resultData) {
@@ -28,8 +28,8 @@ export const getAirCraft = (startDate, endDate, airCraftId) => {
 };
 
 export const getAirCraftDetails = (airCraftId) => {
-  let apiUrl = 'http://103.10.234.248:8081/getFlightDetails';
-  //let apiUrl = 'http://103.10.234.158:8081/getFlightDetails';
+  //let apiUrl = 'http://103.10.234.248:8081/getFlightDetails';
+  let apiUrl = 'http://103.10.234.158:8081/getFlightDetails';
   return new Promise((resolve, reject) => {
     if (airCraftId) {
       // http://103.10.234.248:8081/getFlightDetails/166-2022-02-09-17
@@ -43,6 +43,33 @@ export const getAirCraftDetails = (airCraftId) => {
       });
     } else {
       return resolve({ status: 404, msg: 'Please send airCraftId' });
+    }
+  });
+};
+
+export const getCityDetail = (lat, long) => {
+  let apiUrl =
+    'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+    lat +
+    ',' +
+    long +
+    '&key=' +
+    GOOGLE_API_KEY +
+    '&sensor=false';
+  //let apiUrl = 'http://103.10.234.158:8081/getFlightDetails';
+  return new Promise((resolve, reject) => {
+    if (lat && long) {
+      // http://103.10.234.248:8081/getFlightDetails/166-2022-02-09-17
+      axios.get(apiUrl).then((results) => {
+        const resultData = results && results.data ? results.data : false;
+        if (resultData) {
+          return resolve(resultData);
+        } else {
+          return resolve({ status: 400, msg: 'No record found!' });
+        }
+      });
+    } else {
+      return resolve({ status: 404, msg: 'Please Share Latitude & Longitude' });
     }
   });
 };

@@ -61,6 +61,8 @@ export class MapContainer extends Component {
           }}
         />
       ),
+      polyLineArray: [],
+      mapDrawArray: [],
       selectedMarker: null,
     };
   }
@@ -73,6 +75,20 @@ export class MapContainer extends Component {
     if (prevProps.mapJson !== this.props.mapJson) {
       this.loadMapData();
     }
+  }
+
+  getPolyline(polyLineData) {
+    return (
+      <Polyline
+        path={polyLineData}
+        options={{
+          strokeWeight: 2,
+          strokeOpacity: 1,
+          strokeColor: '#1dc1ec',
+          geodesic: true,
+        }}
+      />
+    );
   }
 
   loadMapData = () => {
@@ -91,15 +107,19 @@ export class MapContainer extends Component {
 
     let allStores = [];
     let polylineData = [];
-    let zoomLevel = allLastLngs[0].data.length > 400 ? 6 : 3;
+    let polyArray = [];
+    let zoomLevel =
+      allLastLngs[allLastLngs.length - 1].data.length > 200 ? 6 : 3;
     let displayMarkers;
     this.setState({
       loader: true,
       polylineData: [],
       displayMarkers: [],
     });
+    let mapArr = [];
     allLastLngs.forEach((item) => {
       let flightId = item.flightId;
+      let polyData = [];
       displayMarkers = item.data.map((store, index) => {
         // let remainder = index % 5;
         // if(index === 0 || index === allLastLngs.length - 1 || remainder === 0) {
@@ -113,6 +133,7 @@ export class MapContainer extends Component {
           replacedKey = parseInt(replacedKey);
           allStores.push(store);
           polylineData.push({ lat: Latitude, lng: Longitude });
+          polyData.push({ lat: Latitude, lng: Longitude });
 
           let icon = this._getIcon(1.5, store.heading);
           let className = `marker_${index}`;
@@ -135,15 +156,25 @@ export class MapContainer extends Component {
         }
         // }
       });
+      let obj = {
+        flightId: flightId,
+        markers: displayMarkers,
+      };
+      mapArr.push(obj);
+      polyArray.push(this.getPolyline(polyData));
     });
 
     this.setState(
       {
         zoom: zoomLevel,
         displayMarkers: displayMarkers,
+        // initialCenter: {
+        //   lat: allLastLngs[0].gps_lat,
+        //   lng: allLastLngs[0].gps_long,
+        // },
         initialCenter: {
-          lat: allLastLngs[0].gps_lat,
-          lng: allLastLngs[0].gps_long,
+          lat: allLastLngs[allLastLngs.length - 1].data[0].gps_lat,
+          lng: allLastLngs[allLastLngs.length - 1].data[0].gps_long,
         },
         polyLine: (
           <Polyline
@@ -156,6 +187,8 @@ export class MapContainer extends Component {
             }}
           />
         ),
+        polyLineArray: polyArray,
+        mapDrawArray: mapArr,
       },
       () => {
         setTimeout(() => {
@@ -182,31 +215,30 @@ export class MapContainer extends Component {
     let changePreviousSelectedMarker = false;
     let previousSelectedMarker;
     let previousSelectedIndex;
-    let index = this.state.displayMarkers.findIndex((item, index) => {
-      if (item && item.props && item.props.id === routeId) return true;
+    let previousMarkerIndex;
+    let index = this.state.mapDrawArray.findIndex((item, index) => {
+      if (item && item.flightId === props.flightId) return true;
     });
-    let rotation = this.state.displayMarkers[index].props.rotation;
-    let className = this.state.displayMarkers[index].props.className;
-    let position = this.state.displayMarkers[index].props.position;
-    let data = this.state.displayMarkers[index].props.data;
-    let flightId = this.state.displayMarkers[index].props.flightId;
-    let markerIndex = this.state.displayMarkers[index].props.markerIndex;
+
+    let markerArr = this.state.mapDrawArray[index].markers;
+
+    let rotation = markerArr[props.markerIndex].props.rotation;
+    let className = markerArr[props.markerIndex].props.className;
+    let position = markerArr[props.markerIndex].props.position;
+    let data = markerArr[props.markerIndex].props.data;
+    let flightId = markerArr[props.markerIndex].props.flightId;
+    let markerIndex = markerArr[props.markerIndex].props.markerIndex;
     let scaleValue = 3;
 
     if (alreadySelectedMarker) {
       alreadySelectedMarker = alreadySelectedMarker.props;
-      console.log('alreadySelectedMarker', alreadySelectedMarker);
       if (alreadySelectedMarker.id == routeId) {
         scaleValue = alreadySelectedMarker.icon.scale == 3 ? 1.5 : 3;
       } else {
         changePreviousSelectedMarker = true;
-        previousSelectedIndex = this.state.displayMarkers.findIndex(
+        previousSelectedIndex = this.state.mapDrawArray.findIndex(
           (item, index) => {
-            if (
-              item &&
-              item.props &&
-              item.props.id === alreadySelectedMarker.id
-            )
+            if (item && item.flightId === alreadySelectedMarker.flightId)
               return true;
           }
         );
@@ -215,7 +247,7 @@ export class MapContainer extends Component {
         let previousposition = alreadySelectedMarker.position;
         let previousdata = alreadySelectedMarker.data;
         let previousflightId = alreadySelectedMarker.flightId;
-        let previousMarkerIndex = alreadySelectedMarker.markerIndex;
+        previousMarkerIndex = alreadySelectedMarker.markerIndex;
 
         let previousSelectedIcon = this._getIcon(1.5, previousRotation);
 
@@ -243,18 +275,18 @@ export class MapContainer extends Component {
     );
 
     // 1. Make a shallow copy of the items
-    let displayMarkers = [...this.state.displayMarkers];
-    displayMarkers[index] = updateMarker;
+    let mapDrawArray = [...this.state.mapDrawArray];
+    mapDrawArray[index].markers[props.markerIndex] = updateMarker;
     if (changePreviousSelectedMarker) {
-      displayMarkers[previousSelectedIndex] = previousSelectedMarker;
+      mapDrawArray[previousSelectedIndex].markers[previousMarkerIndex] =
+        previousSelectedMarker;
     }
 
     // 2. Set the state to our new copy
-    this.setState({ displayMarkers }, () => {});
+    this.setState({ mapDrawArray }, () => {});
     this.setState({ selectedMarker: updateMarker }, () => {
       this.forceUpdate();
     });
-    // this.forceUpdate();
   };
 
   hideInfoWindow = (props) => {
@@ -460,8 +492,14 @@ export class MapContainer extends Component {
           ref={this.googleMap}
           // onCenterChanged={this._handleCenterChanged.bind(this)}
         >
-          {this.state.displayMarkers}
-          {this.state.polyLine}
+          {/* {this.state.displayMarkers}
+          {this.state.polyLine} */}
+          {this.state.mapDrawArray.map((item) => {
+            return item.markers;
+          })}
+          {this.state.polyLineArray.map((item) => {
+            return item;
+          })}
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}

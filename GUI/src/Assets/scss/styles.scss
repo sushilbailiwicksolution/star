@@ -1213,3 +1213,11 @@ select.form-control.head-dropdown {
         color: rgb(241, 115, 115);
     }
 }
+
+.table-tr th {
+    border-right: 1px solid white !important;
+}
+
+.table-tr td {
+    border-right: 1px solid white;
+}

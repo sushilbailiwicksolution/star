@@ -36,7 +36,7 @@ const TripReplay = (props: any) => {
       console.log('selectedTripReplayFlight', flightId, 'index', value);
       onClickedRouteItem(flightId, value);
       // send the server request here
-    }, 1000),
+    }, 300),
     []
   );
 

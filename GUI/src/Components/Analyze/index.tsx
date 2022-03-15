@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import React, { useState, useEffect, createContext } from 'react';
 import MapContainers from './map';
-import { getAirCraft, getAirCraftDetails } from '../../Service/index';
+import {
+  getAirCraft,
+  getAirCraftDetails,
+  getCityDetail,
+} from '../../Service/index';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
@@ -13,6 +17,10 @@ import { RouteSelectedContext } from './RouteSelectedContext';
 
 interface FlightReview {
   flightId: any;
+  departure: any;
+  departureTime: any;
+  arrivalTime: any;
+  duration: any;
   data: [];
   flightNumber: any;
 }
@@ -32,7 +40,9 @@ function Analyze(props: any) {
   const [todayDate, setTodayDate] = useState(new Date());
   const [airCraftjson, setAirCraftJson] = useState([]);
   // const [airCraftjson, setAirCraftJson] = useState(CSVDATA);
-  const [airCraftsIds, setAirCraftdIds] = useState([166, 165]);
+  const [airCraftsIds, setAirCraftdIds] = useState([
+    161, 162, 163, 164, 165, 166, 167, 168,
+  ]);
   const [selectedAicraftId, changeSelectedAircraftId] = useState(166);
   const [addtoReviewFlights, setAddtoReviewFlights] = useState<FlightReview[]>(
     []
@@ -80,7 +90,6 @@ function Analyze(props: any) {
   };
 
   const onClickedRouteItem = (flightId: any, routeIndex: any) => {
-    console.log('flightId', flightId, 'routeIndex', routeIndex);
     if (selectedTripReplayFlight == flightId) {
       let index = addtoReviewFlights.findIndex(
         (item: any) => item.flightId === flightId
@@ -103,7 +112,6 @@ function Analyze(props: any) {
   };
 
   const onClickedMaker = (flightId: any, index: any) => {
-    console.log('onClickedMaker', 'flightId ', flightId, ' index ', index);
     onClickedRouteItem(flightId, index);
   };
 
@@ -135,8 +143,33 @@ function Analyze(props: any) {
           for (let k in airCraftDetails) {
             airCrafts.push(airCraftDetails[k]);
           }
+          let lat = airCrafts[0].gps_lat;
+          let long = airCrafts[0].gps_long;
+          const cityDetail = await getCityDetail(lat, long);
+          let departureAddress = 'Not Available';
+          if (cityDetail.status == 'OK' && cityDetail.results.length > 0) {
+            departureAddress = cityDetail.results[0].formatted_address;
+          }
+          let departureTime = airCrafts[0].date_time;
+          departureTime = departureTime.split(' ');
+          let lastIndex = airCrafts.length - 1;
+          let arrivalTime = airCrafts[lastIndex].date_time;
+          arrivalTime = arrivalTime.split(' ');
+          departureTime = departureTime[0] + 'T' + departureTime[1];
+          arrivalTime = arrivalTime[0] + 'T' + arrivalTime[1];
+          let a = moment(departureTime, 'DD-MM-YYYY HH:mm:ss').format(
+            'YYYY-MM-DD HH:mm:ss'
+          ); //now
+          let b = moment(arrivalTime, 'DD-MM-YYYY HH:mm:ss').format(
+            'YYYY-MM-DD HH:mm:ss'
+          );
+          let duration = moment(b).diff(moment(a), 'hours') + ' Hours';
           let obj = {
             flightId: selectedFlight,
+            departureTime: airCrafts[0].date_time,
+            departure: departureAddress,
+            duration: duration,
+            arrivalTime: airCrafts[lastIndex].date_time,
             data: airCrafts,
             flightNumber: selectedAicraftId,
           };

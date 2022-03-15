@@ -10,7 +10,6 @@ const RouteItem = React.forwardRef((props: any, ref: any) => {
     value.onClickedRouteItem(flightId, routeIndex);
   };
   useEffect(() => {
-    console.log('showTrue', showTrue);
     if (showTrue) {
       ref.current.scrollIntoView({
         behavior: 'smooth',
