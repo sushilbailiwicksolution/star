@@ -15,8 +15,8 @@ import { MySqlConfigService } from '../../../config/database/mysql/configuration
                 username: mysqlConfigService.username,
                 password: mysqlConfigService.password,
                 database: mysqlConfigService.dbname,
-                logging: true,
-                synchronize: true,
+                logging: mysqlConfigService.logging,
+                synchronize: mysqlConfigService.synchronize,
                 entities: getMetadataArgsStorage().tables.map(tbl => tbl.target)
             }),
             inject: [MySqlConfigService],
