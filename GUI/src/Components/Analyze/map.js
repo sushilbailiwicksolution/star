@@ -75,6 +75,12 @@ export class MapContainer extends Component {
     if (prevProps.mapJson !== this.props.mapJson) {
       this.loadMapData();
     }
+
+    if (prevProps.mapCenter !== this.props.mapCenter) {
+      if (this.props.mapCenter) {
+        this.changeMapCenter();
+      }
+    }
   }
 
   getPolyline(polyLineData) {
@@ -104,6 +110,13 @@ export class MapContainer extends Component {
       });
       return false;
     }
+
+    this.setState({
+      initialCenter: {
+        lat: allLastLngs[allLastLngs.length - 1].data[0].gps_lat,
+        lng: allLastLngs[allLastLngs.length - 1].data[0].gps_long,
+      },
+    });
 
     let allStores = [];
     let polylineData = [];
@@ -196,6 +209,27 @@ export class MapContainer extends Component {
             loader: false,
           });
         }, 3000);
+      }
+    );
+  };
+
+  changeMapCenter = () => {
+    console.log('mapCenterValue', this.props.mapCenter);
+    this.setState(
+      {
+        loader: true,
+        zoom: 6,
+        initialCenter: {
+          lat: this.props.mapCenter.gps_lat,
+          lng: this.props.mapCenter.gps_long,
+        },
+      },
+      () => {
+        setTimeout(() => {
+          this.setState({
+            loader: false,
+          });
+        }, 0);
       }
     );
   };
@@ -486,6 +520,7 @@ export class MapContainer extends Component {
           maxZoom={12}
           minZoom={3}
           initialCenter={this.state.initialCenter}
+          center={this.state.initialCenter}
           // mapTypeControlOptions={{ mapTypeIds: ["satellite", "terrain"] } }
           onReady={(mapProps, map) => this._mapLoaded(mapProps, map)}
           onZoomChanged={this._handleZoomChanged.bind(this)}

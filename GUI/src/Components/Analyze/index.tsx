@@ -50,6 +50,7 @@ function Analyze(props: any) {
   const [selectedTripReplayFlight, setSelectedTripReplayFlight] = useState('');
   const [selectedTripIndex, setSelectedTripIndex] = useState(0);
   const [selectedTripArray, setSelectedTripArray] = useState([]);
+  const [mapCenter, setMapCenter] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -106,9 +107,17 @@ function Analyze(props: any) {
     let filteredArray = addtoReviewFlights.filter(
       (item) => item.flightId != flightId
     );
-    if (filteredArray.length > 0) {
-    }
+    setMapCenter(null);
     setAddtoReviewFlights(filteredArray);
+    if (filteredArray.length > 0) {
+      setSelectedTripArray(filteredArray[0].data);
+      setSelectedTripIndex(0);
+      setSelectedTripReplayFlight(filteredArray[0].flightId);
+    }
+  };
+
+  const updateMapCenter = (latLong: any) => {
+    setMapCenter(latLong);
   };
 
   const onClickedMaker = (flightId: any, index: any) => {
@@ -293,6 +302,7 @@ function Analyze(props: any) {
                     key={`${index}${item.flightId}`}
                     flightData={item}
                     deleteFlightRoutes={deleteFlightRoutes}
+                    updateMapCenter={updateMapCenter}
                   />
                 </RouteSelectedContext.Provider>
               ))}
@@ -342,6 +352,7 @@ function Analyze(props: any) {
                 onClickedMaker={onClickedMaker}
                 selectedTripIndex={selectedTripIndex}
                 selectedTripReplayFlight={selectedTripReplayFlight}
+                mapCenter={mapCenter}
               />
               {/* <div className="addArea-name cl-white">
                             <h2 className="mb-3">Add Name of the Area</h2>

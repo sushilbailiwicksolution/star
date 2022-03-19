@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import LeftPanel from './LeftPanel';
-import JSONDATA from '../../store/reports.json';
-// import Pagination from "react-js-pagination";
-import ReactPaginate from 'react-paginate';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
-import { getAirCraft } from '../../Service';
 import ReportFilter from './ReportFilter';
 import ReportList from './ReportList';
 import { useDispatch, useSelector } from 'react-redux';
+import { ReportConstants } from '../../Constants/constants';
 
 function Reports(props: any) {
   const [loader, setLoader] = useState(false);
   const reportResponse = useSelector((state: any) => state.reportReducer);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setLoader(reportResponse.showLoader);
   }, [reportResponse.showLoader]);
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: ReportConstants.CLEAR_REPORT_RESPONSE });
+    };
+  }, []);
 
   return (
     <React.Fragment>
