@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { planService } from '../../Service/plan.service';
 import LeftPanel from './LeftPanel';
 import { toast } from 'react-toastify';
-
-function Plan(props: any) {
+const LandmarkList = (props: any) => {
   const [loader, setLoader] = useState(true);
   const [layerList, setLayerList] = useState([]);
 
@@ -48,11 +47,11 @@ function Plan(props: any) {
           <div className='col-lg-9 col-xl-10 my-4'>
             <div className='row mt-5'>
               <div className='col-md-8 d-flex align-items-center '>
-                <h2 className='cl-white mr-5'>Layers</h2>
+                <h2 className='cl-white mr-5'>Landmark</h2>
                 <button
                   className='cl-btn cl-btn-tartiary'
                   onClick={() => {
-                    props.history.push('/create-layer');
+                    props.history.push('/landmark');
                   }}
                 >
                   Create
@@ -166,6 +165,6 @@ function Plan(props: any) {
       </div>
     </React.Fragment>
   );
-}
+};
 
-export default Plan;
+export default memo(LandmarkList);

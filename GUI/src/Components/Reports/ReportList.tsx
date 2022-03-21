@@ -75,7 +75,7 @@ const ReportList = (props: any) => {
   }, [reportResponse.isError]);
 
   return (
-    <div className='col-lg-9 col-xl-10 my-4'>
+    <div className='col-lg-9 col-xl-10 my-4 report-list'>
       <div className='row mt-5'>
         <div className='col-md-12'>
           {showData === true ? (
@@ -269,7 +269,7 @@ const ReportList = (props: any) => {
                     </div>
                   </div>
 
-                  <div className='col-md-12'>
+                  <div className='col-md-12 table-responsive'>
                     <table className='table table-striped table-dark mt-5'>
                       <thead>
                         <tr>
@@ -334,7 +334,7 @@ const ReportList = (props: any) => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-md-12'>
+                  <div className='col-md-12 table-responsive'>
                     <table className='table table-striped table-dark mt-5'>
                       <thead>
                         <tr>
@@ -406,7 +406,7 @@ const ReportList = (props: any) => {
                     </table>
                   </div>
 
-                  <div className='col-md-12'>
+                  <div className='col-md-12 table-responsive'>
                     <div className='card cardbox mt-5'>
                       <div className='card-body'>
                         <h4 className='cl-white text-left mb-3'>

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker, InfoWindow, Polyline } from 'google-maps-react';
+import {
+  Map,
+  GoogleApiWrapper,
+  Marker,
+  InfoWindow,
+  Polyline,
+} from 'google-maps-react';
 import { saveLandMarks, getLayer } from '../../Service/index';
 import { toast } from 'react-toastify';
 import InfoWindowEx from '../GoogleMap/infoWindowCustom';
-const CSVData = require("../../store/csvjson.json");
+import { planService } from '../../Service/plan.service';
+const CSVData = require('../../store/csvjson.json');
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -15,30 +22,56 @@ export class MapContainer extends Component {
       allLastLngs: [],
       showModal: false,
       dataToShow: {},
-      mapDiv: "",
+      mapDiv: '',
       activeMarker: {},
       selectedPlace: {},
       showingInfoWindow: false,
       infoData: {},
-      displayMarkers: "",
+      displayMarkers: '',
       loader: true,
       polylineData: polylineData,
       zoom: 7,
-      PolylineOptions: { strokeWeight: 2, strokeOpacity: 1, strokeColor: '#1dc1ec', geodesic: true },
+      PolylineOptions: {
+        strokeWeight: 2,
+        strokeOpacity: 1,
+        strokeColor: '#1dc1ec',
+        geodesic: true,
+      },
       allStores: [],
-      polyLine: <Polyline
-        path={polylineData}
-        options={{ strokeWeight: 2, strokeOpacity: 1, strokeColor: '#1dc1ec', geodesic: true }}
-      />,
+      polyLine: (
+        <Polyline
+          path={polylineData}
+          options={{
+            strokeWeight: 2,
+            strokeOpacity: 1,
+            strokeColor: '#1dc1ec',
+            geodesic: true,
+          }}
+        />
+      ),
       showAddIcon: false,
       showModalPopup: false,
-      landMarkName: ""
-    }
+      landMarkName: '',
+      layerList: [],
+      selectedLayer: '',
+    };
   }
 
   componentDidMount() {
     this.loadMap();
     getLayer();
+    this.getLayersList();
+  }
+
+  async getLayersList() {
+    try {
+      let response = await planService.getLayersList();
+      if (response.status == 200) {
+        this.setState({ layerList: response.data });
+      }
+    } catch (error) {
+      toast(error.msg);
+    }
   }
 
   loadMap = () => {
@@ -49,76 +82,97 @@ export class MapContainer extends Component {
       const { Latitude, Longitude } = store;
       if (Latitude && Longitude) {
         polylineData.push({ lat: Latitude, lng: Longitude });
-        const uniqueKey = Latitude.toString() + Longitude.toString() + index.toString();
-        let replacedKey = uniqueKey.replace(/\./g, "");
+        const uniqueKey =
+          Latitude.toString() + Longitude.toString() + index.toString();
+        let replacedKey = uniqueKey.replace(/\./g, '');
         replacedKey = parseInt(replacedKey);
         allStores.push(store);
 
-        return <Marker key={uniqueKey} id={`marker_${index}`} position={{
-          lat: Latitude,
-          lng: Longitude
-        }}
-          onClick={this.showInfoWindow}
-          // onMouseout={this.hideInfoWindow}
-          data={store}
-        // onMouseover = {() => this.showModal(store)}
-        // onMouseout = {() => this.hideModal()}
-        />
+        return (
+          <Marker
+            key={uniqueKey}
+            id={`marker_${index}`}
+            position={{
+              lat: Latitude,
+              lng: Longitude,
+            }}
+            onClick={this.showInfoWindow}
+            // onMouseout={this.hideInfoWindow}
+            data={store}
+            // onMouseover = {() => this.showModal(store)}
+            // onMouseout = {() => this.hideModal()}
+          />
+        );
       } else {
         return null;
       }
-
-    })
+    });
     const stateObject = {
-      displayMarkers: displayMarkers
-    }
+      displayMarkers: displayMarkers,
+    };
     if (allLastLngs.length > 2) {
-      polylineData.push({ lat: allLastLngs[0].Latitude, lng: allLastLngs[0].Longitude });
+      polylineData.push({
+        lat: allLastLngs[0].Latitude,
+        lng: allLastLngs[0].Longitude,
+      });
       stateObject.showAddIcon = true;
     }
 
-    stateObject.polyLine = <Polyline
-      path={polylineData}
-      options={{ strokeWeight: 2, strokeOpacity: 1, strokeColor: '#1dc1ec', geodesic: true }}
-    />
+    stateObject.polyLine = (
+      <Polyline
+        path={polylineData}
+        options={{
+          strokeWeight: 2,
+          strokeOpacity: 1,
+          strokeColor: '#1dc1ec',
+          geodesic: true,
+        }}
+      />
+    );
 
     this.setState(stateObject, () => {
       setTimeout(() => {
         this.setState({
-          loader: false
-        })
-      }, 3000)
-    })
-  }
+          loader: false,
+        });
+      }, 3000);
+    });
+  };
 
   removeMarker = (currentData = false) => {
-    if(!currentData) {
+    if (!currentData) {
       return false;
     }
 
     const { id } = currentData;
-    if(!id) {
+    if (!id) {
       return false;
     }
 
-    let ids = id.split("_");
+    let ids = id.split('_');
     const markerPosition = ids[1];
     console.log(markerPosition);
 
     let oldLocations = this.state.allLastLngs;
-    if(markerPosition) {
-      oldLocations.splice(markerPosition,1);
-      this.setState({
-        allLastLngs: oldLocations
-      }, () => {
-        console.log(this.state.allLastLngs);
-        this.loadMap()
-      })
+    if (markerPosition) {
+      oldLocations.splice(markerPosition, 1);
+      this.setState(
+        {
+          allLastLngs: oldLocations,
+        },
+        () => {
+          console.log(this.state.allLastLngs);
+          this.loadMap();
+        }
+      );
     }
-  }
+  };
 
   showInfoWindow = (props, marker) => {
-    if(this.state.showingInfoWindow === false || marker!==this.state.activeMarker) {
+    if (
+      this.state.showingInfoWindow === false ||
+      marker !== this.state.activeMarker
+    ) {
       this.setState({
         activeMarker: marker,
         selectedPlace: props,
@@ -127,16 +181,15 @@ export class MapContainer extends Component {
     } else {
       this.hideInfoWindow();
     }
-    
-  }
+  };
 
   hideInfoWindow = () => {
     this.setState({
       activeMarker: {},
       selectedPlace: {},
-      showingInfoWindow: false
+      showingInfoWindow: false,
     });
-  }
+  };
 
   getRotation = (place1, place2) => {
     const lat1 = place1.Latitude;
@@ -145,69 +198,118 @@ export class MapContainer extends Component {
     const lon2 = place2.Longitude;
     let longDiff = lon1 - lon2;
     let X = Math.cos(lat2) * Math.sin(longDiff);
-    let Y = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(longDiff);
-    console.log(X, Y)
+    let Y =
+      Math.cos(lat1) * Math.sin(lat2) -
+      Math.sin(lat1) * Math.cos(lat2) * Math.cos(longDiff);
+    console.log(X, Y);
     let beta = Math.atan2(X, Y);
-    console.log(beta)
+    console.log(beta);
     const angle = beta * 57.2958;
     return angle;
-  }
+  };
 
   addMarker = (location, map) => {
     const newLocation = { Latitude: location.lat(), Longitude: location.lng() };
     let oldLocations = this.state.allLastLngs;
     oldLocations.push(newLocation);
-    this.setState({
-      allLastLngs: oldLocations
-    }, () => {
-      this.loadMap()
-    })
-  }
+    this.setState(
+      {
+        allLastLngs: oldLocations,
+      },
+      () => {
+        this.loadMap();
+      }
+    );
+  };
 
   showModal = (store) => {
-    this.setState({ showModal: true, dataToShow: store })
-  }
+    this.setState({ showModal: true, dataToShow: store });
+  };
 
   hideModal = () => {
     this.setState({ showModal: false, dataToShow: {} });
-  }
+  };
 
   componentWillUnmount() {
     this.setState({
-      mapDiv: "",
-      displayMarkers: ""
-    })
+      mapDiv: '',
+      displayMarkers: '',
+    });
   }
 
   _mapLoaded(mapProps, map) {
     map.setOptions({
-      mapTypeId: "terrain"
-    })
+      mapTypeId: 'terrain',
+    });
   }
 
   _handleZoomChanged() {
-    const zoomLevel = this.googleMap && this.googleMap.current && this.googleMap.current.listeners && this.googleMap.current.listeners.zoom_changed && this.googleMap.current.listeners.zoom_changed.Fb && this.googleMap.current.listeners.zoom_changed.Fb.zoom ? this.googleMap.current.listeners.zoom_changed.Fb.zoom : false;
+    const zoomLevel =
+      this.googleMap &&
+      this.googleMap.current &&
+      this.googleMap.current.listeners &&
+      this.googleMap.current.listeners.zoom_changed &&
+      this.googleMap.current.listeners.zoom_changed.Fb &&
+      this.googleMap.current.listeners.zoom_changed.Fb.zoom
+        ? this.googleMap.current.listeners.zoom_changed.Fb.zoom
+        : false;
     if (zoomLevel && zoomLevel !== this.state.zoom) {
       this.setState({
-        zoom: zoomLevel, polyLine: <Polyline
-          path={this.state.polylineData}
-          options={{ strokeWeight: 2, strokeOpacity: 1, strokeColor: '#1dc1ec', geodesic: true }}
-        />
+        zoom: zoomLevel,
+        polyLine: (
+          <Polyline
+            path={this.state.polylineData}
+            options={{
+              strokeWeight: 2,
+              strokeOpacity: 1,
+              strokeColor: '#1dc1ec',
+              geodesic: true,
+            }}
+          />
+        ),
       });
     }
   }
 
   _handleCenterChanged() {
-    const newLat = this.googleMap && this.googleMap.current && this.googleMap.current.map && this.googleMap.current.map.center && this.googleMap.current.map.center.lat() ? this.googleMap.current.map.center.lat() : false;
-    const newLng = this.googleMap && this.googleMap.current && this.googleMap.current.map && this.googleMap.current.map.center && this.googleMap.current.map.center.lng() ? this.googleMap.current.map.center.lng() : false;
-    const initialCenter = this.state.initialCenter ? this.state.initialCenter : false;
-    if (newLat && newLng && initialCenter && (initialCenter.lat !== newLat || initialCenter.lng !== newLng)) {
+    const newLat =
+      this.googleMap &&
+      this.googleMap.current &&
+      this.googleMap.current.map &&
+      this.googleMap.current.map.center &&
+      this.googleMap.current.map.center.lat()
+        ? this.googleMap.current.map.center.lat()
+        : false;
+    const newLng =
+      this.googleMap &&
+      this.googleMap.current &&
+      this.googleMap.current.map &&
+      this.googleMap.current.map.center &&
+      this.googleMap.current.map.center.lng()
+        ? this.googleMap.current.map.center.lng()
+        : false;
+    const initialCenter = this.state.initialCenter
+      ? this.state.initialCenter
+      : false;
+    if (
+      newLat &&
+      newLng &&
+      initialCenter &&
+      (initialCenter.lat !== newLat || initialCenter.lng !== newLng)
+    ) {
       this.setState({
         initialCenter: { lat: newLat, lng: newLng },
-        polyLine: <Polyline
-          path={this.state.polylineData}
-          options={{ strokeWeight: 2, strokeOpacity: 1, strokeColor: '#1dc1ec', geodesic: true }}
-        />
+        polyLine: (
+          <Polyline
+            path={this.state.polylineData}
+            options={{
+              strokeWeight: 2,
+              strokeOpacity: 1,
+              strokeColor: '#1dc1ec',
+              geodesic: true,
+            }}
+          />
+        ),
       });
     }
   }
@@ -215,14 +317,14 @@ export class MapContainer extends Component {
   handleLandmarkName = (e) => {
     const target = e.target;
     this.setState({
-      landMarkName: target.value
-    })
-  }
+      landMarkName: target.value,
+    });
+  };
 
   addLandmark = async () => {
     const { landMarkName, allLastLngs } = this.state;
     if (allLastLngs.length <= 2) {
-      toast.error('Please select atleast 3 points!')
+      toast.error('Please select atleast 3 points!');
       return false;
     }
 
@@ -232,53 +334,108 @@ export class MapContainer extends Component {
     }
 
     const data = {
-      "id": 0,
-      "name": landMarkName,
-      "locationType": "layer",
-      "comments": "comments",
-      "geoJSONObject": allLastLngs,
-      "layer_id": "string"
-    }
+      id: 0,
+      name: landMarkName,
+      locationType: 'layer',
+      comments: 'comments',
+      geoJSONObject: allLastLngs,
+      layer_id: 'string',
+    };
 
     try {
-      const saveLandMark = await saveLandMarks(data)
+      const saveLandMark = await saveLandMarks(data);
       console.log(saveLandMark);
     } catch (err) {
       // console.log(err);
       toast.error(err.message);
     }
-
-  }
+  };
 
   cancelLandmark = () => {
     this.setState({
-      landMarkName: "",
-      showModalPopup: false
-    })
-  }
+      landMarkName: '',
+      showModalPopup: false,
+    });
+  };
 
   render() {
     return (
       <React.Fragment>
-        <div className="loading" style={{ display: this.state.loader ? 'block' : 'none' }}><img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" /></div>
+        <div
+          className='loading'
+          style={{ display: this.state.loader ? 'block' : 'none' }}
+        >
+          <img src='https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif' />
+        </div>
 
         {/* Show plus icon if points are greater than 2 */}
-        {this.state.showAddIcon ? (<span className="plus-icon-position" onClick={() => { this.setState({ showModalPopup: true }) }}>
-          <i className="fa fa-plus" aria-hidden="true"></i>
-        </span>) : (null)}
+        {this.state.showAddIcon ? (
+          <span
+            className='plus-icon-position'
+            onClick={() => {
+              this.setState({ showModalPopup: true });
+            }}
+          >
+            <i className='fa fa-plus' aria-hidden='true'></i>
+          </span>
+        ) : null}
 
         {/* Show add Name modal onclick of plus icon */}
-        {this.state.showModalPopup ? (<div className="addArea-name cl-white">
-          <h2 className="mb-3">Add Name of the Area</h2>
-          <input type="text" className="form-control mb-3" onChange={this.handleLandmarkName}></input>
-          <button type="button" className="btn btn-primary" onClick={this.addLandmark}>Add Name</button>&nbsp;
-          <button type="button" className="btn btn-primary" onClick={this.cancelLandmark}>Cancel</button>
-        </div>) : (null)}
+        {this.state.showModalPopup ? (
+          <div className='addArea-name cl-white'>
+            <h2 className='mb-3'>Add Name of the Area</h2>
+            <input
+              type='text'
+              className='form-control mb-3'
+              onChange={this.handleLandmarkName}
+            ></input>
+            <div className='col-md-12 mb-3 padding-initial'>
+              <div className='select-dropdown'>
+                <select
+                  className='form-control'
+                  id='select2'
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    // setSelectedFlight(e.target.value);
+                    this.setState({ selectedLayer: e.target.value });
+                  }}
+                >
+                  <option value=''>Select Layer</option>
+                  {this.state.layerList.map((item) => {
+                    return (
+                      <option value={item.name} key={item.id}>
+                        {item.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+            <button
+              type='button'
+              className='btn btn-primary'
+              onClick={this.addLandmark}
+            >
+              Add Name
+            </button>
+            &nbsp;
+            <button
+              type='button'
+              className='btn btn-primary'
+              onClick={this.cancelLandmark}
+            >
+              Cancel
+            </button>
+          </div>
+        ) : null}
 
         <Map
           containerStyle={{
-            width: "100%",
-            height: this.props.mapHeight && this.props.mapHeight > 0 ? this.props.mapHeight : "96%"
+            width: '100%',
+            height:
+              this.props.mapHeight && this.props.mapHeight > 0
+                ? this.props.mapHeight
+                : '96%',
           }}
           onClick={(t, map, c) => this.addMarker(c.latLng, map)}
           google={this.props.google}
@@ -299,13 +456,42 @@ export class MapContainer extends Component {
             visible={this.state.showingInfoWindow}
           >
             <>
-            <div>
-              <ul style={{ listStyle: 'none', textAlign: 'left', width: '170px', height: '58px', fontSize: '12px', padding: '0px', fontWeight: '600' }}>
-                <li>Longitude : {this.state.selectedPlace.data ? this.state.selectedPlace.data['Longitude'].toFixed(4) : ""}</li>
-                <li>Latitude: {this.state.selectedPlace.data ? this.state.selectedPlace.data['Latitude'].toFixed(4) : ""}</li>
-                <li><button id="marker_delete_button" onClick={() => { this.removeMarker(this.state.selectedPlace)}}>Delete</button></li>
-              </ul>
-            </div>
+              <div>
+                <ul
+                  style={{
+                    listStyle: 'none',
+                    textAlign: 'left',
+                    width: '170px',
+                    height: '58px',
+                    fontSize: '12px',
+                    padding: '0px',
+                    fontWeight: '600',
+                  }}
+                >
+                  <li>
+                    Longitude :{' '}
+                    {this.state.selectedPlace.data
+                      ? this.state.selectedPlace.data['Longitude'].toFixed(4)
+                      : ''}
+                  </li>
+                  <li>
+                    Latitude:{' '}
+                    {this.state.selectedPlace.data
+                      ? this.state.selectedPlace.data['Latitude'].toFixed(4)
+                      : ''}
+                  </li>
+                  <li>
+                    <button
+                      id='marker_delete_button'
+                      onClick={() => {
+                        this.removeMarker(this.state.selectedPlace);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </>
           </InfoWindowEx>
           {/* <InfoWindow
@@ -332,5 +518,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8'
+  apiKey: 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8',
 })(MapContainer);

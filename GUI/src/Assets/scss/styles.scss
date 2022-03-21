@@ -2,6 +2,8 @@
 @import "../scss/mixins.scss";
 @import "../scss/header.scss";
 @import "../scss/sidebar.scss";
+@import "../scss/location.scss";
+@import "../scss/report.scss";
 html {
     font-size: 62.5%;
 }
@@ -1249,4 +1251,8 @@ select.form-control.head-dropdown {
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+.padding-initial {
+    padding: initial;
 }

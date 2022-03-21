@@ -3,8 +3,13 @@ import React from 'react';
 function LeftPanel(props: any) {
   return (
     <React.Fragment>
+      <input type='checkbox' id='toggle-sidebar' />
       <div className='col-lg-3 col-xl-2'>
-        <div className='sidebar-wrapper my-4'>
+        <label htmlFor='toggle-sidebar' className='toggle-btn'>
+          {/* <i className='fa fa-bars'></i> */}
+          <i className='fa fa-cog' aria-hidden='true'></i>
+        </label>
+        <div className='sidebar-wrapper checked-toggle my-4'>
           <div className='d-flex justify-content-between px-3 pt-3'>
             <label>Categories</label>
             <div className='d-flex align-items-center'>

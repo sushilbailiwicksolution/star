@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { planService } from '../../Service/plan.service';
 import LeftPanel from './LeftPanel';
+import { toast } from 'react-toastify';
 
 function CreateLayer(props: any) {
   const { state } = props.location;
 
-  let initialInputValue = {
+  const initialInputValue = {
     name: '',
     address: '',
     country: '',
@@ -16,20 +18,82 @@ function CreateLayer(props: any) {
   const [loader, setLoader] = useState(false);
   const [inputValues, setInputValue] = useState(initialInputValue);
   const [validation, setValidation] = useState(initialInputValue);
-
+  const [isUpdateForm, setIsUpdateForm] = useState(false);
+  const [layerId, setLayeId] = useState();
+  const [isReadonly, setReadOnly] = useState(false);
   useEffect(() => {
     console.log('state', state);
+    if (state && state.isEdit) {
+      setIsUpdateForm(true);
+      setLayeId(state.data.id);
+      updateValues(state.data);
+      // let data = state.data;
+      // let obj = {
+      //   name: data.name,
+      //   address: data.address,
+      //   country: data.country,
+      //   state: data.state,
+      //   city: data.city,
+      //   zip: data.zip,
+      //   comments: '',
+      // };
+      // setInputValue({ ...obj });
+    }
+
+    if (state && state.isEdit == false) {
+      setReadOnly(true);
+      setLayeId(state.data.id);
+      updateValues(state.data);
+    }
   }, []);
+
+  const updateValues = (data: any) => {
+    let obj = {
+      name: data.name,
+      address: data.address,
+      country: data.country,
+      state: data.state,
+      city: data.city,
+      zip: data.zip,
+      comments: '',
+    };
+    setInputValue({ ...obj });
+  };
 
   //handle submit updates
   function handleChange(event: any) {
     const { name, value } = event.target;
-    console.log('name', name, 'value', value);
     setInputValue({ ...inputValues, [name]: value });
     if (value.trim().length > 0) {
       setValidation({ ...validation, [name]: '' });
     }
   }
+
+  const createLayer = async (request: any) => {
+    try {
+      let data = await planService.createLayer(request);
+      setLoader(false);
+      if (data.status == 200) {
+        toast('Layer Created Successfully');
+      }
+    } catch (err: any) {
+      setLoader(false);
+      toast(err.msg);
+    }
+  };
+
+  const updateLayer = async (request: any) => {
+    try {
+      let data = await planService.updateLayer(layerId, request);
+      setLoader(false);
+      if (data.status == 200) {
+        toast(data.msg);
+      }
+    } catch (err: any) {
+      setLoader(false);
+      toast(err.msg);
+    }
+  };
 
   const checkValidation = () => {
     let errors = validation;
@@ -69,7 +133,7 @@ function CreateLayer(props: any) {
       errors.city = '';
     }
 
-    if (!inputValues.zip.trim()) {
+    if (!inputValues.zip) {
       check = false;
       errors.zip = 'Zip is required';
     } else {
@@ -89,7 +153,50 @@ function CreateLayer(props: any) {
     //e.preventDefault();
     let check = checkValidation();
     if (check) {
-      console.log('check', inputValues);
+      let requestParams: any = inputValues;
+      let logedInUser: any = localStorage.getItem('logedInUser');
+      logedInUser = JSON.parse(logedInUser);
+      requestParams['createdBy'] = logedInUser.userName;
+      requestParams['zip'] = Number(requestParams.zip);
+      setLoader(true);
+      createLayer(requestParams);
+    }
+  };
+
+  const updateHandleSubmit = (e: any) => {
+    let check = checkValidation();
+    if (check) {
+      let requestParams: any = inputValues;
+      let logedInUser: any = localStorage.getItem('logedInUser');
+      logedInUser = JSON.parse(logedInUser);
+      requestParams['createdBy'] = logedInUser.userName;
+      requestParams['zip'] = Number(requestParams.zip);
+      setLoader(true);
+      updateLayer(requestParams);
+    }
+  };
+
+  const GET_CREATE_UPDATE_BUTTON = () => {
+    if (isUpdateForm) {
+      return (
+        <button
+          type='button'
+          className='cl-btn cl-btn-primary white-btn mr-3'
+          onClick={updateHandleSubmit}
+        >
+          Update
+        </button>
+      );
+    } else {
+      return (
+        <button
+          type='button'
+          className='cl-btn cl-btn-primary white-btn mr-3'
+          onClick={handleSubmit}
+        >
+          Create
+        </button>
+      );
     }
   };
 
@@ -126,6 +233,7 @@ function CreateLayer(props: any) {
                         maxLength={254}
                         onChange={(e) => handleChange(e)}
                         value={inputValues.name}
+                        readOnly={isReadonly}
                       ></input>
                       {validation.name && <p>{validation.name}</p>}
                     </td>
@@ -140,6 +248,7 @@ function CreateLayer(props: any) {
                         maxLength={254}
                         onChange={(e) => handleChange(e)}
                         value={inputValues.address}
+                        readOnly={isReadonly}
                       ></input>
                       {validation.address && <p>{validation.address}</p>}
                     </td>
@@ -154,6 +263,7 @@ function CreateLayer(props: any) {
                         maxLength={254}
                         onChange={(e) => handleChange(e)}
                         value={inputValues.country}
+                        readOnly={isReadonly}
                       ></input>
                       {validation.country && <p>{validation.country}</p>}
                     </td>
@@ -168,6 +278,7 @@ function CreateLayer(props: any) {
                         maxLength={254}
                         onChange={(e) => handleChange(e)}
                         value={inputValues.state}
+                        readOnly={isReadonly}
                       ></input>
                       {validation.state && <p>{validation.state}</p>}
                     </td>
@@ -182,6 +293,7 @@ function CreateLayer(props: any) {
                         maxLength={254}
                         onChange={(e) => handleChange(e)}
                         value={inputValues.city}
+                        readOnly={isReadonly}
                       ></input>
                       {validation.city && <p>{validation.city}</p>}
                     </td>
@@ -196,6 +308,7 @@ function CreateLayer(props: any) {
                         maxLength={254}
                         onChange={(e) => handleChange(e)}
                         value={inputValues.zip}
+                        readOnly={isReadonly}
                       ></input>
                       {validation.zip && <p>{validation.zip}</p>}
                     </td>
@@ -210,6 +323,7 @@ function CreateLayer(props: any) {
                         maxLength={254}
                         onChange={(e) => handleChange(e)}
                         value={inputValues.comments}
+                        readOnly={isReadonly}
                       ></input>
                       {validation.comments && <p>{validation.comments}</p>}
                     </td>
@@ -263,21 +377,17 @@ function CreateLayer(props: any) {
                 </tbody>
               </table> */}
 
-              <div className='d-flex align-items-center justify-content-end mt-3'>
-                <button
-                  type='button'
-                  className='cl-btn cl-btn-primary white-btn mr-3'
-                  onClick={handleSubmit}
-                >
-                  Create
-                </button>
-                <button
-                  type='button'
-                  className='cl-btn cl-btn-secondary white-btn'
-                >
-                  Cancel
-                </button>
-              </div>
+              {isReadonly == false ? (
+                <div className='d-flex align-items-center justify-content-end mt-3'>
+                  <GET_CREATE_UPDATE_BUTTON></GET_CREATE_UPDATE_BUTTON>
+                  <button
+                    type='button'
+                    className='cl-btn cl-btn-secondary white-btn'
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
