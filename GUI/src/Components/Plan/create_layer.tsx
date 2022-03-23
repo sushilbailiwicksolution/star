@@ -22,7 +22,6 @@ function CreateLayer(props: any) {
   const [layerId, setLayeId] = useState();
   const [isReadonly, setReadOnly] = useState(false);
   useEffect(() => {
-    console.log('state', state);
     if (state && state.isEdit) {
       setIsUpdateForm(true);
       setLayeId(state.data.id);

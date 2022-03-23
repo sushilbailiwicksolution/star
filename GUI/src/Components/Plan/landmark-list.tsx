@@ -2,37 +2,42 @@ import React, { useEffect, useState, memo } from 'react';
 import { planService } from '../../Service/plan.service';
 import LeftPanel from './LeftPanel';
 import { toast } from 'react-toastify';
+import { EDIT_VIEW_LANDMARK_DATA } from '../../Constants/constants';
+
 const LandmarkList = (props: any) => {
   const [loader, setLoader] = useState(true);
-  const [layerList, setLayerList] = useState([]);
+  const [landmarkListItems, setLandmarkListItems] = useState([]);
 
   useEffect(() => {
-    getLayersList();
+    sessionStorage.removeItem(EDIT_VIEW_LANDMARK_DATA);
+    getLandmarkList();
   }, []);
 
-  const getLayersList = async () => {
+  const getLandmarkList = async () => {
     try {
-      let response = await planService.getLayersList();
+      let response = await planService.getLandmarkList();
       setLoader(false);
       if (response.status == 200) {
-        setLayerList(response.data);
+        setLandmarkListItems(response.data);
       }
     } catch (error: any) {
       setLoader(false);
-      toast(error.msg);
+      toast.error(error.msg);
     }
   };
 
-  const deleteLayer = async (item: any) => {
+  const deleteLandmark = async (item: any) => {
     setLoader(true);
     try {
-      let response = await planService.deleteLayer(item.id);
-      setLayerList(layerList.filter((event: any) => event.id !== item.id));
+      let response = await planService.deleteLandmark(item.id);
+      setLandmarkListItems(
+        landmarkListItems.filter((event: any) => event.id !== item.id)
+      );
       setLoader(false);
-      toast(response.msg);
+      toast.success(response.msg);
     } catch (error: any) {
       setLoader(false);
-      toast(error.msg);
+      toast.error(error.msg);
     }
   };
 
@@ -113,19 +118,23 @@ const LandmarkList = (props: any) => {
                         <i className='fa fa-key' aria-hidden='true'></i>
                       </td>
                     </tr> */}
-                    {layerList.map((item: any, index: any) => {
+                    {landmarkListItems.map((item: any, index: any) => {
                       return (
                         <tr key={item.id}>
                           <td>{item.createdBy}</td>
-                          <td>{item.name}</td>
+                          <td>{item.layerId}</td>
                           <td>{item.createdBy}</td>
                           <td className='table-icon-cell'>
                             <i
                               className='fa fa-eye cursor-pointer'
                               aria-hidden='true'
                               onClick={() => {
+                                sessionStorage.setItem(
+                                  EDIT_VIEW_LANDMARK_DATA,
+                                  JSON.stringify({ isEdit: false, data: item })
+                                );
                                 props.history.push({
-                                  pathname: '/create-layer',
+                                  pathname: '/landmark',
                                   state: { isEdit: false, data: item }, // your data array of objects
                                 });
                               }}
@@ -136,8 +145,12 @@ const LandmarkList = (props: any) => {
                               className='fa fa-file cursor-pointer'
                               aria-hidden='true'
                               onClick={() => {
+                                sessionStorage.setItem(
+                                  EDIT_VIEW_LANDMARK_DATA,
+                                  JSON.stringify({ isEdit: true, data: item })
+                                );
                                 props.history.push({
-                                  pathname: '/create-layer',
+                                  pathname: '/landmark',
                                   state: { isEdit: true, data: item }, // your data array of objects
                                 });
                               }}
@@ -147,7 +160,7 @@ const LandmarkList = (props: any) => {
                             <i
                               className='fa fa-trash cursor-pointer'
                               aria-hidden='true'
-                              onClick={() => deleteLayer(item)}
+                              onClick={() => deleteLandmark(item)}
                             ></i>
                           </td>
                           {/* <td className='table-icon-cell'>

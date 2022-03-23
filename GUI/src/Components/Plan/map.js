@@ -10,6 +10,8 @@ import { saveLandMarks, getLayer } from '../../Service/index';
 import { toast } from 'react-toastify';
 import InfoWindowEx from '../GoogleMap/infoWindowCustom';
 import { planService } from '../../Service/plan.service';
+import { EDIT_VIEW_LANDMARK_DATA } from '../../Constants/constants';
+
 const CSVData = require('../../store/csvjson.json');
 
 export class MapContainer extends Component {
@@ -54,13 +56,45 @@ export class MapContainer extends Component {
       landMarkName: '',
       layerList: [],
       selectedLayer: '',
+      isUpdateLandmark: false,
+      isReadOnly: false,
+      landmarkId: '',
     };
   }
 
   componentDidMount() {
-    this.loadMap();
+    //this.loadMap();
     getLayer();
     this.getLayersList();
+    let sessionData = sessionStorage.getItem(EDIT_VIEW_LANDMARK_DATA);
+    if (sessionData) {
+      let state = JSON.parse(sessionData);
+      console.log('data', state.data);
+      let readOnly = false;
+      let updateLandmark = false;
+      if (state.isEdit == true) {
+        updateLandmark = true;
+      } else {
+        readOnly = true;
+      }
+
+      this.setState(
+        {
+          allLastLngs: state.data.geojsonobject,
+          isReadOnly: readOnly,
+          isUpdateLandmark: updateLandmark,
+          selectedLayer: state.data.layerId,
+          landmarkId: state.data.id,
+          landMarkName: state.data.name,
+        },
+        () => {
+          this.loadMap();
+        }
+      );
+      sessionStorage.removeItem(EDIT_VIEW_LANDMARK_DATA);
+    } else {
+      this.loadMap();
+    }
   }
 
   async getLayersList() {
@@ -209,6 +243,7 @@ export class MapContainer extends Component {
   };
 
   addMarker = (location, map) => {
+    if (this.state.isReadOnly) return;
     const newLocation = { Latitude: location.lat(), Longitude: location.lng() };
     let oldLocations = this.state.allLastLngs;
     oldLocations.push(newLocation);
@@ -333,21 +368,47 @@ export class MapContainer extends Component {
       return false;
     }
 
+    console.log(
+      'this.state.selectedLayer',
+      this.state.selectedLayer,
+      'length',
+      this.state.selectedLayer.length
+    );
+
+    if (this.state.selectedLayer.length < 1) {
+      toast.error('Please Select Layer');
+      return false;
+    }
+
+    let logedInUser = localStorage.getItem('logedInUser');
+    logedInUser = JSON.parse(logedInUser);
+
+    console.log('allLastLngs', allLastLngs);
+
     const data = {
-      id: 0,
       name: landMarkName,
+      createdBy: logedInUser.userName,
+      layerId: Number(this.state.selectedLayer),
       locationType: 'layer',
-      comments: 'comments',
-      geoJSONObject: allLastLngs,
-      layer_id: 'string',
+      geojsonobject: allLastLngs,
     };
 
     try {
-      const saveLandMark = await saveLandMarks(data);
-      console.log(saveLandMark);
+      //const saveLandMark = await saveLandMarks(data);
+      if (!this.state.isUpdateLandmark) {
+        const saveLandMark = await planService.createLandmark(data);
+        toast.success('Landmark Added Successfully');
+      } else {
+        const updateLandMark = await planService.updateLandmark(
+          this.state.landmarkId,
+          data
+        );
+        toast.success('Landmark Updated Successfully');
+      }
+      this.cancelLandmark();
     } catch (err) {
       // console.log(err);
-      toast.error(err.message);
+      toast.error(err.msg);
     }
   };
 
@@ -369,7 +430,7 @@ export class MapContainer extends Component {
         </div>
 
         {/* Show plus icon if points are greater than 2 */}
-        {this.state.showAddIcon ? (
+        {this.state.showAddIcon && !this.state.isReadOnly ? (
           <span
             className='plus-icon-position'
             onClick={() => {
@@ -388,6 +449,7 @@ export class MapContainer extends Component {
               type='text'
               className='form-control mb-3'
               onChange={this.handleLandmarkName}
+              value={this.state.landMarkName}
             ></input>
             <div className='col-md-12 mb-3 padding-initial'>
               <div className='select-dropdown'>
@@ -399,11 +461,12 @@ export class MapContainer extends Component {
                     // setSelectedFlight(e.target.value);
                     this.setState({ selectedLayer: e.target.value });
                   }}
+                  value={this.state.selectedLayer}
                 >
                   <option value=''>Select Layer</option>
                   {this.state.layerList.map((item) => {
                     return (
-                      <option value={item.name} key={item.id}>
+                      <option value={item.id} key={item.id}>
                         {item.name}
                       </option>
                     );
@@ -416,7 +479,7 @@ export class MapContainer extends Component {
               className='btn btn-primary'
               onClick={this.addLandmark}
             >
-              Add Name
+              {this.state.isUpdateLandmark ? 'Update' : 'Add Name'}
             </button>
             &nbsp;
             <button
