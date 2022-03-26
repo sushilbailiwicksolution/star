@@ -1,7 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LeftPanel from './LeftPanel';
+import { toast } from 'react-toastify';
+import { planService } from '../../Service/plan.service';
 
 function Notification(props: any) {
+  const [loader, setLoader] = useState(true);
+  const [notificationList, setNotificationList] = useState([]);
+
+  useEffect(() => {
+    getNotificationList();
+  }, []);
+
+  const getNotificationList = async () => {
+    try {
+      let response = await planService.getNotificationList();
+      setLoader(false);
+      if (response.status == 200) {
+        console.log('list', response);
+        setNotificationList(response.data.result);
+      }
+    } catch (error: any) {
+      setLoader(false);
+      toast(error.msg);
+    }
+  };
+
+  const deleteNotification = async (item: any) => {
+    setLoader(true);
+    try {
+      let response = await planService.deleteNotification(item.id);
+      setNotificationList(
+        notificationList.filter((event: any) => event.id !== item.id)
+      );
+      setLoader(false);
+      toast(response.msg);
+    } catch (error: any) {
+      setLoader(false);
+      toast(error.msg);
+    }
+  };
+
   return (
     <React.Fragment>
       <div className='container-fluid content-body vh-100'>
@@ -40,84 +78,58 @@ function Notification(props: any) {
                 <table className='table table-striped table-dark mt-5'>
                   <thead>
                     <tr>
-                      <th scope='col'>Customer</th>
-                      <th scope='col'>Layer Name</th>
+                      <th scope='col'>Notification Name</th>
+                      <th scope='col'>Creation Date</th>
                       <th scope='col'>Created By</th>
                       <th scope='col'>View</th>
                       <th scope='col'>Edit</th>
                       <th scope='col'>Delete</th>
-                      <th scope='col'>Acl</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>starads</td>
-                      <td>Test_layers</td>
-                      <td>TrooQA</td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-eye' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-file' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-trash' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-key' aria-hidden='true'></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>starads</td>
-                      <td>Test_layers</td>
-                      <td>TrooQA</td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-eye' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-file' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-trash' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-key' aria-hidden='true'></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>starads</td>
-                      <td>Test_layers</td>
-                      <td>TrooQA</td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-eye' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-file' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-trash' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-key' aria-hidden='true'></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>starads</td>
-                      <td>Test_layers</td>
-                      <td>TrooQA</td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-eye' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-file' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-trash' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-key' aria-hidden='true'></i>
-                      </td>
-                    </tr>
+                    {notificationList.map((item: any, index: any) => {
+                      return (
+                        <tr key={item.id}>
+                          <td>{item.name}</td>
+                          <td>{''}</td>
+                          <td>{''}</td>
+                          <td className='table-icon-cell'>
+                            <i
+                              className='fa fa-eye cursor-pointer'
+                              aria-hidden='true'
+                              onClick={() => {
+                                props.history.push({
+                                  pathname: '/create-notification',
+                                  state: { isEdit: false, data: item }, // your data array of objects
+                                });
+                              }}
+                            ></i>
+                          </td>
+                          <td className='table-icon-cell'>
+                            <i
+                              className='fa fa-file cursor-pointer'
+                              aria-hidden='true'
+                              onClick={() => {
+                                props.history.push({
+                                  pathname: '/create-notification',
+                                  state: { isEdit: true, data: item }, // your data array of objects
+                                });
+                              }}
+                            ></i>
+                          </td>
+                          <td className='table-icon-cell'>
+                            <i
+                              className='fa fa-trash cursor-pointer'
+                              aria-hidden='true'
+                              onClick={() => deleteNotification(item)}
+                            ></i>
+                          </td>
+                          {/* <td className='table-icon-cell'>
+                            <i className='fa fa-key' aria-hidden='true'></i>
+                          </td> */}
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>

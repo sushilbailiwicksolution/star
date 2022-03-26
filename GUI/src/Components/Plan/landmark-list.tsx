@@ -82,7 +82,7 @@ const LandmarkList = (props: any) => {
                 <table className='table table-striped table-dark mt-5'>
                   <thead>
                     <tr>
-                      <th scope='col'>Customer</th>
+                      <th scope='col'>Landmark Name</th>
                       <th scope='col'>Layer Name</th>
                       <th scope='col'>Created By</th>
                       <th scope='col'>View</th>
@@ -121,7 +121,7 @@ const LandmarkList = (props: any) => {
                     {landmarkListItems.map((item: any, index: any) => {
                       return (
                         <tr key={item.id}>
-                          <td>{item.createdBy}</td>
+                          <td>{item.name}</td>
                           <td>{item.layerId}</td>
                           <td>{item.createdBy}</td>
                           <td className='table-icon-cell'>

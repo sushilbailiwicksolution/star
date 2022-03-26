@@ -26,17 +26,6 @@ function CreateLayer(props: any) {
       setIsUpdateForm(true);
       setLayeId(state.data.id);
       updateValues(state.data);
-      // let data = state.data;
-      // let obj = {
-      //   name: data.name,
-      //   address: data.address,
-      //   country: data.country,
-      //   state: data.state,
-      //   city: data.city,
-      //   zip: data.zip,
-      //   comments: '',
-      // };
-      // setInputValue({ ...obj });
     }
 
     if (state && state.isEdit == false) {

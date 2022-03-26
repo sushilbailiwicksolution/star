@@ -88,32 +88,6 @@ function Plan(props: any) {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* <tr>
-                      <td>starads</td>
-                      <td>Test_layers</td>
-                      <td>TrooQA</td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-eye' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i
-                          className='fa fa-file'
-                          aria-hidden='true'
-                          onClick={() => {
-                            props.history.push({
-                              pathname: '/create-layer',
-                              state: { isEdit: 'yes' }, // your data array of objects
-                            });
-                          }}
-                        ></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-trash' aria-hidden='true'></i>
-                      </td>
-                      <td className='table-icon-cell'>
-                        <i className='fa fa-key' aria-hidden='true'></i>
-                      </td>
-                    </tr> */}
                     {layerList.map((item: any, index: any) => {
                       return (
                         <tr key={item.id}>
