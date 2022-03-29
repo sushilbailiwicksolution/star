@@ -14,5 +14,7 @@ export const LAYERS = '/layers';
 export const LANDMARKS = '/landmarks';
 export const NOTIFICATION = '/notification';
 export const USERS = '/users';
+export const GEOFENCE = '/geofence';
+export const ASSETS = '/assets';
 
 export const GOOGLE_API_KEY = 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8';

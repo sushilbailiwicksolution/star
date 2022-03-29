@@ -62,6 +62,10 @@ function Editlayer(props: any) {
       toast.error('Please Enter Email');
       return;
     }
+    if (!validateEmail(email.trim())) {
+      toast.error('Please Enter Valid Email');
+      return;
+    }
     const emailArr = othersArray;
     let obj = {
       email: email,
@@ -69,6 +73,15 @@ function Editlayer(props: any) {
     emailArr.push(obj);
     setOthersArray(emailArr);
     setEmail('');
+  };
+
+  const validateEmail = (inputText: any) => {
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (inputText.match(mailformat)) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const deleteEmail = (indexVal: any) => {
@@ -81,7 +94,7 @@ function Editlayer(props: any) {
   const handleListNameChange = (e: any) => {
     let val = e.target.value;
     setListName(val);
-    setValidation({ ...validation, ['listName']: '' });
+    setValidation({ ...validation, listName: '' });
   };
 
   const handleEmailChange = (e: any) => {

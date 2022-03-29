@@ -8,6 +8,8 @@ import {
   LANDMARKS,
   USERS,
   NOTIFICATION,
+  ASSETS,
+  GEOFENCE,
 } from '../Config/siteConfig';
 import REPORTDATA from '../store/reportSampleJson.json';
 
@@ -16,6 +18,8 @@ const apiUrl_layer = IP + PORT_3333 + APP_SERVICE + LAYERS;
 const apiUrl_landmark = IP + PORT_3333 + APP_SERVICE + LANDMARKS;
 const apiUrl_users = IP + PORT_8083 + APP_SERVICE + USERS;
 const apiUrl_notification = IP + PORT_8083 + APP_SERVICE + NOTIFICATION;
+const apiUrl_assets = IP + PORT_8083 + APP_SERVICE + ASSETS;
+const apiUrl_geofence = IP + PORT_8083 + APP_SERVICE + GEOFENCE;
 
 const headers = { 'Content-Type': defaultContentType };
 
@@ -343,6 +347,127 @@ export const updateNotification = (notificationId, requestParams) => {
   });
 };
 
+/** Get Assets */
+export const getAssetsList = () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(apiUrl_assets)
+      .then((results) => {
+        const resultData = results && results.data ? results.data : false;
+        if (resultData) {
+          let obj = { status: 200, data: resultData };
+          return resolve(obj);
+          //return resolve(resultData);
+        } else {
+          return reject({ status: 400, msg: 'No record found!' });
+        }
+      })
+      .catch((err) => {
+        console.log('err', err);
+        return reject({ status: 404, msg: err.message });
+      });
+  });
+};
+
+/** CRUD Operation on Geofencing */
+
+/** Create Notification */
+export const createGeofence = (requestParams) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(apiUrl_geofence, JSON.stringify(requestParams), { headers })
+      .then((results) => {
+        const resultData = results && results.data ? results.data : false;
+        if (resultData) {
+          let obj = { status: 200, response: resultData };
+          return resolve(obj);
+          //return resolve(resultData);
+        } else {
+          return reject({ status: 400, msg: 'Something Went Wrong' });
+        }
+      })
+      .catch((err) => {
+        console.log('err', err);
+        return reject({ status: 404, msg: err.message });
+      });
+  });
+};
+
+/** Get Geofence */
+export const getGeofenceList = () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(apiUrl_geofence)
+      .then((results) => {
+        const resultData = results && results.data ? results.data : false;
+        if (resultData) {
+          let obj = { status: 200, data: resultData };
+          return resolve(obj);
+          //return resolve(resultData);
+        } else {
+          return reject({ status: 400, msg: 'No record found!' });
+        }
+      })
+      .catch((err) => {
+        console.log('err', err);
+        return reject({ status: 404, msg: err.message });
+      });
+  });
+};
+
+/** Delete Geofence */
+export const deleteGeofence = (geofencId) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .delete(`${apiUrl_geofence}/${geofencId}`)
+      .then((results) => {
+        const resultData = results && results.data ? results.data : false;
+        if (resultData) {
+          let obj = {
+            status: 200,
+            data: resultData,
+            msg: 'Deleted Successfully',
+          };
+          return resolve(obj);
+          //return resolve(resultData);
+        } else {
+          return reject({ status: 400, msg: 'No record found!' });
+        }
+      })
+      .catch((err) => {
+        console.log('err', err);
+        return reject({ status: 404, msg: err.message });
+      });
+  });
+};
+
+/** Update Geofence */
+export const updateGeofence = (geofencId, requestParams) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .put(`${apiUrl_geofence}/${geofencId}`, JSON.stringify(requestParams), {
+        headers,
+      })
+      .then((results) => {
+        const resultData = results && results.data ? results.data : false;
+        if (resultData) {
+          let obj = {
+            status: 200,
+            data: resultData,
+            msg: 'Updated Successfully',
+          };
+          return resolve(obj);
+        } else {
+          return reject({ status: 400, msg: 'No record found!' });
+        }
+      })
+      .catch((err) => {
+        console.log('err', err);
+        return reject({ status: 404, msg: err.message });
+      });
+  });
+};
+
 export const planService = {
   createLayer,
   getLayersList,
@@ -357,4 +482,9 @@ export const planService = {
   getNotificationList,
   deleteNotification,
   updateNotification,
+  getAssetsList,
+  createGeofence,
+  getGeofenceList,
+  deleteGeofence,
+  updateGeofence,
 };
