@@ -14,8 +14,8 @@ export const getReport = (flightId) => {
         .then((results) => {
           const resultData = results && results.data ? results.data : false;
           if (resultData) {
-            return resolve(REPORTDATA);
-            //return resolve(resultData);
+            //return resolve(REPORTDATA);
+            return resolve(resultData);
           } else {
             return reject({ status: 400, msg: 'No record found!' });
           }

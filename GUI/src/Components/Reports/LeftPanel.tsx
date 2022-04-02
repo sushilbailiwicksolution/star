@@ -5,7 +5,7 @@ function LeftPanel(props: any) {
     <React.Fragment>
       <input type='checkbox' id='toggle-sidebar' />
       <div className='col-lg-3 col-xl-2'>
-        <label htmlFor='toggle-sidebar' className='toggle-btn'>
+        <label htmlFor='toggle-sidebar' className='toggle-btn cursor-pointer'>
           {/* <i className='fa fa-bars'></i> */}
           <i className='fa fa-cog' aria-hidden='true'></i>
         </label>

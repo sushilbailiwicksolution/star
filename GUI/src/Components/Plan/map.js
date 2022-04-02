@@ -102,6 +102,7 @@ export class MapContainer extends Component {
       let response = await planService.getLayersList();
       if (response.status == 200) {
         this.setState({ layerList: response.data });
+        // this.setState({ layerList: response.data.result });
       }
     } catch (error) {
       toast(error.msg);

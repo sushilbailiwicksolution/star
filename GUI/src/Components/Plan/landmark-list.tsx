@@ -19,6 +19,7 @@ const LandmarkList = (props: any) => {
       setLoader(false);
       if (response.status == 200) {
         setLandmarkListItems(response.data);
+        //setLandmarkListItems(response.data.result);
       }
     } catch (error: any) {
       setLoader(false);

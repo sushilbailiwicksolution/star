@@ -271,13 +271,26 @@ function Editlayer(props: any) {
 
     let logedInUser: any = localStorage.getItem('logedInUser');
     logedInUser = JSON.parse(logedInUser);
-    let notificationList = checkboxNotificationList.filter(
-      (item: any) => item.isChecked == true
-    );
+    // let notificationList = checkboxNotificationList.filter(
+    //   (item: any) => item.isChecked == true
+    // );
+    let notification_List: any[] = [];
+    checkboxNotificationList.forEach((item: any, index: any) => {
+      if (item.isChecked == true) {
+        notification_List.push(item.id);
+      }
+    });
 
-    let assetsList = checkboxAssetsList.filter(
-      (item: any) => item.isChecked == true
-    );
+    // let assetsList = checkboxAssetsList.filter(
+    //   (item: any) => item.isChecked == true
+    // );
+
+    let assets_List: any[] = [];
+    checkboxAssetsList.forEach((item: any, index: any) => {
+      if (item.isChecked == true) {
+        assets_List.push(item.id);
+      }
+    });
 
     let daysList = checkboxDaysList.filter(
       (item: any) => item.isChecked == true
@@ -310,8 +323,8 @@ function Editlayer(props: any) {
         ? geofenceState.endTime
         : '00:00',
       customerId: 0,
-      notifications: notificationList,
-      assets: assetsList,
+      notifications: notification_List,
+      assets: assets_List,
       layerId: Number(geofenceState.layerId),
       landmarkId: Number(geofenceState.landmarkId),
       createdBy: logedInUser.userName,
@@ -335,7 +348,7 @@ function Editlayer(props: any) {
       (item: any) => item.isChecked == true
     );
 
-    let assetsList = checkboxAssetsList.filter(
+    const assetsList = checkboxAssetsList.filter(
       (item: any) => item.isChecked == true
     );
 

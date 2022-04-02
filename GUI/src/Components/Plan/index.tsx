@@ -17,10 +17,11 @@ function Plan(props: any) {
       setLoader(false);
       if (response.status == 200) {
         setLayerList(response.data);
+        //setLayerList(response.data.result);
       }
     } catch (error: any) {
       setLoader(false);
-      toast(error.msg);
+      toast.error(error.msg);
     }
   };
 

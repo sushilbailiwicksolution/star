@@ -145,7 +145,7 @@ const ReportList = (props: any) => {
                             </div>
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
-                                {reportListData.report_data_s1.airCraftRegNo}
+                                {/* {reportListData.report_data_s1.airCraftRegNo} */}
                               </p>
                             </div>
                           </div>
@@ -158,7 +158,7 @@ const ReportList = (props: any) => {
                             </div>
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
-                                {reportListData.report_data_s1.regNum}
+                                {/* {reportListData.report_data_s1.regNum} */}
                               </p>
                             </div>
                           </div>
@@ -169,7 +169,7 @@ const ReportList = (props: any) => {
                             </div>
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
-                                {reportListData.report_data_s1.origin}
+                                {/* {reportListData.report_data_s1.origin} */}
                               </p>
                             </div>
                           </div>
@@ -208,7 +208,7 @@ const ReportList = (props: any) => {
                             </div>
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
-                                {reportListData.report_data_s1.date}
+                                {reportListData.report_data_s1.Date}
                               </p>
                             </div>
                           </div>
@@ -221,7 +221,7 @@ const ReportList = (props: any) => {
                             </div>
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
-                                {reportListData.report_data_s1.flightId}
+                                {reportListData.report_data_s1.flightID}
                               </p>
                             </div>
                           </div>
@@ -234,7 +234,7 @@ const ReportList = (props: any) => {
                             </div>
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
-                                {reportListData.report_data_s1.destination}
+                                {/* {reportListData.report_data_s1.destination} */}
                               </p>
                             </div>
                           </div>
@@ -281,28 +281,7 @@ const ReportList = (props: any) => {
                         </tr>
                       </thead>
                       <tbody>
-                        {/* {reportList.map((reports, index) => {
-                          return (
-                            <tr key={index}>
-                              <td>{index + 1}</td>
-                              <td>{reports['ECM Parameters']}</td>
-                              <td>{reports['Actual Value at Take Off']}</td>
-                              <td>{reports['Actual Value at Cruise']}</td>
-                              <td>{reports['Units']}</td>
-                            </tr>
-                          );
-                        })} */}
-                        {/* {reportList.map((reports: any, index: any) => {
-                          return (
-                            <tr key={index}>
-                              <td>{index + 1}</td>
-                              <td>{reports.ecmParams}</td>
-                              <td>{reports.actualValue_takeoff}</td>
-                              <td>{reports.actualValue_takeCruise}</td>
-                              <td>{reports.unit}</td>
-                            </tr>
-                          );
-                        })} */}
+                        {/*                         
                         {reportListData.report_data_s2.map(
                           (reports: any, index: any) => {
                             return (
@@ -316,6 +295,7 @@ const ReportList = (props: any) => {
                             );
                           }
                         )}
+                         */}
                       </tbody>
                     </table>
                     <div
@@ -378,8 +358,8 @@ const ReportList = (props: any) => {
                             return (
                               <tr key={index}>
                                 <td>{reports.startFlight}</td>
-                                <td>{reports.time}</td>
-                                <td>{reports.apuUsageGndAir}</td>
+                                <td></td>
+                                <td>{reports.engine1_apuUsageGndAir}</td>
                                 <td>{reports.engine1_N1}</td>
                                 <td>{reports.engine1_N2}</td>
                                 <td>{reports.engine1_egtItt}</td>

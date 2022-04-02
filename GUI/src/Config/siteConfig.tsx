@@ -12,6 +12,7 @@ export const PORT_3333 = ':3333';
 export const APP_SERVICE = '/application-service/secured/v1';
 export const LAYERS = '/layers';
 export const LANDMARKS = '/landmarks';
+//export const LANDMARKS = '/landmark';
 export const NOTIFICATION = '/notification';
 export const USERS = '/users';
 export const GEOFENCE = '/geofence';
