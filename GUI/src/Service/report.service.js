@@ -1,16 +1,21 @@
 import axios from 'axios';
-import { IP, PORT_8080, PORT_8082 } from '../Config/siteConfig';
+import {
+  IP,
+  PORT_8080,
+  PORT_8082,
+  GET_REPORT,
+  GET_REPORT_ENG_MAINTAINANCE,
+} from '../Config/siteConfig';
 import REPORTDATA from '../store/reportSampleJson.json';
 
-let apiUrl = IP + PORT_8082;
-//let apiUrl = IP + PORT_8080;
+//let apiUrl = IP + PORT_8082 + GET_REPORT + GET_REPORT_ENG_MAINTAINANCE;
 
-export const getReport = (flightId) => {
-  let apiUri = `${apiUrl}/getReport/eofsr_em/${flightId}`;
+export const getReports = (url, flightId) => {
+  let apiUrl = `${url}/${flightId}`;
   return new Promise((resolve, reject) => {
     if (flightId) {
       axios
-        .get(apiUri)
+        .get(apiUrl)
         .then((results) => {
           const resultData = results && results.data ? results.data : false;
           if (resultData) {
@@ -31,5 +36,5 @@ export const getReport = (flightId) => {
 };
 
 export const reportService = {
-  getReport,
+  getReports,
 };

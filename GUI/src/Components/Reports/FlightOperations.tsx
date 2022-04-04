@@ -1,18 +1,9 @@
 import { memo, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
-import JSONDATA from '../../store/reports.json';
 import { toast } from 'react-toastify';
 
-const ReportList = (props: any) => {
-  // const [reportList, updateReportsList] = useState([
-  //   {
-  //     'ECM Parameters': '' as string,
-  //     'Actual Value at Take Off': 0 as number,
-  //     'Actual Value at Cruise': 0 as number,
-  //     Units: '' as string,
-  //   },
-  // ]);
+const FlightOperations = (props: any) => {
   const [reportList, updateReportsList] = useState<any>([]);
   const [limitValues, updateLimitValues] = useState({
     page: 1,
@@ -21,7 +12,7 @@ const ReportList = (props: any) => {
   const [pageCount, updatePageCount] = useState(3);
   const [showData, setShowData] = useState(false);
   const [reportListData, setReportListData] = useState<any>({});
-
+  const [selectedAssetId, setSelectedAssetId] = useState('');
   const reportResponse = useSelector((state: any) => state.reportReducer);
 
   // useEffect(() => {
@@ -43,26 +34,27 @@ const ReportList = (props: any) => {
     let end = currPage * limit - 1;
     for (let i = start; i <= end; i++) {
       //newData.push(JSONDATA[i]);
-      newData.push(reportResponse.reportListData.report_data_s2[i]);
+      newData.push(reportResponse.flightOperationsData.report_data_s2[i]);
     }
     updateReportsList(newData);
   };
 
   useEffect(() => {
-    let data = reportResponse.reportListData;
+    let data = reportResponse.flightOperationsData;
     if (data && data.status && data.status == '200') {
       setShowData(true);
       setReportListData(data);
+      setSelectedAssetId(reportResponse.selectedAssetId);
       const newData = [];
       const { page, limit } = limitValues;
       let start = (page - 1) * limit;
       let end = page * limit - 1;
       for (let i = start; i <= end; i++) {
-        newData.push(reportResponse.reportListData.report_data_s2[i]);
+        newData.push(reportResponse.flightOperationsData.report_data_s2[i]);
       }
       updateReportsList(newData);
     }
-  }, [reportResponse.reportListData]);
+  }, [reportResponse.flightOperationsData]);
 
   useEffect(() => {
     console.log('reportResponse.isError', reportResponse.isError);
@@ -146,6 +138,7 @@ const ReportList = (props: any) => {
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
                                 {/* {reportListData.report_data_s1.airCraftRegNo} */}
+                                {selectedAssetId}
                               </p>
                             </div>
                           </div>
@@ -159,6 +152,7 @@ const ReportList = (props: any) => {
                             <div className='col-md-8'>
                               <p className='m-0 cl-white text-left'>
                                 {/* {reportListData.report_data_s1.regNum} */}
+                                {selectedAssetId}
                               </p>
                             </div>
                           </div>
@@ -275,27 +269,25 @@ const ReportList = (props: any) => {
                         <tr>
                           <th scope='col'>#</th>
                           <th scope='col'>ECM Parameters</th>
-                          <th scope='col'>Actual Value at Take Off</th>
+                          {/* <th scope='col'>Actual Value at Take Off</th> */}
                           <th scope='col'>Actual Value at Cruise</th>
                           <th scope='col'>Units</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {/*                         
                         {reportListData.report_data_s2.map(
                           (reports: any, index: any) => {
                             return (
                               <tr key={index}>
                                 <td>{index + 1}</td>
-                                <td>{reports.ecmParams}</td>
-                                <td>{reports.actualValue_takeoff}</td>
-                                <td>{reports.actualValue_takeCruise}</td>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
                                 <td>{reports.unit}</td>
                               </tr>
                             );
                           }
                         )}
-                         */}
                       </tbody>
                     </table>
                     <div
@@ -314,78 +306,6 @@ const ReportList = (props: any) => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-md-12 table-responsive'>
-                    <table className='table table-striped table-dark mt-5'>
-                      <thead>
-                        <tr>
-                          <th colSpan={3} className='col-2' scope='col'>
-                            {''}
-                          </th>
-                          <th colSpan={9} className='col-5' scope='col'>
-                            Engine#1
-                          </th>
-                          <th colSpan={9} className='col-5' scope='col'>
-                            Engine#2
-                          </th>
-                        </tr>
-                        <tr>
-                          <td>Flight Phase</td>
-                          <td>Time</td>
-                          <td>APU Usage Gnd/Air</td>
-                          <td>N1 (%)</td>
-                          <td>N2 (%)</td>
-                          <td>EGT/ITT (DEG C) </td>
-                          <td>Oil Pres (PSI)</td>
-                          <td>Oil Temp (°C)</td>
-                          <td>NAC Temp</td>
-                          <td>Vib N1(PSI)</td>
-                          <td>Vib N2</td>
-                          <td>Fuel Flow (Lbs/Hr)</td>
-                          <td>N1 (%)</td>
-                          <td>N2 (%)</td>
-                          <td>EGT/ITT (DEG C) </td>
-                          <td>Oil Pres (PSI)</td>
-                          <td>Oil Temp (°C)</td>
-                          <td>NAC Temp</td>
-                          <td>Vib N1(PSI)</td>
-                          <td>Vib N2</td>
-                          <td>Fuel Flow (Lbs/Hr)</td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {reportListData.report_data_s3.map(
-                          (reports: any, index: any) => {
-                            return (
-                              <tr key={index}>
-                                <td>{reports.startFlight}</td>
-                                <td></td>
-                                <td>{reports.engine1_apuUsageGndAir}</td>
-                                <td>{reports.engine1_N1}</td>
-                                <td>{reports.engine1_N2}</td>
-                                <td>{reports.engine1_egtItt}</td>
-                                <td>{reports.engine1_Oil_Press}</td>
-                                <td>{reports.engine1_Oil_Temp}</td>
-                                <td>{reports.engine1_NAC_Temp}</td>
-                                <td>{reports.engine1_Vib_N1}</td>
-                                <td>{reports.engine1_Vib_N2}</td>
-                                <td>{reports.engine1_Fuel_Flow}</td>
-                                <td>{reports.engine2_N1}</td>
-                                <td>{reports.engine2_N2}</td>
-                                <td>{reports.engine2_egtItt}</td>
-                                <td>{reports.engine2_Oil_Press}</td>
-                                <td>{reports.engine2_Oil_Temp}</td>
-                                <td>{reports.engine2_NAC_Temp}</td>
-                                <td>{reports.engine2_Vib_N1}</td>
-                                <td>{reports.engine2_Vib_N2}</td>
-                                <td>{reports.engine2_Fuel_Flow}</td>
-                              </tr>
-                            );
-                          }
-                        )}
-                      </tbody>
-                    </table>
-                  </div>
-
                   <div className='col-md-12 table-responsive'>
                     <div className='card cardbox mt-5'>
                       <div className='card-body'>
@@ -413,4 +333,4 @@ const ReportList = (props: any) => {
   );
 };
 
-export default memo(ReportList);
+export default memo(FlightOperations);

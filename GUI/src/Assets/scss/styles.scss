@@ -4,6 +4,7 @@
 @import "../scss/sidebar.scss";
 @import "../scss/location.scss";
 @import "../scss/report.scss";
+@import "../scss/color.scss";
 html {
     font-size: 62.5%;
 }
@@ -1157,14 +1158,6 @@ select.form-control.head-dropdown {
     overflow: auto;
 }
 
-.color-blue {
-    color: #0b85ef;
-}
-
-.color-gray {
-    color: gray;
-}
-
 .slidecontainer {
     width: 100%;
 }
@@ -1307,6 +1300,7 @@ select.form-control.head-dropdown {
     justify-content: center;
 }
 
-.color-red {
-    color: red;
+.marker-delete-btn {
+    text-align: center;
+    padding-top: 10px;
 }

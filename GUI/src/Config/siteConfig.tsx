@@ -17,5 +17,12 @@ export const NOTIFICATION = '/notification';
 export const USERS = '/users';
 export const GEOFENCE = '/geofence';
 export const ASSETS = '/assets';
+export const GET_REPORT = '/getReport';
+export const GET_REPORT_ENG_MAINTAINANCE = '/eofsr_em';
+export const GET_REPORT_ENG_CONDITION = '/EOFSR_ENGI_COND_MONI';
+export const GET_REPORT_FINANCE_ADMIN = '/EOFSR_FINA_ADMI';
+export const GET_REPORT_FLIGHT_OPERATION = '/EOFSR_FLIG_OPER';
+export const GET_REPORT_FLIGHT_SAFETY = '/EOFSR_FLIG_SAFE';
+export const GET_REPORT_FLIGHT_MOQA = '/EOFSR_MOQA';
 
 export const GOOGLE_API_KEY = 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8';

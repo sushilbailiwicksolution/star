@@ -3,6 +3,7 @@ import { memo, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
 import { reportActions } from '../../action/report.action';
+import { ReportConstants } from '../../Constants/constants';
 import { getAirCraft } from '../../Service';
 
 const ReportFilter = (props: any) => {
@@ -19,6 +20,13 @@ const ReportFilter = (props: any) => {
   const [selectedAicraftId, changeSelectedAircraftId] = useState(166);
   const [selectedFlight, setSelectedFlight] = useState('');
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: ReportConstants.SET_SELECTED_ASSET_ID,
+      value: selectedAicraftId,
+    });
+  }, []);
 
   useEffect(() => {
     getData();
@@ -85,8 +93,8 @@ const ReportFilter = (props: any) => {
     if (selectedFlight.length < 1) {
       return;
     }
-
-    dispatch(reportActions.getReport(selectedFlight));
+    props.getReports(selectedFlight);
+    //dispatch(reportActions.getReportEngineMaintainance(selectedFlight));
 
     try {
       document.getElementById('filter_lane')?.classList.add('my-class');
@@ -122,6 +130,10 @@ const ReportFilter = (props: any) => {
                 id='select4'
                 onChange={(e: any) => {
                   changeSelectedAircraftId(e.target.value);
+                  dispatch({
+                    type: ReportConstants.SET_SELECTED_ASSET_ID,
+                    value: e.target.value,
+                  });
                 }}
                 value={selectedAicraftId}
               >

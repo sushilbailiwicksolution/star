@@ -544,9 +544,10 @@ export class MapContainer extends Component {
                       ? this.state.selectedPlace.data['Latitude'].toFixed(4)
                       : ''}
                   </li>
-                  <li>
+                  <li className='marker-delete-btn'>
                     <button
-                      id='marker_delete_button'
+                      type='button'
+                      className='btn btn-primary'
                       onClick={() => {
                         this.removeMarker(this.state.selectedPlace);
                       }}

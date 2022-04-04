@@ -74,7 +74,7 @@ function App() {
           />
           <PrivateRoute exact path='/assets' component={Assets} />
           <PrivateRoute exact path='/edit-assets' component={EditAssets} />
-          <PrivateRoute exact path='/reports' component={Reports} />
+          <PrivateRoute path='/reports' component={Reports} />
           <PrivateRoute exact path='/analyze' component={Analyze} />
           <PrivateRoute exact path='/plan' component={Plan} />
           <PrivateRoute exact path='/view' component={View} />
