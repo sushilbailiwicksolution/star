@@ -135,7 +135,7 @@ function LeftPanel(props: any) {
                   <label className='m-0'>OOOI</label>
                 </div>
               </li>
-              <li
+              {/* <li
                 className={`px-3 ${
                   activeReport == 'ScheduleList' ? 'active' : ''
                 }`}
@@ -146,7 +146,7 @@ function LeftPanel(props: any) {
                 <div className='ml-2'>
                   <label className='m-0'>Schedule List</label>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

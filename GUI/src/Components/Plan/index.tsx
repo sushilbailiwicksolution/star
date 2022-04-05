@@ -31,10 +31,10 @@ function Plan(props: any) {
       let response = await planService.deleteLayer(item.id);
       setLayerList(layerList.filter((event: any) => event.id !== item.id));
       setLoader(false);
-      toast(response.msg);
+      toast.success(response.msg);
     } catch (error: any) {
       setLoader(false);
-      toast(error.msg);
+      toast.error(error.msg);
     }
   };
 

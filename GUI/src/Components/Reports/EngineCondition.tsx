@@ -70,10 +70,10 @@ const EngineCondition = (props: any) => {
     <div className='col-lg-9 col-xl-10 my-4 report-list'>
       <div className='row mt-5'>
         <div className='col-md-12'>
-          {showData === true ? (
-            <div className='row'>
-              <div className='col-md-8 d-flex align-items-center justify-content-between'>
-                <h2 className='cl-white mr-5'>Report results</h2>
+          <div className='row'>
+            <div className='col-md-8 d-flex align-items-center justify-content-between'>
+              <h2 className='cl-white mr-5'>Engine Condition</h2>
+              {showData === true ? (
                 <div className='dropdown text-right custom-d-dropdown'>
                   <button
                     className='custom-toast-menu dropdown-toggle'
@@ -96,23 +96,23 @@ const EngineCondition = (props: any) => {
                     <button className='dropdown-item'>Email</button>
                   </div>
                 </div>
-              </div>
-              <div className='col-md-4 d-flex align-items-center justify-content-end'>
-                <div className='input-group'>
-                  <div className='input-group-prepend'>
-                    <span className='input-group-text'>
-                      <i className='fas fa-search'></i>
-                    </span>
-                  </div>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='Search Name'
-                  ></input>
+              ) : null}
+            </div>
+            <div className='col-md-4 d-flex align-items-center justify-content-end'>
+              <div className='input-group'>
+                <div className='input-group-prepend'>
+                  <span className='input-group-text'>
+                    <i className='fas fa-search'></i>
+                  </span>
                 </div>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Search Name'
+                ></input>
               </div>
             </div>
-          ) : null}
+          </div>
 
           {showData === true ? (
             <div className='row mt-5'>

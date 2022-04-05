@@ -11,6 +11,7 @@ import FinanceAndAdmin from './FinanceAndAdmin';
 import FlightOperations from './FlightOperations';
 import FlightSafety from './FlightSafety';
 import FlightMOQA from './FlightMOQA';
+import FlightFOQA from './FlightFOQA';
 
 function Reports(props: any) {
   let defaultActiveReport = 'EngineCondition';
@@ -69,6 +70,9 @@ function Reports(props: any) {
     if (activeReport == reports.MOQA) {
       dispatch(reportActions.getReportFlightMOQA(flightId));
     }
+    if (activeReport == reports.FOQA) {
+      dispatch(reportActions.getReportFlightFOQA(flightId));
+    }
   };
 
   return (
@@ -104,6 +108,9 @@ function Reports(props: any) {
             </Route>
             <Route exact path={`${path}/${reports.MOQA}`}>
               <FlightMOQA />
+            </Route>
+            <Route exact path={`${path}/${reports.FOQA}`}>
+              <FlightFOQA />
             </Route>
           </Switch>
         </div>

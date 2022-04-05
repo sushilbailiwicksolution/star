@@ -70,10 +70,10 @@ const FlightMOQA = (props: any) => {
     <div className='col-lg-9 col-xl-10 my-4 report-list'>
       <div className='row mt-5'>
         <div className='col-md-12'>
-          {showData === true ? (
-            <div className='row'>
-              <div className='col-md-8 d-flex align-items-center justify-content-between'>
-                <h2 className='cl-white mr-5'>Report results</h2>
+          <div className='row'>
+            <div className='col-md-8 d-flex align-items-center justify-content-between'>
+              <h2 className='cl-white mr-5'>Flight MOQA</h2>
+              {showData === true ? (
                 <div className='dropdown text-right custom-d-dropdown'>
                   <button
                     className='custom-toast-menu dropdown-toggle'
@@ -96,23 +96,23 @@ const FlightMOQA = (props: any) => {
                     <button className='dropdown-item'>Email</button>
                   </div>
                 </div>
-              </div>
-              <div className='col-md-4 d-flex align-items-center justify-content-end'>
-                <div className='input-group'>
-                  <div className='input-group-prepend'>
-                    <span className='input-group-text'>
-                      <i className='fas fa-search'></i>
-                    </span>
-                  </div>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='Search Name'
-                  ></input>
+              ) : null}
+            </div>
+            <div className='col-md-4 d-flex align-items-center justify-content-end'>
+              <div className='input-group'>
+                <div className='input-group-prepend'>
+                  <span className='input-group-text'>
+                    <i className='fas fa-search'></i>
+                  </span>
                 </div>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Search Name'
+                ></input>
               </div>
             </div>
-          ) : null}
+          </div>
 
           {showData === true ? (
             <div className='row mt-5'>
@@ -319,6 +319,174 @@ const FlightMOQA = (props: any) => {
                       </thead>
                       <tbody>
                         {reportListData.report_data_s2_moqa_2.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Take Off</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_3.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Climb</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_4.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Cruise</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_5.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Descent</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_6.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Approach,Go-around & Landing</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_7.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Taxi-In</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_8.map(
                           (reports: any, index: any) => {
                             return (
                               <tr key={index}>

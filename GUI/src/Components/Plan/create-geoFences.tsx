@@ -119,7 +119,6 @@ function Editlayer(props: any) {
             item['isChecked'] = false;
             return item;
           });
-          console.log('checkListArr', checkListArr);
           setCheckboxNotificationList(checkListArr);
           resolve(true);
         }
@@ -137,8 +136,9 @@ function Editlayer(props: any) {
         let userData = await planService.getLayersList();
         console.log('userList', userData);
         if (userData.status == '200') {
-          let checkListArr = userData.data.result;
+          let checkListArr = userData.data;
           setLayerList(checkListArr);
+          console.log('layerlist', layerList);
           resolve(true);
         }
       } catch (error: any) {
@@ -155,7 +155,8 @@ function Editlayer(props: any) {
         let userData = await planService.getLandmarkList();
         console.log('userList', userData);
         if (userData.status == '200') {
-          let checkListArr = userData.data.result;
+          let checkListArr = userData.data;
+          console.log('landmarklist', checkListArr);
           setLandmarkList(checkListArr);
           resolve(true);
         }
@@ -726,7 +727,6 @@ function Editlayer(props: any) {
                     <h3 className='edit-heading'>Layer Name</h3>
                   </td>
                   <td>
-                    {' '}
                     <select
                       className='form-control select-dropdown w-75'
                       onChange={(e: any) => {
@@ -739,7 +739,7 @@ function Editlayer(props: any) {
                     >
                       <option value=''>Select Layer</option>;
                       {layerList.map((item: any, index: any) => {
-                        <option value={item.id}>{item.name}</option>;
+                        return <option value={item.id}>{item.name}</option>;
                       })}
                     </select>
                   </td>
@@ -747,7 +747,6 @@ function Editlayer(props: any) {
                     <h3 className='edit-heading'>Landmark</h3>
                   </td>
                   <td>
-                    {' '}
                     <select
                       className='form-control select-dropdown w-75'
                       onChange={(e: any) => {
@@ -760,7 +759,7 @@ function Editlayer(props: any) {
                     >
                       <option value=''>Select Landmark</option>;
                       {landmarkList.map((item: any, index: any) => {
-                        <option value={item.id}>{item.name}</option>;
+                        return <option value={item.id}>{item.name}</option>;
                       })}
                     </select>
                   </td>

@@ -158,11 +158,11 @@ function Editlayer(props: any) {
       let data = await planService.createNotification(request);
       setLoader(false);
       if (data.status == 200) {
-        toast('Notification Created Successfully');
+        toast.success('Notification Created Successfully');
       }
     } catch (err: any) {
       setLoader(false);
-      toast(err.msg);
+      toast.error(err.msg);
     }
   };
 

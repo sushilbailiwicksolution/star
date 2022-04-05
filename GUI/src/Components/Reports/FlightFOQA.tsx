@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-const EngineeringAndMaintainance = (props: any) => {
+const FlightFOQA = (props: any) => {
   const [reportList, updateReportsList] = useState<any>([]);
   const [limitValues, updateLimitValues] = useState({
     page: 1,
@@ -34,15 +34,13 @@ const EngineeringAndMaintainance = (props: any) => {
     let end = currPage * limit - 1;
     for (let i = start; i <= end; i++) {
       //newData.push(JSONDATA[i]);
-      newData.push(
-        reportResponse.engineeringAndMaintainanceData.report_data_s2[i]
-      );
+      newData.push(reportResponse.foqaData.report_data_s2_moqa_1[i]);
     }
     updateReportsList(newData);
   };
 
   useEffect(() => {
-    let data = reportResponse.engineeringAndMaintainanceData;
+    let data = reportResponse.foqaData;
     if (data && data.status && data.status == '200') {
       setShowData(true);
       setReportListData(data);
@@ -52,13 +50,11 @@ const EngineeringAndMaintainance = (props: any) => {
       let start = (page - 1) * limit;
       let end = page * limit - 1;
       for (let i = start; i <= end; i++) {
-        newData.push(
-          reportResponse.engineeringAndMaintainanceData.report_data_s2[i]
-        );
+        newData.push(reportResponse.foqaData.report_data_s2_moqa_1[i]);
       }
       updateReportsList(newData);
     }
-  }, [reportResponse.engineeringAndMaintainanceData]);
+  }, [reportResponse.foqaData]);
 
   useEffect(() => {
     console.log('reportResponse.isError', reportResponse.isError);
@@ -76,7 +72,7 @@ const EngineeringAndMaintainance = (props: any) => {
         <div className='col-md-12'>
           <div className='row'>
             <div className='col-md-8 d-flex align-items-center justify-content-between'>
-              <h2 className='cl-white mr-5'>Engineering And Maintainance</h2>
+              <h2 className='cl-white mr-5'>Flight FOQA</h2>
               {showData === true ? (
                 <div className='dropdown text-right custom-d-dropdown'>
                   <button
@@ -266,24 +262,23 @@ const EngineeringAndMaintainance = (props: any) => {
                       </div>
                     </div>
                   </div>
-
-                  <div className='col-md-12 table-responsive'>
-                    <table className='table table-striped table-dark mt-5'>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Taxi-Out</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
                       <thead>
                         <tr>
-                          <th scope='col'>#</th>
-                          <th scope='col'>ECM Parameters</th>
-                          {/* <th scope='col'>Actual Value at Take Off</th> */}
-                          <th scope='col'>Actual Value at Cruise</th>
-                          <th scope='col'>Units</th>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {reportListData.report_data_s2.map(
+                        {reportListData.report_data_s2_moqa_1.map(
                           (reports: any, index: any) => {
                             return (
                               <tr key={index}>
-                                <td>{index + 1}</td>
                                 <td>{reports.label}</td>
                                 {/* <td>{reports.actualValue_takeoff}</td> */}
                                 <td>{reports.param_value}</td>
@@ -310,70 +305,27 @@ const EngineeringAndMaintainance = (props: any) => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-md-12 table-responsive'>
-                    <table className='table table-striped table-dark mt-5'>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Take Off</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
                       <thead>
                         <tr>
-                          <th colSpan={3} className='col-2' scope='col'>
-                            {''}
-                          </th>
-                          <th colSpan={9} className='col-5' scope='col'>
-                            Engine#1
-                          </th>
-                          <th colSpan={9} className='col-5' scope='col'>
-                            Engine#2
-                          </th>
-                        </tr>
-                        <tr>
-                          <td>Flight Phase</td>
-                          <td>Time</td>
-                          <td>APU Usage Gnd/Air</td>
-                          <td>N1 (%)</td>
-                          <td>N2 (%)</td>
-                          <td>EGT/ITT (DEG C) </td>
-                          <td>Oil Pres (PSI)</td>
-                          <td>Oil Temp (°C)</td>
-                          <td>NAC Temp</td>
-                          <td>Vib N1(PSI)</td>
-                          <td>Vib N2</td>
-                          <td>Fuel Flow (Lbs/Hr)</td>
-                          <td>N1 (%)</td>
-                          <td>N2 (%)</td>
-                          <td>EGT/ITT (DEG C) </td>
-                          <td>Oil Pres (PSI)</td>
-                          <td>Oil Temp (°C)</td>
-                          <td>NAC Temp</td>
-                          <td>Vib N1(PSI)</td>
-                          <td>Vib N2</td>
-                          <td>Fuel Flow (Lbs/Hr)</td>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {reportListData.report_data_s3.map(
+                        {reportListData.report_data_s2_moqa_2.map(
                           (reports: any, index: any) => {
                             return (
                               <tr key={index}>
-                                <td>{reports.startFlight}</td>
-                                <td></td>
-                                <td>{reports.engine1_apuUsageGndAir}</td>
-                                <td>{reports.engine1_N1}</td>
-                                <td>{reports.engine1_N2}</td>
-                                <td>{reports.engine1_egtItt}</td>
-                                <td>{reports.engine1_Oil_Press}</td>
-                                <td>{reports.engine1_Oil_Temp}</td>
-                                <td>{reports.engine1_NAC_Temp}</td>
-                                <td>{reports.engine1_Vib_N1}</td>
-                                <td>{reports.engine1_Vib_N2}</td>
-                                <td>{reports.engine1_Fuel_Flow}</td>
-                                <td>{reports.engine2_N1}</td>
-                                <td>{reports.engine2_N2}</td>
-                                <td>{reports.engine2_egtItt}</td>
-                                <td>{reports.engine2_Oil_Press}</td>
-                                <td>{reports.engine2_Oil_Temp}</td>
-                                <td>{reports.engine2_NAC_Temp}</td>
-                                <td>{reports.engine2_Vib_N1}</td>
-                                <td>{reports.engine2_Vib_N2}</td>
-                                <td>{reports.engine2_Fuel_Flow}</td>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
                               </tr>
                             );
                           }
@@ -381,7 +333,146 @@ const EngineeringAndMaintainance = (props: any) => {
                       </tbody>
                     </table>
                   </div>
-
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Climb</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_3.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Cruise</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_4.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Descent</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_5.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Approach,Go-around & Landing</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_6.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className='col-md-12 table-responsive mt-5'>
+                    <div className='color-white'>
+                      <h2>Taxi-In</h2>
+                    </div>
+                    <table className='table table-striped table-dark'>
+                      <thead>
+                        <tr>
+                          <th scope='col'>Parameters</th>
+                          <th scope='col'>Exceedence - Yes/No</th>
+                          <th scope='col'>Value Exceeded</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reportListData.report_data_s2_moqa_7.map(
+                          (reports: any, index: any) => {
+                            return (
+                              <tr key={index}>
+                                <td>{reports.label}</td>
+                                {/* <td>{reports.actualValue_takeoff}</td> */}
+                                <td>{reports.param_value}</td>
+                                <td>{reports.unit}</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
                   <div className='col-md-12 table-responsive'>
                     <div className='card cardbox mt-5'>
                       <div className='card-body'>
@@ -408,4 +499,5 @@ const EngineeringAndMaintainance = (props: any) => {
     </div>
   );
 };
-export default memo(EngineeringAndMaintainance);
+
+export default memo(FlightFOQA);

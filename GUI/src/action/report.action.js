@@ -11,6 +11,7 @@ import {
   GET_REPORT_FLIGHT_OPERATION,
   GET_REPORT_FLIGHT_SAFETY,
   GET_REPORT_FLIGHT_MOQA,
+  GET_REPORT_FLIGHT_FOQA,
 } from '../Config/siteConfig';
 import REPORTDATA from '../store/reportSampleJson.json';
 
@@ -23,6 +24,7 @@ export const reportActions = {
   getReportFlightOperation,
   getReportFlightSafety,
   getReportFlightMOQA,
+  getReportFlightFOQA,
 };
 
 function getReportEngineMaintainance(reportRequest) {
@@ -190,6 +192,35 @@ function getReportFlightMOQA(reportRequest) {
   function success(data) {
     return {
       type: ReportConstants.GET_FLIGHT_MOQA_REPORT_SUCCESS,
+      value: data,
+    };
+  }
+  function failure(error) {
+    return { type: ReportConstants.GET_REPORT_FAILURE, value: error };
+  }
+}
+
+function getReportFlightFOQA(reportRequest) {
+  let apiUrl = URL + GET_REPORT + GET_REPORT_FLIGHT_FOQA;
+  return (dispatch) => {
+    dispatch(request({}));
+
+    reportService.getReports(apiUrl, reportRequest).then(
+      (resp) => {
+        dispatch(success(resp));
+      },
+      (error) => {
+        dispatch(failure(error));
+      }
+    );
+  };
+
+  function request(data) {
+    return { type: ReportConstants.GET_REPORT_REQUEST, value: data };
+  }
+  function success(data) {
+    return {
+      type: ReportConstants.GET_FLIGHT_FOQA_REPORT_SUCCESS,
       value: data,
     };
   }

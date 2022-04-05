@@ -16,7 +16,6 @@ function Notification(props: any) {
       let response = await planService.getNotificationList();
       setLoader(false);
       if (response.status == 200) {
-        console.log('list', response);
         setNotificationList(response.data.result);
       }
     } catch (error: any) {
@@ -33,10 +32,10 @@ function Notification(props: any) {
         notificationList.filter((event: any) => event.id !== item.id)
       );
       setLoader(false);
-      toast(response.msg);
+      toast.success(response.msg);
     } catch (error: any) {
       setLoader(false);
-      toast(error.msg);
+      toast.error(error.msg);
     }
   };
 

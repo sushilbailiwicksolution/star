@@ -62,11 +62,11 @@ function CreateLayer(props: any) {
       let data = await planService.createLayer(request);
       setLoader(false);
       if (data.status == 200) {
-        toast('Layer Created Successfully');
+        toast.success('Layer Created Successfully');
       }
     } catch (err: any) {
       setLoader(false);
-      toast(err.msg);
+      toast.error(err.msg);
     }
   };
 
@@ -75,11 +75,11 @@ function CreateLayer(props: any) {
       let data = await planService.updateLayer(layerId, request);
       setLoader(false);
       if (data.status == 200) {
-        toast(data.msg);
+        toast.success(data.msg);
       }
     } catch (err: any) {
       setLoader(false);
-      toast(err.msg);
+      toast.error(err.msg);
     }
   };
 

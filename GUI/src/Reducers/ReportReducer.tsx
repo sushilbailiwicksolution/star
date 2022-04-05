@@ -61,6 +61,12 @@ export default function reportReducer(state = initialState, action: any) {
         moqaData: action.value,
         showLoader: false,
       };
+    case ReportConstants.GET_FLIGHT_FOQA_REPORT_SUCCESS:
+      return {
+        ...state,
+        foqaData: action.value,
+        showLoader: false,
+      };
     case ReportConstants.GET_REPORT_FAILURE:
       return {
         ...state,
