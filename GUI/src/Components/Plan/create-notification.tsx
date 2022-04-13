@@ -136,16 +136,15 @@ function Editlayer(props: any) {
         (item: any) => item.isChecked == true
       );
       let requestParams = {
-        name: listName,
-        //timezone: null,
-        emailTemplate: null,
-        smsTemplate: null,
         createdBy: logedInUser.userName,
-        emails: othersArray,
-        users: userArray,
+        name: listName,
         timezone: 'India',
         type: 'EMAIL',
         customerId: 0,
+        emailTemplateId: 1,
+        smsTemplateId: 1,
+        emails: othersArray,
+        users: userArray,
         notificationTemplateId: 0,
       };
       createNotification(requestParams);
@@ -188,17 +187,15 @@ function Editlayer(props: any) {
         (item: any) => item.isChecked == true
       );
       let requestParams = {
-        id: notificationId,
-        name: listName,
-        //timezone: null,
-        emailTemplate: null,
-        smsTemplate: null,
         createdBy: logedInUser.userName,
-        emails: othersArray,
-        users: userArray,
+        name: listName,
         timezone: 'India',
         type: 'EMAIL',
         customerId: 0,
+        emailTemplateId: 1,
+        smsTemplateId: 1,
+        emails: othersArray,
+        users: userArray,
         notificationTemplateId: 0,
       };
       setLoader(true);

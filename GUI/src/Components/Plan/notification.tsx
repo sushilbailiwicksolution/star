@@ -16,7 +16,8 @@ function Notification(props: any) {
       let response = await planService.getNotificationList();
       setLoader(false);
       if (response.status == 200) {
-        setNotificationList(response.data.result);
+        //setNotificationList(response.data.result);
+        setNotificationList(response.data.results);
       }
     } catch (error: any) {
       setLoader(false);
@@ -90,8 +91,8 @@ function Notification(props: any) {
                       return (
                         <tr key={item.id}>
                           <td>{item.name}</td>
-                          <td>{''}</td>
-                          <td>{''}</td>
+                          <td>{item.createdAt}</td>
+                          <td>{item.createdBy}</td>
                           <td className='table-icon-cell'>
                             <i
                               className='fa fa-eye cursor-pointer'

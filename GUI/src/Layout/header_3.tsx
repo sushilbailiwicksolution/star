@@ -241,6 +241,14 @@ function Header(props: any) {
                         <button
                           className='dropdown-item'
                           onClick={() => {
+                            props.history.push('/assets');
+                          }}
+                        >
+                          Assets
+                        </button>
+                        <button
+                          className='dropdown-item'
+                          onClick={() => {
                             props.history.push('/users');
                           }}
                         >

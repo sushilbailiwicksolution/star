@@ -18,7 +18,7 @@ import CreateAdmin from './Components/Admin/CreateAdmin';
 import Customer from './Components/Customer';
 import CreateCustomer from './Components/Customer/CreateCustomer';
 import Assets from './Components/Assets';
-import EditAssets from './Components/Assets/editAssets';
+import CreateAsset from './Components/Assets/CreateAsset';
 import Reports from './Components/Reports/index';
 import Analyze from './Components/Analyze/index';
 import PrivateRoute1 from './Routes/PrivateRoute1';
@@ -73,7 +73,7 @@ function App() {
             component={CreateCustomer}
           />
           <PrivateRoute exact path='/assets' component={Assets} />
-          <PrivateRoute exact path='/edit-assets' component={EditAssets} />
+          <PrivateRoute exact path='/create-asset' component={CreateAsset} />
           <PrivateRoute path='/reports' component={Reports} />
           <PrivateRoute exact path='/analyze' component={Analyze} />
           <PrivateRoute exact path='/plan' component={Plan} />
