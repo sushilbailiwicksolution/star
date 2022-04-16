@@ -266,12 +266,18 @@ const FlightFOQA = (props: any) => {
                     <div className='color-white'>
                       <h2>Taxi-Out</h2>
                     </div>
-                    <table className='table table-striped table-dark'>
+                    <table className='table table-striped table-dark table-word-wrap'>
                       <thead>
                         <tr>
-                          <th scope='col'>Parameters</th>
-                          <th scope='col'>Exceedence - Yes/No</th>
-                          <th scope='col'>Value Exceeded</th>
+                          <th className='col-4' scope='col'>
+                            Parameters
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Exceedence - Yes/No
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Value Exceeded
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -309,12 +315,18 @@ const FlightFOQA = (props: any) => {
                     <div className='color-white'>
                       <h2>Take Off</h2>
                     </div>
-                    <table className='table table-striped table-dark'>
+                    <table className='table table-striped table-dark table-word-wrap'>
                       <thead>
                         <tr>
-                          <th scope='col'>Parameters</th>
-                          <th scope='col'>Exceedence - Yes/No</th>
-                          <th scope='col'>Value Exceeded</th>
+                          <th className='col-4' scope='col'>
+                            Parameters
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Exceedence - Yes/No
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Value Exceeded
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -337,12 +349,18 @@ const FlightFOQA = (props: any) => {
                     <div className='color-white'>
                       <h2>Climb</h2>
                     </div>
-                    <table className='table table-striped table-dark'>
+                    <table className='table table-striped table-dark table-word-wrap'>
                       <thead>
                         <tr>
-                          <th scope='col'>Parameters</th>
-                          <th scope='col'>Exceedence - Yes/No</th>
-                          <th scope='col'>Value Exceeded</th>
+                          <th className='col-4' scope='col'>
+                            Parameters
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Exceedence - Yes/No
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Value Exceeded
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -365,12 +383,18 @@ const FlightFOQA = (props: any) => {
                     <div className='color-white'>
                       <h2>Cruise</h2>
                     </div>
-                    <table className='table table-striped table-dark'>
+                    <table className='table table-striped table-dark table-word-wrap'>
                       <thead>
                         <tr>
-                          <th scope='col'>Parameters</th>
-                          <th scope='col'>Exceedence - Yes/No</th>
-                          <th scope='col'>Value Exceeded</th>
+                          <th className='col-4' scope='col'>
+                            Parameters
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Exceedence - Yes/No
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Value Exceeded
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -393,12 +417,18 @@ const FlightFOQA = (props: any) => {
                     <div className='color-white'>
                       <h2>Descent</h2>
                     </div>
-                    <table className='table table-striped table-dark'>
+                    <table className='table table-striped table-dark table-word-wrap'>
                       <thead>
                         <tr>
-                          <th scope='col'>Parameters</th>
-                          <th scope='col'>Exceedence - Yes/No</th>
-                          <th scope='col'>Value Exceeded</th>
+                          <th className='col-4' scope='col'>
+                            Parameters
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Exceedence - Yes/No
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Value Exceeded
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -421,12 +451,18 @@ const FlightFOQA = (props: any) => {
                     <div className='color-white'>
                       <h2>Approach,Go-around & Landing</h2>
                     </div>
-                    <table className='table table-striped table-dark'>
+                    <table className='table table-striped table-dark table-word-wrap'>
                       <thead>
                         <tr>
-                          <th scope='col'>Parameters</th>
-                          <th scope='col'>Exceedence - Yes/No</th>
-                          <th scope='col'>Value Exceeded</th>
+                          <th className='col-4' scope='col'>
+                            Parameters
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Exceedence - Yes/No
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Value Exceeded
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -449,12 +485,18 @@ const FlightFOQA = (props: any) => {
                     <div className='color-white'>
                       <h2>Taxi-In</h2>
                     </div>
-                    <table className='table table-striped table-dark'>
+                    <table className='table table-striped table-dark table-word-wrap'>
                       <thead>
                         <tr>
-                          <th scope='col'>Parameters</th>
-                          <th scope='col'>Exceedence - Yes/No</th>
-                          <th scope='col'>Value Exceeded</th>
+                          <th className='col-4' scope='col'>
+                            Parameters
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Exceedence - Yes/No
+                          </th>
+                          <th className='col-4' scope='col'>
+                            Value Exceeded
+                          </th>
                         </tr>
                       </thead>
                       <tbody>

@@ -272,6 +272,11 @@ input.form-control {
     }
 }
 
+.table-word-wrap {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
 .table th,
 .table td {
     padding: 1rem 2rem 1rem 2rem;

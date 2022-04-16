@@ -45,7 +45,7 @@ function Plan(props: any) {
         <img src='https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif' />
       </div>
       <div className='container-fluid content-body vh-100'>
-        <div className='row'>
+        <div className='row h-100vh-80px'>
           <LeftPanel props={props} />
           <div className='col-lg-9 col-xl-10 my-4'>
             <div className='row mt-5'>

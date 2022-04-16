@@ -112,9 +112,10 @@ function Editlayer(props: any) {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await planService.getNotificationList();
-        console.log('userList', userData);
+        console.log('getNoificationList', userData);
         if (userData.status == '200') {
-          let checkListArr = userData.data.result;
+          //let checkListArr = userData.data.result;
+          let checkListArr = userData.data.results;
           checkListArr = checkListArr.map((item: any, index: any) => {
             item['isChecked'] = false;
             return item;
