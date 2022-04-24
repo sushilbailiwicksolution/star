@@ -18,8 +18,8 @@ const LandmarkList = (props: any) => {
       let response = await planService.getLandmarkList();
       setLoader(false);
       if (response.status == 200) {
-        setLandmarkListItems(response.data);
-        //setLandmarkListItems(response.data.result);
+        //setLandmarkListItems(response.data);
+        setLandmarkListItems(response.data.results);
       }
     } catch (error: any) {
       setLoader(false);

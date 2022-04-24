@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import LeftPanel from './LeftPanel';
 import { toast } from 'react-toastify';
 import { planService } from '../../Service/plan.service';
@@ -14,30 +14,45 @@ function Editlayer(props: any) {
   const [isUpdateForm, setIsUpdateForm] = useState(false);
   const [notificationId, setNotificationId] = useState();
   const [isReadonly, setReadOnly] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
+
   useEffect(() => {
     getUserList();
   }, []);
+
+
+  useEffect(() => {
+    if (checkboxUserList.length > 0) {
+      if (firstLoad) {
+        setFirstLoad(false);
+        handleEditOrView();
+      }
+    }
+  }, [checkboxUserList])
 
   const getUserList = async () => {
     setLoader(true);
     try {
       let userData = await planService.getUsersList();
-      console.log('userList', userData);
       setLoader(false);
       if (userData.status == '200') {
-        let checkListArr = userData.data.result;
+        let checkListArr = userData.data.results;
         checkListArr = checkListArr.map((item: any, index: any) => {
           item['isChecked'] = false;
           return item;
         });
         console.log('checkListArr', checkListArr);
         setCheckboxUserList(checkListArr);
+        //handleEditOrView();
       }
     } catch (error) {
       setLoader(false);
-      console.log(error);
+      handleEditOrView();
     }
 
+  };
+
+  const handleEditOrView = () => {
     if (state && state.isEdit) {
       setIsUpdateForm(true);
       setNotificationId(state.data.id);
@@ -49,12 +64,25 @@ function Editlayer(props: any) {
       setNotificationId(state.data.id);
       updateValues(state.data);
     }
-  };
+  }
 
   const updateValues = (data: any) => {
     console.log('update data', data);
     setListName(data.name);
     setOthersArray(data.emails);
+
+    const newCheckboxes: any = [...checkboxUserList];
+    console.log('newCheckboxes', newCheckboxes);
+    data.users.forEach((user: any) => {
+      let index = newCheckboxes.findIndex((item: any) => item.id === user.id);
+      console.log("index", index);
+      if (index > -1) {
+        newCheckboxes[index].isChecked = true;
+        console.log('updated newCheckboxes', newCheckboxes);
+      }
+    });
+    console.log('final newCheckboxes', newCheckboxes);
+    setCheckboxUserList(newCheckboxes);
   };
 
   const addEmail = () => {
@@ -103,14 +131,12 @@ function Editlayer(props: any) {
   };
 
   const handleCheckboxChange = (id: any) => {
-    console.log('id', id);
     const newCheckboxes: any = [...checkboxUserList];
     let index = newCheckboxes.findIndex((item: any) => item.id == id);
     newCheckboxes[index].isChecked = newCheckboxes[index].isChecked
       ? false
       : true;
     setCheckboxUserList(newCheckboxes);
-    console.log('checkedItems: ', checkboxUserList);
   };
 
   const checkValidation = () => {
@@ -141,8 +167,8 @@ function Editlayer(props: any) {
         timezone: 'India',
         type: 'EMAIL',
         customerId: 0,
-        emailTemplateId: 1,
-        smsTemplateId: 1,
+        emailTemplateId: 0,
+        smsTemplateId: 0,
         emails: othersArray,
         users: userArray,
         notificationTemplateId: 0,
@@ -192,8 +218,8 @@ function Editlayer(props: any) {
         timezone: 'India',
         type: 'EMAIL',
         customerId: 0,
-        emailTemplateId: 1,
-        smsTemplateId: 1,
+        emailTemplateId: 0,
+        smsTemplateId: 0,
         emails: othersArray,
         users: userArray,
         notificationTemplateId: 0,
@@ -505,4 +531,4 @@ function Editlayer(props: any) {
     </React.Fragment>
   );
 }
-export default Editlayer;
+export default memo(Editlayer);

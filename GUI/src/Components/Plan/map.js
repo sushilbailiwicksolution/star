@@ -4,7 +4,7 @@ import {
   GoogleApiWrapper,
   Marker,
   InfoWindow,
-  Polyline,
+  Polyline
 } from 'google-maps-react';
 import { saveLandMarks, getLayer } from '../../Service/index';
 import { toast } from 'react-toastify';
@@ -37,7 +37,7 @@ export class MapContainer extends Component {
         strokeWeight: 2,
         strokeOpacity: 1,
         strokeColor: '#1dc1ec',
-        geodesic: true,
+        geodesic: true
       },
       allStores: [],
       polyLine: (
@@ -47,7 +47,7 @@ export class MapContainer extends Component {
             strokeWeight: 2,
             strokeOpacity: 1,
             strokeColor: '#1dc1ec',
-            geodesic: true,
+            geodesic: true
           }}
         />
       ),
@@ -58,7 +58,7 @@ export class MapContainer extends Component {
       selectedLayer: '',
       isUpdateLandmark: false,
       isReadOnly: false,
-      landmarkId: '',
+      landmarkId: ''
     };
   }
 
@@ -85,7 +85,7 @@ export class MapContainer extends Component {
           isUpdateLandmark: updateLandmark,
           selectedLayer: state.data.layerId,
           landmarkId: state.data.id,
-          landMarkName: state.data.name,
+          landMarkName: state.data.name
         },
         () => {
           this.loadMap();
@@ -101,8 +101,8 @@ export class MapContainer extends Component {
     try {
       let response = await planService.getLayersList();
       if (response.status == 200) {
-        this.setState({ layerList: response.data });
-        // this.setState({ layerList: response.data.result });
+        //this.setState({ layerList: response.data });
+        this.setState({ layerList: response.data.results });
       }
     } catch (error) {
       toast(error.msg);
@@ -129,7 +129,7 @@ export class MapContainer extends Component {
             id={`marker_${index}`}
             position={{
               lat: Latitude,
-              lng: Longitude,
+              lng: Longitude
             }}
             onClick={this.showInfoWindow}
             // onMouseout={this.hideInfoWindow}
@@ -143,12 +143,12 @@ export class MapContainer extends Component {
       }
     });
     const stateObject = {
-      displayMarkers: displayMarkers,
+      displayMarkers: displayMarkers
     };
     if (allLastLngs.length > 2) {
       polylineData.push({
         lat: allLastLngs[0].Latitude,
-        lng: allLastLngs[0].Longitude,
+        lng: allLastLngs[0].Longitude
       });
       stateObject.showAddIcon = true;
     }
@@ -160,7 +160,7 @@ export class MapContainer extends Component {
           strokeWeight: 2,
           strokeOpacity: 1,
           strokeColor: '#1dc1ec',
-          geodesic: true,
+          geodesic: true
         }}
       />
     );
@@ -168,7 +168,7 @@ export class MapContainer extends Component {
     this.setState(stateObject, () => {
       setTimeout(() => {
         this.setState({
-          loader: false,
+          loader: false
         });
       }, 3000);
     });
@@ -193,7 +193,7 @@ export class MapContainer extends Component {
       oldLocations.splice(markerPosition, 1);
       this.setState(
         {
-          allLastLngs: oldLocations,
+          allLastLngs: oldLocations
         },
         () => {
           console.log(this.state.allLastLngs);
@@ -211,7 +211,7 @@ export class MapContainer extends Component {
       this.setState({
         activeMarker: marker,
         selectedPlace: props,
-        showingInfoWindow: true,
+        showingInfoWindow: true
       });
     } else {
       this.hideInfoWindow();
@@ -222,7 +222,7 @@ export class MapContainer extends Component {
     this.setState({
       activeMarker: {},
       selectedPlace: {},
-      showingInfoWindow: false,
+      showingInfoWindow: false
     });
   };
 
@@ -250,7 +250,7 @@ export class MapContainer extends Component {
     oldLocations.push(newLocation);
     this.setState(
       {
-        allLastLngs: oldLocations,
+        allLastLngs: oldLocations
       },
       () => {
         this.loadMap();
@@ -269,13 +269,13 @@ export class MapContainer extends Component {
   componentWillUnmount() {
     this.setState({
       mapDiv: '',
-      displayMarkers: '',
+      displayMarkers: ''
     });
   }
 
   _mapLoaded(mapProps, map) {
     map.setOptions({
-      mapTypeId: 'terrain',
+      mapTypeId: 'terrain'
     });
   }
 
@@ -299,10 +299,10 @@ export class MapContainer extends Component {
               strokeWeight: 2,
               strokeOpacity: 1,
               strokeColor: '#1dc1ec',
-              geodesic: true,
+              geodesic: true
             }}
           />
-        ),
+        )
       });
     }
   }
@@ -342,10 +342,10 @@ export class MapContainer extends Component {
               strokeWeight: 2,
               strokeOpacity: 1,
               strokeColor: '#1dc1ec',
-              geodesic: true,
+              geodesic: true
             }}
           />
-        ),
+        )
       });
     }
   }
@@ -353,7 +353,7 @@ export class MapContainer extends Component {
   handleLandmarkName = (e) => {
     const target = e.target;
     this.setState({
-      landMarkName: target.value,
+      landMarkName: target.value
     });
   };
 
@@ -391,7 +391,7 @@ export class MapContainer extends Component {
       createdBy: logedInUser.userName,
       layerId: Number(this.state.selectedLayer),
       locationType: 'layer',
-      geojsonobject: allLastLngs,
+      geojsonobject: allLastLngs
     };
 
     try {
@@ -416,7 +416,7 @@ export class MapContainer extends Component {
   cancelLandmark = () => {
     this.setState({
       landMarkName: '',
-      showModalPopup: false,
+      showModalPopup: false
     });
   };
 
@@ -499,7 +499,7 @@ export class MapContainer extends Component {
             height:
               this.props.mapHeight && this.props.mapHeight > 0
                 ? this.props.mapHeight
-                : '96%',
+                : '96%'
           }}
           onClick={(t, map, c) => this.addMarker(c.latLng, map)}
           google={this.props.google}
@@ -529,7 +529,7 @@ export class MapContainer extends Component {
                     height: '58px',
                     fontSize: '12px',
                     padding: '0px',
-                    fontWeight: '600',
+                    fontWeight: '600'
                   }}
                 >
                   <li>
@@ -583,5 +583,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8',
+  apiKey: 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8'
 })(MapContainer);
