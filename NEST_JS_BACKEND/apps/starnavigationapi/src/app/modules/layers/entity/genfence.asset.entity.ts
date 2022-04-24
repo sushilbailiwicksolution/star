@@ -1,4 +1,4 @@
-import { CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { AssetEntity } from './asset.entity';
 import { GeofenceEntity } from './geofence.entity';
 
@@ -10,10 +10,12 @@ export class GeofenceAssetEntity {
     createdAt?: Date;
     @UpdateDateColumn({name: "updated_at"})
     updatedAt?: Date;
-    @ManyToOne(() => GeofenceEntity, map => map.vehicles, {onDelete: 'CASCADE'})
-    @JoinColumn({name: "asset_id"})
+
+    @ManyToOne(() => GeofenceEntity, map => map.vehicles)
+    @JoinColumn({name: "geofence_id"})
     asset?: GeofenceEntity;
-    @OneToOne(() => AssetEntity, { eager: true })
-    @JoinColumn({ name: "id" })
-    user?: AssetEntity;
+
+    @Column({name: 'asset_id'})
+    assetId?: number;
+    
 }

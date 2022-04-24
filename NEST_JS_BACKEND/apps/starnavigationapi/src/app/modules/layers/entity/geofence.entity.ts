@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, Unique } from 'typeorm';
 import { EventSeverityEnum } from '../../../enum/event.severity.enum';
 import { NotifyEnum } from '../../../enum/notify.enum';
 import { ExtendEntity } from './extend.entity';
@@ -40,16 +40,14 @@ export class GeofenceEntity extends ExtendEntity {
     @Column({type: "simple-json", nullable: true})
     geojsonobject?: unknown;
 
-    @OneToMany('GeofenceAssetEntity', 'asset', { onDelete: 'CASCADE', eager: true, cascade: true })
-    vehicles?: GeofenceAssetEntity[];    
+    @OneToMany('GeofenceAssetEntity', 'asset', { eager: true, cascade: true })
+    vehicles?: GeofenceAssetEntity[];
 
-    @OneToOne(() => LayerEntity, { eager: true })
-    @JoinColumn({ name: "g_layer_id" })
-    layer?: LayerEntity;
+    @Column({name: 'g_layer_id'})
+    layerId?: number;
 
-    @OneToOne(() => LandmarkEntity, { eager: true })
-    @JoinColumn({ name: "g_landmark_id" })
-    landmark?: LandmarkEntity;
+    @Column({name: 'g_landmark_id'})
+    landmarkId?: number;
     
     @OneToMany('GeofenceNotificationEntity', 'notification', {onDelete: 'CASCADE', eager: true, cascade: true })
     notifications?: GeofenceNotificationEntity[];

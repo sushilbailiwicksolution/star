@@ -8,12 +8,12 @@ import { ExtendDto } from "./extend.dto";
 export class GeofenceNotificationDto  {
     @ApiProperty({})
     @Expose()
-    id?: number;
+    notificationId?: number;
 }
 export class GeofenceAssetDto {
     @ApiProperty({})
     @Expose()
-    id?: number;
+    assetId?: number;
 }
 export class GeofenceDto extends ExtendDto {
     @Expose()

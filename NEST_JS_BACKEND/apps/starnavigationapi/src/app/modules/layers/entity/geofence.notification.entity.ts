@@ -1,6 +1,5 @@
-import { CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { GeofenceEntity } from './geofence.entity';
-import { NotificationEntity } from './notification.entity';
 
 @Entity({ name: "geofence_notifications" })
 export class GeofenceNotificationEntity {
@@ -10,10 +9,12 @@ export class GeofenceNotificationEntity {
     createdAt?: Date;
     @UpdateDateColumn({name: "updated_at"})
     updatedAt?: Date;
-    @ManyToOne(() => GeofenceEntity, map => map.vehicles, {onDelete: 'CASCADE'})
+
+    @ManyToOne(() => GeofenceEntity, map => map.notifications, {onDelete: 'CASCADE'})
     @JoinColumn({name: "geofence_id"})
     notification?: GeofenceEntity;
-    @OneToOne(() => NotificationEntity, { eager: true })
-    @JoinColumn({ name: "id" })
-    detail?: NotificationEntity;
+
+    
+    @Column({name: 'notification_id'})
+    notificationId?: number;
 }

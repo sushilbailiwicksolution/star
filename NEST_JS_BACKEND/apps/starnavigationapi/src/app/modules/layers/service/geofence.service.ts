@@ -11,6 +11,11 @@ import { LandmarkEntity } from "../entity/landmark.entity";
 import { LayerEntity } from "../entity/layer.entity";
 import { UserEntity } from "../entity/user.entity";
 import * as _ from "lodash";
+import { CustomerEntity } from "../entity/customer.entity";
+import { GeofenceNotificationEntity } from "../entity/geofence.notification.entity";
+import { NotificationEntity } from "../entity/notification.entity";
+import { GeofenceAssetEntity } from "../entity/genfence.asset.entity";
+import { AssetEntity } from "../entity/asset.entity";
 
 @Injectable()
 export class GeofenceService {
@@ -23,19 +28,35 @@ export class GeofenceService {
         private readonly queryBuilderService: QueryBuilder) { }
 
     async create(data: GeofenceDto): Promise<GeofenceEntity> {
-        const layer = await this.layerRepository.findOne({id: data.layerId});
-        const landmark = await this.landmarkRepository.findOne({id: data.landmarkId});
         const geofence: GeofenceEntity = Object.assign(data);
-        geofence.layer = layer;
-        geofence.landmark = landmark;
         const notification = await this.repository.save(geofence);
         return notification;
     }
     async findById(id: number): Promise<GeofenceEntity> {
+        return this.repository.createQueryBuilder('t')
+        .leftJoinAndMapOne('t.customer',CustomerEntity,'customer','t.customer_id = customer.id')
+        .leftJoinAndMapOne('t.layer',LayerEntity,'layer','t.g_layer_id  = layer.id')
+        .leftJoinAndMapOne('t.landmark',LandmarkEntity,'landmark','t.g_landmark_id  = landmark.id')
+        .leftJoinAndMapMany('t.notifications',GeofenceNotificationEntity,'n','t.id  = n.geofence_id')
+        .leftJoinAndMapOne('n.notification', NotificationEntity,'notification','n.notification_id  = notification.id')
+        .leftJoinAndMapMany('t.vehicles',GeofenceAssetEntity,'a','t.id  = a.geofence_id')
+        .leftJoinAndMapOne('a.asset', AssetEntity,'asset','a.asset_id  = asset.id')
+        .where('t.status = :status', {status: StatusEnum.ACTIVE})
+        .andWhere('t.id = :id', {id})
+        .getOne();
         return this.repository.findOne({ id: id, status: StatusEnum.ACTIVE });
     }
     async findAll(): Promise<Array<GeofenceEntity>> {
-        return this.repository.find({status: StatusEnum.ACTIVE});
+        return this.repository.createQueryBuilder('t')
+        .leftJoinAndMapOne('t.customer',CustomerEntity,'customer','t.customer_id = customer.id')
+        .leftJoinAndMapOne('t.layer',LayerEntity,'layer','t.g_layer_id  = layer.id')
+        .leftJoinAndMapOne('t.landmark',LandmarkEntity,'landmark','t.g_landmark_id  = landmark.id')
+        .leftJoinAndMapMany('t.notifications',GeofenceNotificationEntity,'n','t.id  = n.geofence_id')
+        .leftJoinAndMapOne('n.notification', NotificationEntity,'notification','n.notification_id  = notification.id')
+        .leftJoinAndMapMany('t.vehicles',GeofenceAssetEntity,'a','t.id  = a.geofence_id')
+        .leftJoinAndMapOne('a.asset', AssetEntity,'asset','a.asset_id  = asset.id')
+        .where('t.status = :status', {status: StatusEnum.ACTIVE})
+        .getMany();
     }
     async remove(id: number): Promise<GeofenceEntity> {
         const layer = await this.findById(id);
