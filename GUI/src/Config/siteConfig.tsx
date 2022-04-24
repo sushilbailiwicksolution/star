@@ -15,6 +15,7 @@ export const LANDMARKS = '/landmarks';
 //export const LANDMARKS = '/landmark';
 export const NOTIFICATION = '/notification';
 export const USERS = '/users';
+export const CUSTOMERS = '/customers';
 export const GEOFENCE = '/geofence';
 export const ASSETS = '/assets';
 export const GET_REPORT = '/getReport';

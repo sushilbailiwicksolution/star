@@ -16,8 +16,8 @@ function Plan(props: any) {
       let response = await planService.getLayersList();
       setLoader(false);
       if (response.status == 200) {
-        setLayerList(response.data);
-        //setLayerList(response.data.result);
+        //setLayerList(response.data);
+        setLayerList(response.data.results);
       }
     } catch (error: any) {
       setLoader(false);

@@ -89,21 +89,19 @@ function Editlayer(props: any) {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await planService.getAssetsList();
-        console.log('userList', userData);
         if (userData.status == '200') {
-          let checkListArr = userData.data.result;
+          let checkListArr = userData.data.results;
           checkListArr = checkListArr.map((item: any, index: any) => {
             item['isChecked'] = false;
             return item;
           });
-          console.log('checkListArr', checkListArr);
           setCheckboxAssetsList(checkListArr);
           resolve(true);
         }
       } catch (error: any) {
         resolve(true);
         toast.error(error.msg);
-        console.log(error);
+        console.error(error);
       }
     });
   };
@@ -112,9 +110,7 @@ function Editlayer(props: any) {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await planService.getNotificationList();
-        console.log('getNoificationList', userData);
         if (userData.status == '200') {
-          //let checkListArr = userData.data.result;
           let checkListArr = userData.data.results;
           checkListArr = checkListArr.map((item: any, index: any) => {
             item['isChecked'] = false;
@@ -126,7 +122,7 @@ function Editlayer(props: any) {
       } catch (error: any) {
         resolve(true);
         toast.error(error.msg);
-        console.log(error);
+        console.error(error);
       }
     });
   };
@@ -135,16 +131,14 @@ function Editlayer(props: any) {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await planService.getLayersList();
-        console.log('userList', userData);
         if (userData.status == '200') {
-          let checkListArr = userData.data;
+          let checkListArr = userData.data.results;
           setLayerList(checkListArr);
-          console.log('layerlist', layerList);
           resolve(true);
         }
       } catch (error: any) {
         resolve(true);
-        console.log(error);
+        console.error(error);
         toast.error(error.msg);
       }
     });
@@ -154,16 +148,14 @@ function Editlayer(props: any) {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await planService.getLandmarkList();
-        console.log('userList', userData);
         if (userData.status == '200') {
-          let checkListArr = userData.data;
-          console.log('landmarklist', checkListArr);
+          let checkListArr = userData.data.results;
           setLandmarkList(checkListArr);
           resolve(true);
         }
       } catch (error: any) {
         resolve(true);
-        console.log(error);
+        console.error(error);
         toast.error(error.msg);
       }
     });
@@ -213,7 +205,6 @@ function Editlayer(props: any) {
   };
 
   const handleNotificationListCheckboxChange = (id: any) => {
-    console.log('id', id);
     const newCheckboxes: any = [...checkboxNotificationList];
     let index = newCheckboxes.findIndex((item: any) => item.id == id);
     newCheckboxes[index].isChecked = newCheckboxes[index].isChecked
@@ -223,7 +214,6 @@ function Editlayer(props: any) {
   };
 
   const handleAssetsListCheckboxChange = (id: any) => {
-    console.log('id', id);
     const newCheckboxes: any = [...checkboxAssetsList];
     let index = newCheckboxes.findIndex((item: any) => item.id == id);
     newCheckboxes[index].isChecked = newCheckboxes[index].isChecked
@@ -233,7 +223,6 @@ function Editlayer(props: any) {
   };
 
   const handleDaysListCheckboxChange = (id: any) => {
-    console.log('id', id);
     const newCheckboxes: any = [...checkboxDaysList];
     let index = newCheckboxes.findIndex((item: any) => item.id == id);
     newCheckboxes[index].isChecked = newCheckboxes[index].isChecked
@@ -273,26 +262,26 @@ function Editlayer(props: any) {
 
     let logedInUser: any = localStorage.getItem('logedInUser');
     logedInUser = JSON.parse(logedInUser);
-    // let notificationList = checkboxNotificationList.filter(
-    //   (item: any) => item.isChecked == true
-    // );
-    let notification_List: any[] = [];
-    checkboxNotificationList.forEach((item: any, index: any) => {
-      if (item.isChecked == true) {
-        notification_List.push(item.id);
-      }
-    });
+    let notification_List = checkboxNotificationList.filter(
+      (item: any) => item.isChecked == true
+    );
+    // let notification_List: any[] = [];
+    // checkboxNotificationList.forEach((item: any, index: any) => {
+    //   if (item.isChecked == true) {
+    //     notification_List.push(item.id);
+    //   }
+    // });
 
-    // let assetsList = checkboxAssetsList.filter(
-    //   (item: any) => item.isChecked == true
-    // );
+    let assets_List = checkboxAssetsList.filter(
+      (item: any) => item.isChecked == true
+    );
 
-    let assets_List: any[] = [];
-    checkboxAssetsList.forEach((item: any, index: any) => {
-      if (item.isChecked == true) {
-        assets_List.push(item.id);
-      }
-    });
+    // let assets_List: any[] = [];
+    // checkboxAssetsList.forEach((item: any, index: any) => {
+    //   if (item.isChecked == true) {
+    //     assets_List.push(item.id);
+    //   }
+    // });
 
     let daysList = checkboxDaysList.filter(
       (item: any) => item.isChecked == true
@@ -301,8 +290,9 @@ function Editlayer(props: any) {
     let requestParams = {
       name: geofenceState.name,
       active: geofenceState.active,
-      notify_map: geofenceState.notify_map,
-      notify_email: geofenceState.notify_email,
+      notify: geofenceState.notify,
+      notifyMap: geofenceState.notify_map ? 'yes' : 'no',
+      notifyEmail: geofenceState.notify_email ? 'yes' : 'no',
       bufferDistance: Number(geofenceState.bufferDistance),
       description: geofenceState.description,
       minAltitude: geofenceState.isAltitudeChecked
@@ -326,14 +316,12 @@ function Editlayer(props: any) {
         : '00:00',
       customerId: 0,
       notifications: notification_List,
-      assets: assets_List,
       layerId: Number(geofenceState.layerId),
       landmarkId: Number(geofenceState.landmarkId),
       createdBy: logedInUser.userName,
       days: daysList,
+      vehicles:assets_List
     };
-
-    console.log('requestParams', JSON.stringify(requestParams));
     createGeofence(requestParams);
   };
 
@@ -361,8 +349,9 @@ function Editlayer(props: any) {
     let requestParams = {
       name: geofenceState.name,
       active: geofenceState.active,
-      notify_map: geofenceState.notify_map,
-      notify_email: geofenceState.notify_email,
+      notify: geofenceState.notify,
+      notifyMap: geofenceState.notify_map ? 'yes' : 'no',
+      notifyEmail: geofenceState.notify_email ? 'yes' : 'no',
       bufferDistance: Number(geofenceState.bufferDistance),
       description: geofenceState.description,
       minAltitude: geofenceState.isAltitudeChecked
@@ -386,14 +375,12 @@ function Editlayer(props: any) {
         : '00:00',
       customerId: 0,
       notifications: notificationList,
-      assets: assetsList,
       layerId: Number(geofenceState.layerId),
       landmarkId: Number(geofenceState.landmarkId),
       createdBy: logedInUser.userName,
       days: daysList,
+      vehicles:assetsList
     };
-
-    console.log('requestParams', JSON.stringify(requestParams));
     setLoader(true);
     updateGeofence(requestParams);
   };
@@ -596,7 +583,6 @@ function Editlayer(props: any) {
                     <select
                       className='form-control select-dropdown w-75'
                       onChange={(e) => {
-                        console.log(e.target.value);
                         setGeofenceState({
                           ...geofenceState,
                           notify: e.target.value,

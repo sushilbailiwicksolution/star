@@ -16,7 +16,7 @@ function Plan(props: any) {
       let response = await planService.getGeofenceList();
       setLoader(false);
       if (response.status == 200) {
-        setGeofenceListItems(response.data.result);
+        setGeofenceListItems(response.data.results);
       }
     } catch (error: any) {
       setLoader(false);
