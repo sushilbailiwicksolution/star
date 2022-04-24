@@ -1,11 +1,9 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, Unique } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { EventSeverityEnum } from '../../../enum/event.severity.enum';
 import { NotifyEnum } from '../../../enum/notify.enum';
 import { ExtendEntity } from './extend.entity';
 import { GeofenceAssetEntity } from './genfence.asset.entity';
 import { GeofenceNotificationEntity } from './geofence.notification.entity';
-import { LandmarkEntity } from './landmark.entity';
-import { LayerEntity } from './layer.entity';
 
 @Entity({name: "geofence"})
 export class GeofenceEntity extends ExtendEntity {
@@ -36,7 +34,7 @@ export class GeofenceEntity extends ExtendEntity {
     @Column({name: 'schedule_end_time'})
     scheduleEndTime?: string;
     @Column({nullable: false, name: 'customer_id'})
-    custumerId?: number;
+    customerId?: number;
     @Column({type: "simple-json", nullable: true})
     geojsonobject?: unknown;
 

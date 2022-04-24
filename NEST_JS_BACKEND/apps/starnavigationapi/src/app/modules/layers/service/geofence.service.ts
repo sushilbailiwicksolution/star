@@ -28,6 +28,14 @@ export class GeofenceService {
         private readonly queryBuilderService: QueryBuilder) { }
 
     async create(data: GeofenceDto): Promise<GeofenceEntity> {
+        data.vehicles.forEach(o => {
+            o = Object.assign(o, {assetId: o.id})
+            _.omit(o, ['id']);
+        });
+        data.notifications.forEach(o => {
+            o = Object.assign(o, {notificationId: o.id})
+            _.omit(o, ['id']);
+        });
         const geofence: GeofenceEntity = Object.assign(data);
         const notification = await this.repository.save(geofence);
         return notification;
@@ -65,6 +73,14 @@ export class GeofenceService {
     }
     async update(id: number, data: GeofenceDto): Promise<GeofenceEntity> {
         data = _.omit(data, ['id']);
+        data.vehicles.forEach(o => {
+            o = Object.assign(o, {assetId: o.id})
+            _.omit(o, ['id']);
+        });
+        data.notifications.forEach(o => {
+            o = Object.assign(o, {notificationId: o.id})
+            _.omit(o, ['id']);
+        });
         let layer = await this.findById(id);
         this.logger.log(`update: ${JSON.stringify(layer)}`);
         if (layer == null) {

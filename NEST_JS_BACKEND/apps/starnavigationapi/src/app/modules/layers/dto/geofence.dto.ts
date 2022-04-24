@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ApiProperty } from "@nestjsx/crud/lib/crud";
 import { Expose } from "class-transformer";
 import { IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { ConfirmEnum } from "../../../enum/ConfirmEnum";
 import { EventSeverityEnum } from "../../../enum/event.severity.enum";
 import { NotifyEnum } from "../../../enum/notify.enum";
 import { ExtendDto } from "./extend.dto";
@@ -8,12 +10,12 @@ import { ExtendDto } from "./extend.dto";
 export class GeofenceNotificationDto  {
     @ApiProperty({})
     @Expose()
-    notificationId?: number;
+    id?: number;
 }
 export class GeofenceAssetDto {
     @ApiProperty({})
     @Expose()
-    assetId?: number;
+    id?: number;
 }
 export class GeofenceDto extends ExtendDto {
     @Expose()
@@ -50,14 +52,18 @@ export class GeofenceDto extends ExtendDto {
     notifications?: Array<GeofenceNotificationDto>;
     @Expose()
     @ApiProperty({
-        description: 'Notify Map'
+        enum: ConfirmEnum,
+        isArray: false
     })
-    notifyMap?: string = "Yes";
+    @IsNotEmpty()
+    notifyMap?: ConfirmEnum;
     @Expose()
     @ApiProperty({
-        description: 'Notify Email'
+        enum: ConfirmEnum,
+        isArray: false
     })
-    notifyEmail?: string = "Yes";
+    @IsNotEmpty()
+    notifyEmail?: ConfirmEnum;
     @Expose()
     @ApiProperty({
         description: 'Description'
@@ -104,14 +110,14 @@ export class GeofenceDto extends ExtendDto {
     @ApiProperty({
         description: 'Customer ID'
     })
-    custumerId?: number;
+    customerId?: number;
     @Expose()
-    @ApiProperty()
-    days?: unknown;
+    @ApiProperty({})
+    days?: Array<any>;
 
     @Expose()
     @ApiProperty({
         description: 'Buffer Distance'
     })
-    bufferDistance?: number;
+    bufferDistance?: number = 0;
 }
