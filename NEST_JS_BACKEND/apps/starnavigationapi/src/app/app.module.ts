@@ -3,6 +3,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AppConfigModule } from './config/app/config.module';
 import { LoggerMiddleware } from './middleware/logs.middleware';
 import { LayerModule } from './modules/layers/layer.module';
 import { MysqlDatabaseProviderModule } from './providers/database/mysql/provider.module';
@@ -10,11 +11,12 @@ import { MysqlDatabaseProviderModule } from './providers/database/mysql/provider
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../../apps/starnavigationapi', 'client'),
-      exclude: ['/application-service/secured*']
+      rootPath: join('/home/star/nestjs', 'client')/*,
+      exclude: ['/application-service/secured*']*/
     }),
     MysqlDatabaseProviderModule,
-    LayerModule
+    LayerModule,
+    AppConfigModule
   ],
   controllers: [AppController],
   providers: [AppService],

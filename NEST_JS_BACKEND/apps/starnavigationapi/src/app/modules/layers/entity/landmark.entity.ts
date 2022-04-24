@@ -1,26 +1,22 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import { StatusEnum } from '../../../enum/status.enum';
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
+import { ExtendEntity } from './extend.entity';
+import { GeoObjectEntity } from './geo.object.entity';
+import { LayerEntity } from './layer.entity';
 
-@Entity()
-export class LandmarkEntity {
-    @PrimaryGeneratedColumn()
-    id?: number;
+@Entity({name: "landmark"})
+export class LandmarkEntity extends ExtendEntity {
     @Column({length: 64})
     name?: string;
-    @CreateDateColumn()
-    createdAt?: Date;
-    @UpdateDateColumn()
-    updatedAt?: Date;
-    @Column({ type: "enum", enum: StatusEnum, default: StatusEnum.pending })
-    status?: StatusEnum;
-    @Column({length: 64})
-    createdBy?: string;
-    @Column({length: 64})
-    updatedBy?: string;
-    @Column()
-    layerId?: number;
-    @Column("simple-json")
+    @Column({type: "simple-json", nullable: true})
     geojsonobject?: unknown;
     @Column({length: 16})
     locationType?: string;
+
+    @OneToOne(() => LayerEntity, { eager: true })
+    @JoinColumn({ name: "landmark_layer_id"})
+    layer?: LayerEntity;
+
+    @OneToOne('GeoObjectEntity', 'geoobject', { onDelete: 'CASCADE', cascade: true })
+    @JoinColumn({name: "geo_object_id", referencedColumnName: 'id'})
+	geoObject?: GeoObjectEntity;
 }

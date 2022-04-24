@@ -1,16 +1,11 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import { StatusEnum } from '../../../enum/status.enum';
+import { Column, Entity, OneToMany } from 'typeorm';
+import { ExtendEntity } from './extend.entity';
+import { GeofenceEntity } from './geofence.entity';
 
-@Entity()
-export class LayerEntity {
-    @PrimaryGeneratedColumn()
-    id?: number;
+@Entity({name: "layers"})
+export class LayerEntity extends ExtendEntity {
     @Column({length: 64})
     name?: string;
-    @CreateDateColumn()
-    createdAt?: Date;
-    @UpdateDateColumn()
-    updatedAt?: Date;
     @Column({length: 512})
     address?: string;
     @Column({length: 64})
@@ -21,12 +16,8 @@ export class LayerEntity {
     zip?: number;
     @Column({length: 64})
     state?: string;
-    @Column({ type: "enum", enum: StatusEnum, default: StatusEnum.pending })
-    status?: StatusEnum;
-    @Column({length: 64})
-    createdBy?: string;
-    @Column({length: 64})
-    updatedBy?: string;
-    @Column()
+    @Column({nullable: true})
     customerId?: number;
+    @OneToMany('GeofenceEntity', 'geofence', { onDelete: 'CASCADE' })
+    geofence: GeofenceEntity[]
 }

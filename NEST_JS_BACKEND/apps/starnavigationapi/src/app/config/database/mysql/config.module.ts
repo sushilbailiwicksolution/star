@@ -13,9 +13,9 @@ import { MySqlConfigService } from './configuration.service';
                 MYSQL_PORT: Joi.number().default('3306'),
                 MYSQL_USERNAME: Joi.string().default('root'),
                 MYSQL_PASSWORD: Joi.string().default(''),
-                MYSQL_DBNAME: Joi.string().default('star'),
+                MYSQL_DBNAME: Joi.string().default('star_s'),
                 DB_SYNCHRONIZE: Joi.boolean().default(true),
-                DB_LOGGING: Joi.boolean().default(false),
+                DB_LOGGING: Joi.boolean().default(true),
             })
         })
     ],

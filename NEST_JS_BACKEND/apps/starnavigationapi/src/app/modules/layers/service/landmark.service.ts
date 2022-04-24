@@ -7,6 +7,7 @@ import { QueryBuilder } from "../../../service/query.builder.service";
 import { paginate, Pagination } from 'nestjs-typeorm-paginate';
 import { LandmarkEntity } from "../entity/landmark.entity";
 import { LandmarkCreateDto } from "../dto/landmark.create.dto";
+import * as _ from "lodash";
 
 @Injectable()
 export class LandmarkService {
@@ -22,14 +23,15 @@ export class LandmarkService {
         return this.repository.findOne({ id });
     }
     async findAll(): Promise<Array<LandmarkEntity>> {
-        return this.repository.find();
+        return this.repository.find({status: StatusEnum.ACTIVE});
     }
     async remove(id: number): Promise<LandmarkEntity> {
         const layer = await this.findById(id);
-        layer.status = StatusEnum.deleted;
+        layer.status = StatusEnum.DELETED;
         return this.repository.save(layer);
     }
     async update(id: number, data: LandmarkCreateDto): Promise<LandmarkEntity> {
+        data = _.omit(data, ['id']);
         let layer = await this.findById(id);
         this.logger.log(`update: ${JSON.stringify(layer)}`);
         if (layer == null) {

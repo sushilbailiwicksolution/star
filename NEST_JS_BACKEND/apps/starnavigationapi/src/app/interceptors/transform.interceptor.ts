@@ -12,5 +12,4 @@ export class TransformInterceptor<T> implements NestInterceptor<Partial<T>, T> {
     intercept(context: ExecutionContext, next: CallHandler<Partial<T>>): Observable<T> | Promise<Observable<T>> {
         return next.handle().pipe(map(data => plainToClass(this.classType, data, { excludeExtraneousValues: true })));
     }
-
 }

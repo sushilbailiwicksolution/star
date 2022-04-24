@@ -3,6 +3,8 @@ import { Expose } from 'class-transformer';
 import { IsString, IsInt } from 'class-validator';
 
 export class LayerCreateDto {
+    @Expose()
+    id?: number;
     @IsString()
     @Expose()
     @ApiProperty({
