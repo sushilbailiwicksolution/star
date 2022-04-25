@@ -67,21 +67,16 @@ function Editlayer(props: any) {
   }
 
   const updateValues = (data: any) => {
-    console.log('update data', data);
     setListName(data.name);
     setOthersArray(data.emails);
 
     const newCheckboxes: any = [...checkboxUserList];
-    console.log('newCheckboxes', newCheckboxes);
     data.users.forEach((user: any) => {
       let index = newCheckboxes.findIndex((item: any) => item.id === user.id);
-      console.log("index", index);
       if (index > -1) {
         newCheckboxes[index].isChecked = true;
-        console.log('updated newCheckboxes', newCheckboxes);
       }
     });
-    console.log('final newCheckboxes', newCheckboxes);
     setCheckboxUserList(newCheckboxes);
   };
 

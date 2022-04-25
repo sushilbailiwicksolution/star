@@ -11,7 +11,7 @@ function Editlayer(props: any) {
   const initialState = {
     name: '',
     severity: 'low',
-    notify: 'While Inside',
+    notify: 'OUTSIDE',
     active: false,
     notify_map: false,
     notify_email: false,
@@ -29,9 +29,8 @@ function Editlayer(props: any) {
     velocityValue: 0,
     velocityTypeSelected: '',
     velocityReadonly: true,
-    layerId: 1,
-    landmarkId: 1,
-    days: [],
+    layerId: '',
+    landmarkId: '',
   };
   const initialDaysList = [
     { id: 'day1', name: 'Mon', isChecked: false },
@@ -83,6 +82,23 @@ function Editlayer(props: any) {
 
   const updateValues = (data: any) => {
     console.log('update data', data);
+    const updateData = {
+      name: data.name,
+      severity: data.eventSeverity,
+      notify: data.notify,
+      notify_map: data.notifyMap == 'Yes' ? true : false,
+      notify_email: data.notifyEmail == 'Yes' ? true : false,
+      bufferDistance: data.bufferDistance,
+      description: data.description,
+      minAltitude: data.minAltitude,
+      maxAltitude: data.maxAltitude,
+      startTime: data.scheduleStartTime,
+      endTime: data.scheduleEndTime,
+      layerId: data.layerId,
+      landmarkId: data.landmarkId,
+    }
+    setGeofenceState({ ...initialState, ...updateData })
+
   };
 
   const getAssetsList = () => {
@@ -95,6 +111,16 @@ function Editlayer(props: any) {
             item['isChecked'] = false;
             return item;
           });
+          if (state && state.isEdit) {
+            if (state.data.vehicles.length > 0) {
+              state.data.vehicles.forEach((user: any) => {
+                let index = checkListArr.findIndex((item: any) => item.id === user.id);
+                if (index > -1) {
+                  checkListArr[index].isChecked = true;
+                }
+              });
+            }
+          }
           setCheckboxAssetsList(checkListArr);
           resolve(true);
         }
@@ -116,6 +142,16 @@ function Editlayer(props: any) {
             item['isChecked'] = false;
             return item;
           });
+          if (state && state.isEdit) {
+            if (state.data.notifications.length > 0) {
+              state.data.notifications.forEach((user: any) => {
+                let index = checkListArr.findIndex((item: any) => item.id === user.id);
+                if (index > -1) {
+                  checkListArr[index].isChecked = true;
+                }
+              });
+            }
+          }
           setCheckboxNotificationList(checkListArr);
           resolve(true);
         }
@@ -283,16 +319,23 @@ function Editlayer(props: any) {
     //   }
     // });
 
-    let daysList = checkboxDaysList.filter(
-      (item: any) => item.isChecked == true
-    );
+    // let daysList = checkboxDaysList.filter(
+    //   (item: any) => item.isChecked == true
+    // );
+
+    let daysList: any[] = [];
+    checkboxDaysList.forEach((item: any, index: any) => {
+      if (item.isChecked == true) {
+        daysList.push(item.name);
+      }
+    });
 
     let requestParams = {
       name: geofenceState.name,
       active: geofenceState.active,
       notify: geofenceState.notify,
-      notifyMap: geofenceState.notify_map ? 'yes' : 'no',
-      notifyEmail: geofenceState.notify_email ? 'yes' : 'no',
+      notifyMap: geofenceState.notify_map ? 'Yes' : 'No',
+      notifyEmail: geofenceState.notify_email ? 'Yes' : 'No',
       bufferDistance: Number(geofenceState.bufferDistance),
       description: geofenceState.description,
       minAltitude: geofenceState.isAltitudeChecked
@@ -320,7 +363,7 @@ function Editlayer(props: any) {
       landmarkId: Number(geofenceState.landmarkId),
       createdBy: logedInUser.userName,
       days: daysList,
-      vehicles:assets_List
+      vehicles: assets_List
     };
     createGeofence(requestParams);
   };
@@ -342,16 +385,23 @@ function Editlayer(props: any) {
       (item: any) => item.isChecked == true
     );
 
-    let daysList = checkboxDaysList.filter(
-      (item: any) => item.isChecked == true
-    );
+    // let daysList = checkboxDaysList.filter(
+    //   (item: any) => item.isChecked == true
+    // );
+
+    let daysList: any[] = [];
+    checkboxDaysList.forEach((item: any, index: any) => {
+      if (item.isChecked == true) {
+        daysList.push(item.name);
+      }
+    });
 
     let requestParams = {
       name: geofenceState.name,
       active: geofenceState.active,
       notify: geofenceState.notify,
-      notifyMap: geofenceState.notify_map ? 'yes' : 'no',
-      notifyEmail: geofenceState.notify_email ? 'yes' : 'no',
+      notifyMap: geofenceState.notify_map ? 'Yes' : 'No',
+      notifyEmail: geofenceState.notify_email ? 'Yes' : 'No',
       bufferDistance: Number(geofenceState.bufferDistance),
       description: geofenceState.description,
       minAltitude: geofenceState.isAltitudeChecked
@@ -379,7 +429,7 @@ function Editlayer(props: any) {
       landmarkId: Number(geofenceState.landmarkId),
       createdBy: logedInUser.userName,
       days: daysList,
-      vehicles:assetsList
+      vehicles: assetsList
     };
     setLoader(true);
     updateGeofence(requestParams);
@@ -590,8 +640,8 @@ function Editlayer(props: any) {
                       }}
                       value={geofenceState.notify}
                     >
-                      <option value='While Inside'>While Inside</option>
-                      <option value='While Outside'>While Outside</option>
+                      <option value='INSIDE'>While Inside</option>
+                      <option value='OUTSIDE'>While Outside</option>
                     </select>
                   </td>
                 </tr>
@@ -722,6 +772,7 @@ function Editlayer(props: any) {
                           layerId: e.target.value,
                         });
                       }}
+                      value={geofenceState.layerId}
                       disabled={isReadonly}
                     >
                       <option value=''>Select Layer</option>;
@@ -742,6 +793,7 @@ function Editlayer(props: any) {
                           landmarkId: e.target.value,
                         });
                       }}
+                      value={geofenceState.landmarkId}
                       disabled={isReadonly}
                     >
                       <option value=''>Select Landmark</option>;

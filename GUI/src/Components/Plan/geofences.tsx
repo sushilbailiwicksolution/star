@@ -85,7 +85,7 @@ function Plan(props: any) {
                       <th scope='col'>Name</th>
                       <th scope='col'>Layer Name</th>
                       <th scope='col'>Notify</th>
-                      <th scope='col'>Active</th>
+                      {/* <th scope='col'>Active</th> */}
                       <th scope='col'>Severity</th>
                       <th scope='col'>Created By</th>
                       <th scope='col'>View</th>
@@ -96,14 +96,14 @@ function Plan(props: any) {
                   <tbody>
                     {geofenceList.map((item: any, index: any) => {
                       return (
-                        <tr>
-                          <td>starads</td>
-                          <td>SSAA left athens</td>
-                          <td>Test_layer</td>
-                          <td>On exit</td>
-                          <td>Yes</td>
-                          <td>Low</td>
-                          <td>Admin</td>
+                        <tr key={item.id}>
+                          <td>{item.createdBy}</td>
+                          <td>{item.name}</td>
+                          <td>{item?.layer?.name}</td>
+                          <td>{item.notify}</td>
+                          {/* <td>Yes</td> */}
+                          <td>{item.eventSeverity}</td>
+                          <td>{item.createdBy}</td>
                           <td className='table-icon-cell'>
                             <i
                               className='fa fa-eye'
