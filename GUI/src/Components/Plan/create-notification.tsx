@@ -319,6 +319,7 @@ function Editlayer(props: any) {
                       </button> */}
                       {othersArray.map((item: any, index: any) => {
                         return (
+                          /*
                           <span
                             key={item.email + index}
                             className='p-2 text-style-email '
@@ -332,6 +333,16 @@ function Editlayer(props: any) {
                             </span>
                             {item.email}
                           </span>
+                          */
+                          <div>
+                            <div key={item.email + index} className={`d-flex ${othersArray.length-1 != index ? 'border-bottom border-dark' : ''}`}>
+                              <span> {item.email}</span>
+                              <span
+                                className='cursor-pointer ml-auto'
+                                onClick={() => deleteEmail(index)}
+                              >X</span>
+                            </div>
+                          </div>
                         );
                       })}
                     </div>
@@ -445,66 +456,6 @@ function Editlayer(props: any) {
                       </button>
                     </div>
                   </td>
-                  {/*                                     
-                                    <td className="small-shell"><h3 className="edit-heading">Groups</h3></td>
-                                    <td>
-                                        <div className="scrollableArea">
-                                            <div className="check-items-block selection-list">
-                                                <div className="form-group form-check m-0 d-flex align-items-center justify-content-between">
-                                                    <input type="checkbox" className="form-check-input" id="exampleCheck1">
-                                                        </input>
-                                                    <label className="form-check-label ml-3" htmlFor="exampleCheck1">aat</label>
-                                                </div>
-                                            </div>
-                                            <div className="check-items-block selection-list">
-                                                <div className="form-group form-check m-0 d-flex align-items-center justify-content-between">
-                                                    <input type="checkbox" className="form-check-input" id="exampleCheck2">
-                                                        </input>
-                                                    <label className="form-check-label ml-3" htmlFor="exampleCheck1">abdullah</label>
-                                                </div>
-                                            </div>
-                                            <div className="check-items-block selection-list">
-                                                <div className="form-group form-check m-0 d-flex align-items-center justify-content-between">
-                                                    <input type="checkbox" className="form-check-input" id="exampleCheck3">
-                                                        </input>
-                                                    <label className="form-check-label ml-3" htmlFor="exampleCheck1">admin</label>
-                                                </div>
-                                            </div>
-                                            <div className="check-items-block selection-list">
-                                                <div className="form-group form-check m-0 d-flex align-items-center justify-content-between">
-                                                    <input type="checkbox" className="form-check-input" id="exampleCheck4">
-                                                        </input>
-                                                    <label className="form-check-label ml-3" htmlFor="exampleCheck1">abdullah</label>
-                                                </div>
-                                            </div>
-                                            <div className="check-items-block selection-list">
-                                                <div className="form-group form-check m-0 d-flex align-items-center justify-content-between">
-                                                    <input type="checkbox" className="form-check-input" id="exampleCheck5">
-                                                        </input>
-                                                    <label className="form-check-label ml-3" htmlFor="exampleCheck1">admin</label>
-                                                </div>
-                                            </div>
-                                            <div className="check-items-block selection-list">
-                                                <div className="form-group form-check m-0 d-flex align-items-center justify-content-between">
-                                                    <input type="checkbox" className="form-check-input" id="exampleCheck5">
-                                                        </input>
-                                                    <label className="form-check-label ml-3" htmlFor="exampleCheck1">admin</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="d-flex align-items-center mt-3">
-                                            <span className="mx-3">All</span> | <span className="mx-3">None</span>
-                                            <select className="form-control select-dropdown">
-                                                <option>starts with</option>
-                                                <option>2</option>
-                                            </select>
-                                            <input type="text" className="form-control small-input-box ml-3 w-50"></input>
-                                            <button type="button" className="cl-btn cl-btn-gray white-btn ml-3 mr-3">Filter</button>
-                                            <button type="button" className="cl-btn cl-btn-gray  white-btn">Clear</button>
-                                        </div>
-                                    </td>
-                                     */}
                 </tr>
               </tbody>
             </table>
