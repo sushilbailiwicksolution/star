@@ -2,9 +2,11 @@ import moment from 'moment';
 import { memo, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { reportActions } from '../../action/report.action';
 import { ReportConstants } from '../../Constants/constants';
 import { getAirCraft } from '../../Service';
+import { assetService } from '../../Service/asset.service';
 
 const ReportFilter = (props: any) => {
   const [showFilter, updateShowFilter] = useState(true);
@@ -17,8 +19,10 @@ const ReportFilter = (props: any) => {
   ]);
   const [flightby, setFlightBy] = useState(['By Date', 'Last 20 trips']);
   const [slectedFlightBy, setSlectedFlightBy] = useState('');
-  const [selectedAicraftId, changeSelectedAircraftId] = useState(166);
+  const [selectedAicraftId, changeSelectedAircraftId] = useState();
   const [selectedFlight, setSelectedFlight] = useState('');
+  const [assetsList, setAssetsList] = useState([]);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +30,36 @@ const ReportFilter = (props: any) => {
       type: ReportConstants.SET_SELECTED_ASSET_ID,
       value: selectedAicraftId,
     });
+    onInit();
   }, []);
+
+  const onInit = async () => {
+    await getAssetsList();
+  }
+
+  const getAssetsList = () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let userData = await assetService.getAssetsList();
+        if (userData.status == '200') {
+          let checkListArr = userData.data.results;
+          setAssetsList(checkListArr);
+          if(checkListArr.length > 0){
+            changeSelectedAircraftId(checkListArr[0].name);
+          }
+        }else{
+          setAssetsList([]);
+          changeSelectedAircraftId(undefined);
+        }
+        resolve(true);
+
+      } catch (error: any) {
+        resolve(true);
+        toast.error(error.msg);
+        console.error(error);
+      }
+    });
+  };
 
   useEffect(() => {
     getData();
@@ -37,11 +70,11 @@ const ReportFilter = (props: any) => {
     if (showFilter) {
       try {
         document.getElementById('filter_lane')?.classList.add('my-class');
-      } catch (err1) {}
+      } catch (err1) { }
     } else {
       try {
         document.getElementById('filter_lane')?.classList.remove('my-class');
-      } catch (err2) {}
+      } catch (err2) { }
     }
   };
 
@@ -49,7 +82,7 @@ const ReportFilter = (props: any) => {
     try {
       document.getElementById('filter_lane')?.classList.add('my-class');
       updateShowFilter(false);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   const endDateChange = async (date: any) => {
@@ -99,7 +132,7 @@ const ReportFilter = (props: any) => {
     try {
       document.getElementById('filter_lane')?.classList.add('my-class');
       updateShowFilter(false);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
@@ -137,10 +170,17 @@ const ReportFilter = (props: any) => {
                 }}
                 value={selectedAicraftId}
               >
-                {airCraftsIds.map((aircraft) => {
+                {/* {airCraftsIds.map((aircraft) => {
                   return (
                     <option value={aircraft} key={aircraft}>
                       {aircraft}
+                    </option>
+                  );
+                })} */}
+                {assetsList.map((item: any) => {
+                  return (
+                    <option value={item.id} key={item.id}>
+                      {item.name}
                     </option>
                   );
                 })}

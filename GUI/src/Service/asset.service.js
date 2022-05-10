@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { IP, PORT_8083, APP_SERVICE, ASSETS } from '../Config/siteConfig';
+import { IP, PORT_8083, PORT_3333,APP_SERVICE, ASSETS } from '../Config/siteConfig';
 
 const defaultContentType = 'application/json';
-const apiUrl_assets = IP + PORT_8083 + APP_SERVICE + ASSETS;
+const apiUrl_assets = IP + PORT_3333 + APP_SERVICE + ASSETS;
 
 const headers = { 'Content-Type': defaultContentType };
 

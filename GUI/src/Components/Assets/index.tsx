@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { assetService } from '../../Service/asset.service';
-import { planService } from '../../Service/plan.service';
 import LeftPanel from './LeftPanel';
 
 function Assets(props: any) {
@@ -20,8 +19,7 @@ function Assets(props: any) {
       let response = await assetService.getAssetsList();
       setLoader(false);
       if (response.status == 200) {
-        //setAssetList(response.data);
-        setAssetList(response.data.result);
+        setAssetList(response.data.results);
       }
     } catch (error: any) {
       setLoader(false);

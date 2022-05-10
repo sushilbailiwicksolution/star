@@ -306,23 +306,6 @@ const EngineCondition = (props: any) => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-md-12 table-responsive'>
-                    <div className='card cardbox mt-5'>
-                      <div className='card-body'>
-                        <h4 className='cl-white text-left mb-3'>
-                          Licence File Note
-                        </h4>
-                        <p className='cl-white card-text text-left'>
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content. Lorem ipsum,
-                          dolor sit amet consectetur adipisicing elit. Sit
-                          dolores nam expedita? Minima omnis nihil ea enim aut
-                          sequi tempora dolor ad, sunt at magnam suscipit
-                          veritatis nulla adipisci accusamus?
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

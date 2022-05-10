@@ -98,15 +98,15 @@ export class MapContainer extends Component {
   }
 
   loadMapData = () => {
-    // const { allLastLngs } = this.state;
     let allLastLngs = this.props.mapJson;
-    console.log('allLastLngs', allLastLngs);
     if (allLastLngs.length === 0) {
       this.setState({
         loader: false,
         polylineData: [],
         displayMarkers: [],
         polyLine: null,
+        polyLineArray: [],
+        mapDrawArray: [],
       });
       return false;
     }

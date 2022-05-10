@@ -14,6 +14,7 @@ import { toast } from 'react-toastify';
 import TripList from './TripList';
 import TripReplay from './TripReplay';
 import { RouteSelectedContext } from './RouteSelectedContext';
+import { assetService } from '../../Service/asset.service';
 
 interface FlightReview {
   flightId: any;
@@ -32,7 +33,7 @@ interface selectionInterface {
 }
 
 function Analyze(props: any) {
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const [flights, setFlights] = useState([]);
@@ -43,7 +44,7 @@ function Analyze(props: any) {
   const [airCraftsIds, setAirCraftdIds] = useState([
     161, 162, 163, 164, 165, 166, 167, 168,
   ]);
-  const [selectedAicraftId, changeSelectedAircraftId] = useState(166);
+  const [selectedAicraftId, changeSelectedAircraftId] = useState();
   const [addtoReviewFlights, setAddtoReviewFlights] = useState<FlightReview[]>(
     []
   );
@@ -51,16 +52,44 @@ function Analyze(props: any) {
   const [selectedTripIndex, setSelectedTripIndex] = useState(0);
   const [selectedTripArray, setSelectedTripArray] = useState([]);
   const [mapCenter, setMapCenter] = useState(null);
+  const [assetsList, setAssetsList] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-    }, 300);
+    onInit();
   }, []);
 
   useEffect(() => {
     getData();
   }, [startDate, endDate]);
+
+  const onInit = async () => {
+    setLoader(true);
+    await getAssetsList();
+    setLoader(false);
+  }
+
+  const getAssetsList = () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let userData = await assetService.getAssetsList();
+        if (userData.status == '200') {
+          const checkListArr = userData.data.results;
+          setAssetsList(checkListArr);
+          if(checkListArr.length > 0){
+            changeSelectedAircraftId(checkListArr[0].name);
+          }
+        }else{
+          setAssetsList([]);
+          changeSelectedAircraftId(undefined);
+        }
+        resolve(true);
+      } catch (error: any) {
+        resolve(true);
+        toast.error(error.msg);
+        console.error(error);
+      }
+    });
+  };
 
   const getData = async () => {
     if (startDate && endDate) {
@@ -220,14 +249,22 @@ function Analyze(props: any) {
                         className='form-control'
                         id='select2'
                         onChange={(e: any) => {
+                          console.log('selectedAicraftId',e.target.value)
                           changeSelectedAircraftId(e.target.value);
                         }}
                         value={selectedAicraftId}
                       >
-                        {airCraftsIds.map((aircraft) => {
+                        {/* {airCraftsIds.map((aircraft) => {
                           return (
                             <option value={aircraft} key={aircraft}>
                               {aircraft}
+                            </option>
+                          );
+                        })} */}
+                        {assetsList.map((item:any) => {
+                          return (
+                            <option value={item.name} key={item.id}>
+                              {item.name}
                             </option>
                           );
                         })}
@@ -317,7 +354,7 @@ function Analyze(props: any) {
           </div>
           <div className='col-md-9 my-4'>
             <div className='maparea-container mb-4'>
-              <div className='craftAnalitic-detail d-flex align-items-center justify-content-between p-4'>
+              {/* <div className='craftAnalitic-detail d-flex align-items-center justify-content-between p-4'>
                 <div className='d-flex leftBox-area'>
                   <div className='d-flex align-items-center'>
                     <div className='loader-circle'></div>
@@ -344,7 +381,7 @@ function Analyze(props: any) {
                 <div className='d-flex'>
                   <i className='fas fa-ellipsis-v fa-icon-size'></i>
                 </div>
-              </div>
+              </div> */}
 
               {/* <MapContainers mapJson={airCraftjson} /> */}
               <MapContainers
