@@ -112,6 +112,8 @@ function Analyze(props: any) {
             airCrafts.push(airCraftData[k]);
           }
           setFlights(airCrafts);
+        }else{
+          setFlights([]);
         }
       } catch (err) {
         console.log(err);

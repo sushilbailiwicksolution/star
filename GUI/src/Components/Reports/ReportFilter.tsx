@@ -115,6 +115,8 @@ const ReportFilter = (props: any) => {
             airCrafts.push(airCraftData[k]);
           }
           setFlights(airCrafts);
+        }else{
+          setFlights([]);
         }
       } catch (err) {
         console.log(err);
@@ -179,7 +181,7 @@ const ReportFilter = (props: any) => {
                 })} */}
                 {assetsList.map((item: any) => {
                   return (
-                    <option value={item.id} key={item.id}>
+                    <option value={item.name} key={item.id}>
                       {item.name}
                     </option>
                   );
