@@ -42,13 +42,13 @@ export class AssetController {
         return this.assetService.findById(id);
     }
 
-    @Put(':id')
+    @Put()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Updated asset' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     @ApiResponse({ status: HttpStatus.CREATED, description: 'The asset has been successfully updated.'})
-    public async update(@Param('id') id: number, @Body() data: AssetDto) {
-        return this.assetService.update(id, data);
+    public async update(@Body() data: AssetDto) {
+        return this.assetService.update(data);
     }
 
     @Delete(':id')

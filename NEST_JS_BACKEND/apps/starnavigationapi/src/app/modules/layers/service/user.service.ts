@@ -35,10 +35,10 @@ export class UserService {
         layer.status = StatusEnum.DELETED;
         return this.repository.save(layer);
     }
-    async update(id: number, data: UserDto): Promise<UserEntity> {
+    async update(data: UserDto): Promise<UserEntity> {
+        const id: number = _.result(data,'id',0);
         data = _.omit(data, ['id']);
         let layer = await this.findById(id);
-        this.logger.log(`update: ${JSON.stringify(layer)}`);
         if (layer == null) {
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,

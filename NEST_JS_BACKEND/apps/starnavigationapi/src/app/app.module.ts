@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 import { AppConfigModule } from './config/app/config.module';
 import { LoggerMiddleware } from './middleware/logs.middleware';
 import { LayerModule } from './modules/layers/layer.module';
-import { MysqlDatabaseProviderModule } from './providers/database/mysql/provider.module';
+import { PostgresDatabaseProviderModule } from './providers/database/postgres/provider.module';
 
 @Module({
   imports: [
@@ -14,7 +14,8 @@ import { MysqlDatabaseProviderModule } from './providers/database/mysql/provider
       rootPath: join('/home/star/nestjs', 'client')/*,
       exclude: ['/application-service/secured*']*/
     }),
-    MysqlDatabaseProviderModule,
+    PostgresDatabaseProviderModule,
+    //MysqlDatabaseProviderModule,
     LayerModule,
     AppConfigModule
   ],

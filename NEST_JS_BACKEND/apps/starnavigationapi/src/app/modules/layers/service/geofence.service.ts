@@ -49,8 +49,7 @@ export class GeofenceService {
         .leftJoinAndMapOne('n.notification', NotificationEntity,'notification','n.notification_id  = notification.id')
         .leftJoinAndMapMany('t.vehicles',GeofenceAssetEntity,'a','t.id  = a.geofence_id')
         .leftJoinAndMapOne('a.asset', AssetEntity,'asset','a.asset_id  = asset.id')
-        .where('t.status = :status', {status: StatusEnum.ACTIVE})
-        .andWhere('t.id = :id', {id})
+        .where('t.id = :id', {id})
         .getOne();
         return this.repository.findOne({ id: id, status: StatusEnum.ACTIVE });
     }
@@ -67,9 +66,10 @@ export class GeofenceService {
         .getMany();
     }
     async remove(id: number): Promise<GeofenceEntity> {
-        const layer = await this.findById(id);
-        layer.status = StatusEnum.DELETED;
-        return this.repository.save(layer);
+        console.log('id: ', id);
+        await this.repository.createQueryBuilder('t').update(GeofenceEntity).set({status: StatusEnum.DELETED})
+        .where("id = :id", {id}).execute();
+        return this.findById(id);
     }
     async update(id: number, data: GeofenceDto): Promise<GeofenceEntity> {
         data = _.omit(data, ['id']);

@@ -44,13 +44,13 @@ export class CustomerController {
         return this.customerService.findById(id);
     }
 
-    @Put(':id')
+    @Put()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Updated customer' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     @ApiResponse({ status: HttpStatus.CREATED, description: 'The customer has been successfully updated.'})
-    public async update(@Param('id') id: number, @Body() data: CustomerDto) {
-        return this.customerService.update(id, data);
+    public async update( @Body() data: CustomerDto) {
+        return this.customerService.update(data);
     }
 
     @Delete(':id')

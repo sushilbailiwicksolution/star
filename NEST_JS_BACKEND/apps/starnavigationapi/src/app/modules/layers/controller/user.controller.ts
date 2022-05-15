@@ -51,13 +51,13 @@ export class UserController {
         return this.userService.findByAccountType(accountType);
     }
 
-    @Put(':id')
+    @Put()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Updated user' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     @ApiResponse({ status: HttpStatus.CREATED, description: 'The user has been successfully updated.'})
-    public async update(@Param('id') id: number, @Body() data: UserDto) {
-        return this.userService.update(id, data);
+    public async update(@Body() data: UserDto) {
+        return this.userService.update(data);
     }
 
     @Delete(':id')
