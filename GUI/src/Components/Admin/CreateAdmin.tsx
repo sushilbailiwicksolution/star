@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-// import LeftPanel from './LeftPanel';
+import LeftPanel from '../Assets/LeftPanel';
 
 function CreateAdmin(props: any) {
   const [username, setUserName] = useState('');
@@ -145,7 +145,7 @@ function CreateAdmin(props: any) {
       </div>
       <div className='container-fluid content-body vh-100 pb-5'>
         <div className='row'>
-          {/* <LeftPanel /> */}
+        <LeftPanel props={props} />
           <div className='col-md-9'>
             <div className='row'>
               <div className='col-lg-12'>

@@ -251,8 +251,8 @@ function Analyze(props: any) {
                         className='form-control'
                         id='select2'
                         onChange={(e: any) => {
-                          console.log('selectedAicraftId',e.target.value)
                           changeSelectedAircraftId(e.target.value);
+                          setFlights([])
                         }}
                         value={selectedAicraftId}
                       >

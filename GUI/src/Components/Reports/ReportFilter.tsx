@@ -165,6 +165,7 @@ const ReportFilter = (props: any) => {
                 id='select4'
                 onChange={(e: any) => {
                   changeSelectedAircraftId(e.target.value);
+                  setFlights([]);
                   dispatch({
                     type: ReportConstants.SET_SELECTED_ASSET_ID,
                     value: e.target.value,

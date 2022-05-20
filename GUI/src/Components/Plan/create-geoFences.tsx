@@ -81,7 +81,6 @@ function Editlayer(props: any) {
   };
 
   const updateValues = (data: any) => {
-    console.log('update data', data);
     const updateData = {
       name: data.name,
       severity: data.eventSeverity,
@@ -111,7 +110,7 @@ function Editlayer(props: any) {
             item['isChecked'] = false;
             return item;
           });
-          if (state && state.isEdit) {
+          if (state && state.data) {
             if (state.data.vehicles.length > 0) {
               state.data.vehicles.forEach((user: any) => {
                 let index = checkListArr.findIndex((item: any) => item.id === user.id);
@@ -142,7 +141,7 @@ function Editlayer(props: any) {
             item['isChecked'] = false;
             return item;
           });
-          if (state && state.isEdit) {
+          if (state && state.data) {
             if (state.data.notifications.length > 0) {
               state.data.notifications.forEach((user: any) => {
                 let index = checkListArr.findIndex((item: any) => item.id === user.id);
@@ -241,6 +240,7 @@ function Editlayer(props: any) {
   };
 
   const handleNotificationListCheckboxChange = (id: any) => {
+    if(isReadonly) return false;
     const newCheckboxes: any = [...checkboxNotificationList];
     let index = newCheckboxes.findIndex((item: any) => item.id == id);
     newCheckboxes[index].isChecked = newCheckboxes[index].isChecked
@@ -250,6 +250,7 @@ function Editlayer(props: any) {
   };
 
   const handleAssetsListCheckboxChange = (id: any) => {
+    if(isReadonly) return false;
     const newCheckboxes: any = [...checkboxAssetsList];
     let index = newCheckboxes.findIndex((item: any) => item.id == id);
     newCheckboxes[index].isChecked = newCheckboxes[index].isChecked
@@ -663,7 +664,7 @@ function Editlayer(props: any) {
                                 onChange={() =>
                                   handleAssetsListCheckboxChange(item.id)
                                 }
-                                disabled={isReadonly}
+                              // disabled={isReadonly}
                               ></input>
                               <label
                                 className='form-check-label ml-3'
@@ -719,7 +720,7 @@ function Editlayer(props: any) {
                                 onChange={() =>
                                   handleNotificationListCheckboxChange(item.id)
                                 }
-                                disabled={isReadonly}
+                                // disabled={isReadonly}
                               ></input>
                               <label
                                 className='form-check-label ml-3'
