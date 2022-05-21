@@ -32,6 +32,9 @@ const ReportFilter = (props: any) => {
     });
     onInit();
   }, []);
+  useEffect(() =>{
+    showFilterMenu();
+  },[props])
 
   const onInit = async () => {
     await getAssetsList();
@@ -44,10 +47,10 @@ const ReportFilter = (props: any) => {
         if (userData.status == '200') {
           let checkListArr = userData.data.results;
           setAssetsList(checkListArr);
-          if(checkListArr.length > 0){
+          if (checkListArr.length > 0) {
             changeSelectedAircraftId(checkListArr[0].name);
           }
-        }else{
+        } else {
           setAssetsList([]);
           changeSelectedAircraftId(undefined);
         }
@@ -77,6 +80,11 @@ const ReportFilter = (props: any) => {
       } catch (err2) { }
     }
   };
+
+  const showFilterMenu = () => {
+    updateShowFilter(true);
+    document.getElementById('filter_lane')?.classList.remove('my-class');
+  }
 
   const hideFilter = () => {
     try {
@@ -115,7 +123,7 @@ const ReportFilter = (props: any) => {
             airCrafts.push(airCraftData[k]);
           }
           setFlights(airCrafts);
-        }else{
+        } else {
           setFlights([]);
         }
       } catch (err) {
@@ -166,6 +174,8 @@ const ReportFilter = (props: any) => {
                 onChange={(e: any) => {
                   changeSelectedAircraftId(e.target.value);
                   setFlights([]);
+                  setStartDate(undefined);
+                  setEndDate(undefined);
                   dispatch({
                     type: ReportConstants.SET_SELECTED_ASSET_ID,
                     value: e.target.value,

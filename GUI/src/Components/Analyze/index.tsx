@@ -75,10 +75,10 @@ function Analyze(props: any) {
         if (userData.status == '200') {
           const checkListArr = userData.data.results;
           setAssetsList(checkListArr);
-          if(checkListArr.length > 0){
+          if (checkListArr.length > 0) {
             changeSelectedAircraftId(checkListArr[0].name);
           }
-        }else{
+        } else {
           setAssetsList([]);
           changeSelectedAircraftId(undefined);
         }
@@ -112,7 +112,7 @@ function Analyze(props: any) {
             airCrafts.push(airCraftData[k]);
           }
           setFlights(airCrafts);
-        }else{
+        } else {
           setFlights([]);
         }
       } catch (err) {
@@ -253,6 +253,8 @@ function Analyze(props: any) {
                         onChange={(e: any) => {
                           changeSelectedAircraftId(e.target.value);
                           setFlights([])
+                          setStartDate(undefined);
+                          setEndDate(undefined);
                         }}
                         value={selectedAicraftId}
                       >
@@ -263,7 +265,7 @@ function Analyze(props: any) {
                             </option>
                           );
                         })} */}
-                        {assetsList.map((item:any) => {
+                        {assetsList.map((item: any) => {
                           return (
                             <option value={item.name} key={item.id}>
                               {item.name}
