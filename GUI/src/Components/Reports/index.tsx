@@ -51,7 +51,6 @@ function Reports(props: any) {
   }, [reportResponse.activeReport]);
 
   const getReports = (flightId: any) => {
-    console.log('activeReport', activeReport);
     if (activeReport == reports.engAndMaintainance) {
       dispatch(reportActions.getReportEngineMaintainance(flightId));
     }
@@ -86,6 +85,7 @@ function Reports(props: any) {
           <ReportFilter
             setLoader={setLoader}
             getReports={getReports}
+            activeReport={reportResponse.activeReport.length > 1 ? reportResponse.activeReport : defaultActiveReport}
           ></ReportFilter>
           <Switch>
             <Route exact path={path}>

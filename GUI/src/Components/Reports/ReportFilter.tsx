@@ -34,7 +34,7 @@ const ReportFilter = (props: any) => {
   }, []);
   useEffect(() =>{
     showFilterMenu();
-  },[props])
+  },[props.activeReport])
 
   const onInit = async () => {
     await getAssetsList();
