@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { resolve } from 'dns';
+// import { resolve } from 'dns';
 import { API_URL, GOOGLE_API_KEY } from '../Config/siteConfig';
 const defaultContentType = 'application/json';
 
 export const getAirCraft = (startDate, endDate, airCraftId) => {
-  console.log(startDate, endDate);
   return new Promise((resolve, reject) => {
     // http://103.10.234.248:8081/getLatestNFlights/{assetId}/{last_20_records}
     // http://103.10.234.248:8081/getFlightsForAsset/166/04-02-2020 22|04-02-2020 23

@@ -22,7 +22,7 @@ function Users(props: any) {
       setLoader(false);
       if (response.status == 200) {
         //setUserList(response.data);
-        setUserList(response.data.result);
+        setUserList(response.data.results);
       }
     } catch (error: any) {
       setLoader(false);

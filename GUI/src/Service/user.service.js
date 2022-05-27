@@ -1,8 +1,14 @@
 import axios from 'axios';
-import { IP, PORT_8083, APP_SERVICE, USERS } from '../Config/siteConfig';
+import {
+  IP,
+  PORT_8083,
+  PORT_3333,
+  APP_SERVICE,
+  USERS
+} from '../Config/siteConfig';
 
 const defaultContentType = 'application/json';
-const apiUrl = IP + PORT_8083 + APP_SERVICE + USERS;
+const apiUrl = IP + PORT_3333 + APP_SERVICE + USERS;
 
 const headers = { 'Content-Type': defaultContentType };
 
@@ -63,7 +69,7 @@ export const deleteUser = (UserId) => {
           let obj = {
             status: 200,
             data: resultData,
-            msg: 'Deleted Successfully',
+            msg: 'Deleted Successfully'
           };
           return resolve(obj);
           //return resolve(resultData);
@@ -83,7 +89,7 @@ export const updateUser = (requestParams) => {
   return new Promise((resolve, reject) => {
     axios
       .put(apiUrl, JSON.stringify(requestParams), {
-        headers,
+        headers
       })
       .then((results) => {
         const resultData = results && results.data ? results.data : false;
@@ -91,7 +97,7 @@ export const updateUser = (requestParams) => {
           let obj = {
             status: 200,
             data: resultData,
-            msg: 'Updated Successfully',
+            msg: 'Updated Successfully'
           };
           return resolve(obj);
         } else {
@@ -109,5 +115,5 @@ export const userService = {
   createUser,
   getUsersList,
   deleteUser,
-  updateUser,
+  updateUser
 };

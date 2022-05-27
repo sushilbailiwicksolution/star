@@ -5,6 +5,7 @@
 @import "../scss/location.scss";
 @import "../scss/report.scss";
 @import "../scss/color.scss";
+@import "../scss/chart.scss";
 html {
     font-size: 62.5%;
 }
@@ -654,6 +655,17 @@ button:active:after {
     h2 {
         margin: 0;
     }
+}
+
+.graph-container {
+    border: 1px solid #3498db;
+    position: absolute;
+    left: 5rem;
+    bottom: 5rem;
+    width: 90rem;
+    justify-content: space-around;
+    z-index: 2;
+    background: white;
 }
 
 input[type="text"] {
@@ -1321,4 +1333,12 @@ select.form-control.head-dropdown {
     height: 39px !important;
     font-size: 1.6rem;
     padding: 0;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.ft-xl {
+    font-size: 32px;
 }

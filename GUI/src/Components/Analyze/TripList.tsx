@@ -2,15 +2,21 @@
 import React, { memo } from 'react';
 import FlightRoute from './FlightRoute';
 import zoomIcon from '../../Assets/images/zoom_icon.png';
+import ChartIcon from '../../Assets/images/ChartIcon.png';
+
 
 const TripList = (props: any) => {
-  const { flightData, deleteFlightRoutes, updateMapCenter } = props;
+  const { flightData, deleteFlightRoutes, updateMapCenter, addGraph } = props;
   const departureTime = flightData.data[0].date_time;
   let lastIndex = flightData.data.length - 1;
   const arrivalTime = flightData.data[lastIndex].date_time;
   const deleteItem = () => {
     deleteFlightRoutes(flightData.flightId);
   };
+
+  const addGraphItem = () =>{
+    addGraph(flightData.flightId)
+  }
 
   let len = flightData.data.length;
   len = Math.floor(len / 2);
@@ -29,11 +35,18 @@ const TripList = (props: any) => {
         </div>
         <div className='d-flex align-items-center'>
           <h1 className='my-3'>{flightData.flightNumber}</h1>
-          <img
-            className='mg-l-auto icon-20 cursor-pointer'
-            src={zoomIcon}
-            onClick={updateCenter}
-          ></img>
+          <div className='mg-l-auto '>
+            <img
+              className='icon-20 cursor-pointer'
+              src={ChartIcon}
+              onClick={addGraphItem}
+            ></img>
+            <img
+              className='icon-20 cursor-pointer'
+              src={zoomIcon}
+              onClick={updateCenter}
+            ></img>
+          </div>
         </div>
 
         <div className='d-flex'>

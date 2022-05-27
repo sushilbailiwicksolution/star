@@ -4,7 +4,7 @@ import {
   GoogleApiWrapper,
   Marker,
   InfoWindow,
-  Polyline,
+  Polyline
 } from 'google-maps-react';
 const CSVData = require('../../store/csvjson_1.json');
 const mapStyle = [
@@ -13,10 +13,10 @@ const mapStyle = [
     elementType: 'geometry.fill',
     stylers: [
       {
-        color: '#dceafa',
-      },
-    ],
-  },
+        color: '#dceafa'
+      }
+    ]
+  }
 ];
 
 export class MapContainer extends Component {
@@ -47,7 +47,7 @@ export class MapContainer extends Component {
         strokeWeight: 2,
         strokeOpacity: 1,
         strokeColor: '#1dc1ec',
-        geodesic: true,
+        geodesic: true
       },
       allStores: [],
       polyLine: (
@@ -57,13 +57,13 @@ export class MapContainer extends Component {
             strokeWeight: 2,
             strokeOpacity: 1,
             strokeColor: '#1dc1ec',
-            geodesic: true,
+            geodesic: true
           }}
         />
       ),
       polyLineArray: [],
       mapDrawArray: [],
-      selectedMarker: null,
+      selectedMarker: null
     };
   }
 
@@ -83,15 +83,16 @@ export class MapContainer extends Component {
     }
   }
 
-  getPolyline(polyLineData) {
+  getPolyline(polyLineData, flightId) {
     return (
       <Polyline
+        key={flightId}
         path={polyLineData}
         options={{
           strokeWeight: 2,
           strokeOpacity: 1,
           strokeColor: '#1dc1ec',
-          geodesic: true,
+          geodesic: true
         }}
       />
     );
@@ -106,7 +107,7 @@ export class MapContainer extends Component {
         displayMarkers: [],
         polyLine: null,
         polyLineArray: [],
-        mapDrawArray: [],
+        mapDrawArray: []
       });
       return false;
     }
@@ -114,8 +115,8 @@ export class MapContainer extends Component {
     this.setState({
       initialCenter: {
         lat: allLastLngs[allLastLngs.length - 1].data[0].gps_lat,
-        lng: allLastLngs[allLastLngs.length - 1].data[0].gps_long,
-      },
+        lng: allLastLngs[allLastLngs.length - 1].data[0].gps_long
+      }
     });
 
     let allStores = [];
@@ -127,7 +128,7 @@ export class MapContainer extends Component {
     this.setState({
       loader: true,
       polylineData: [],
-      displayMarkers: [],
+      displayMarkers: []
     });
     let mapArr = [];
     allLastLngs.forEach((item) => {
@@ -153,7 +154,7 @@ export class MapContainer extends Component {
 
           let position = {
             lat: Latitude,
-            lng: Longitude,
+            lng: Longitude
           };
           return this._getMarker(
             uniqueKey,
@@ -171,10 +172,10 @@ export class MapContainer extends Component {
       });
       let obj = {
         flightId: flightId,
-        markers: displayMarkers,
+        markers: displayMarkers
       };
       mapArr.push(obj);
-      polyArray.push(this.getPolyline(polyData));
+      polyArray.push(this.getPolyline(polyData, flightId));
     });
 
     this.setState(
@@ -187,7 +188,7 @@ export class MapContainer extends Component {
         // },
         initialCenter: {
           lat: allLastLngs[allLastLngs.length - 1].data[0].gps_lat,
-          lng: allLastLngs[allLastLngs.length - 1].data[0].gps_long,
+          lng: allLastLngs[allLastLngs.length - 1].data[0].gps_long
         },
         polyLine: (
           <Polyline
@@ -196,17 +197,17 @@ export class MapContainer extends Component {
               strokeWeight: 2,
               strokeOpacity: 1,
               strokeColor: '#1dc1ec',
-              geodesic: true,
+              geodesic: true
             }}
           />
         ),
         polyLineArray: polyArray,
-        mapDrawArray: mapArr,
+        mapDrawArray: mapArr
       },
       () => {
         setTimeout(() => {
           this.setState({
-            loader: false,
+            loader: false
           });
         }, 3000);
       }
@@ -214,20 +215,19 @@ export class MapContainer extends Component {
   };
 
   changeMapCenter = () => {
-    console.log('mapCenterValue', this.props.mapCenter);
     this.setState(
       {
         loader: true,
         zoom: 6,
         initialCenter: {
           lat: this.props.mapCenter.gps_lat,
-          lng: this.props.mapCenter.gps_long,
-        },
+          lng: this.props.mapCenter.gps_long
+        }
       },
       () => {
         setTimeout(() => {
           this.setState({
-            loader: false,
+            loader: false
           });
         }, 0);
       }
@@ -238,7 +238,7 @@ export class MapContainer extends Component {
     this.setState({
       activeMarker: marker,
       selectedPlace: props,
-      showingInfoWindow: true,
+      showingInfoWindow: true
     });
   };
 
@@ -334,7 +334,7 @@ export class MapContainer extends Component {
     this.setState({
       activeMarker: {},
       selectedPlace: {},
-      showingInfoWindow: false,
+      showingInfoWindow: false
     });
   };
 
@@ -375,17 +375,17 @@ export class MapContainer extends Component {
           position={{
             lat: CSVData[0].Latitude,
             lng: CSVData[0].Longitude,
-            zoom: 7,
+            zoom: 7
           }}
           onClick={this.showInfoWindow}
         />
-      ),
+      )
     });
   }
 
   _mapLoaded(mapProps, map) {
     map.setOptions({
-      mapTypeId: 'terrain',
+      mapTypeId: 'terrain'
     });
   }
 
@@ -413,10 +413,10 @@ export class MapContainer extends Component {
               strokeWeight: 2,
               strokeOpacity: 1,
               strokeColor: '#1dc1ec',
-              geodesic: true,
+              geodesic: true
             }}
           />
-        ),
+        )
       });
     }
   }
@@ -456,10 +456,10 @@ export class MapContainer extends Component {
               strokeWeight: 2,
               strokeOpacity: 1,
               strokeColor: '#1dc1ec',
-              geodesic: true,
+              geodesic: true
             }}
           />
-        ),
+        )
       });
     }
   }
@@ -474,7 +474,7 @@ export class MapContainer extends Component {
       scale: scale,
       strokeColor: '#0b85ef',
       strokeOpacity: 1,
-      anchor: { x: 12, y: 0 },
+      anchor: { x: 12, y: 0 }
     };
   }
   _getMarker(uniqueKey, flightId, index, position, icon, data, rotation) {
@@ -512,7 +512,7 @@ export class MapContainer extends Component {
             height:
               this.props.mapHeight && this.props.mapHeight > 0
                 ? this.props.mapHeight
-                : '100%',
+                : '100%'
           }}
           onClick={(t, map, c) => this.addMarker(c.latLng, map)}
           google={this.props.google}
@@ -539,7 +539,7 @@ export class MapContainer extends Component {
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
             style={{
-              background: '#000000',
+              background: '#000000'
             }}
           >
             <div>
@@ -551,7 +551,7 @@ export class MapContainer extends Component {
                   height: '58px',
                   fontSize: '17px',
                   padding: '0px',
-                  fontWeight: '600',
+                  fontWeight: '600'
                 }}
               >
                 <li>
@@ -582,5 +582,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8',
+  apiKey: 'AIzaSyC9gF0NXH_KTIccE1w1a2_BpLqW0KuECb8'
 })(MapContainer);

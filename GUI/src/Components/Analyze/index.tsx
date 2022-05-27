@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, memo } from 'react';
 import MapContainers from './map';
 import {
   getAirCraft,
@@ -15,6 +15,7 @@ import TripList from './TripList';
 import TripReplay from './TripReplay';
 import { RouteSelectedContext } from './RouteSelectedContext';
 import { assetService } from '../../Service/asset.service';
+import LineChart from './LineChart';
 
 interface FlightReview {
   flightId: any;
@@ -53,6 +54,8 @@ function Analyze(props: any) {
   const [selectedTripArray, setSelectedTripArray] = useState([]);
   const [mapCenter, setMapCenter] = useState(null);
   const [assetsList, setAssetsList] = useState([]);
+  const [showGraph, setShowGraph] = useState(false);
+  const [graphData, setgraphData] = useState([]);
 
   useEffect(() => {
     onInit();
@@ -146,6 +149,14 @@ function Analyze(props: any) {
       setSelectedTripReplayFlight(filteredArray[0].flightId);
     }
   };
+
+  const addGraph = (flightId: any) => {
+    let filteredArray = addtoReviewFlights.filter(
+      (item) => item.flightId == flightId
+    );
+    setgraphData(filteredArray[0].data);
+    setShowGraph(true);
+  }
 
   const updateMapCenter = (latLong: any) => {
     setMapCenter(latLong);
@@ -333,6 +344,7 @@ function Analyze(props: any) {
               </div>
               {addtoReviewFlights.map((item, index) => (
                 <RouteSelectedContext.Provider
+                  key={`${index}${item.flightId}`}
                   value={{
                     onClickedRouteItem,
                     selectedTripIndex,
@@ -344,6 +356,7 @@ function Analyze(props: any) {
                     flightData={item}
                     deleteFlightRoutes={deleteFlightRoutes}
                     updateMapCenter={updateMapCenter}
+                    addGraph={addGraph}
                   />
                 </RouteSelectedContext.Provider>
               ))}
@@ -395,11 +408,13 @@ function Analyze(props: any) {
                 selectedTripReplayFlight={selectedTripReplayFlight}
                 mapCenter={mapCenter}
               />
-              {/* <div className="addArea-name cl-white">
-                            <h2 className="mb-3">Add Name of the Area</h2>
-                            <input type="text" className="form-control mb-3" ></input>
-                            <button type="button" className="btn btn-primary">Add Name</button>
-                        </div> */}
+
+              {showGraph ? <div className='graph-container p-4'>
+                <div className='text-end'>
+                  <span className='ft-xl cursor-pointer' onClick={() => { setShowGraph(false);setgraphData([]) }}>x</span>
+                </div>
+                <LineChart data={graphData} />
+              </div> : null}
             </div>
 
             <div className='charting-window p-4 cl-white'>
@@ -437,4 +452,4 @@ function Analyze(props: any) {
   );
 }
 
-export default Analyze;
+export default memo(Analyze);

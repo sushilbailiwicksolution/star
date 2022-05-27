@@ -82,6 +82,7 @@ function CreateUsers(props: any) {
       requestParams.accountType = 'USER';
       requestParams.customerId = 0;
       requestParams.username = username;
+      requestParams.createdBy = username;
       createUser(requestParams);
     }
   };
@@ -93,6 +94,7 @@ function CreateUsers(props: any) {
       requestParams.accountType = 'USER';
       requestParams.customerId = 0;
       requestParams.username = username;
+      requestParams.createdBy = username;
       requestParams.id = userId;
       updateUser(requestParams);
     }

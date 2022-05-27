@@ -116,6 +116,7 @@ function CreateCustomer(props: any) {
       requestParams.customerId = 0;
       requestParams.username = username;
       requestParams.name = requestParams.customerName;
+      requestParams.createdBy = username;
       createCustomer(requestParams);
     }
   };
@@ -128,6 +129,7 @@ function CreateCustomer(props: any) {
       requestParams.customerId = 0;
       requestParams.username = username;
       requestParams.id = userId;
+      requestParams.createdBy = username;
       updateCustomer(requestParams);
     }
   };
