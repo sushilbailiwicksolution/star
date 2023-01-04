@@ -21,6 +21,10 @@ export class EventDetailsEntity extends ExtendEntity {
     @Column("decimal", { precision: 6, scale: 2 })
     gpsLatitude?: number;
     @Column("decimal", { precision: 6, scale: 2 })
+    fuel?:number;
+    airSpeed?:string;
+    groundSpeed?:string;
+    flightId?:string;
     gpsLongitude?: number;
     altitude?: string;
     speed?: string;

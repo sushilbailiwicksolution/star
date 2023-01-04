@@ -15,6 +15,41 @@ export class EventDetailDto {
     * Describes all the fields of EventDetails for API 
 
      */
+
+    //newly added flightDetails
+
+    @Expose()
+    @ApiProperty({
+        description: 'fuel'
+    })
+    @IsNumber()
+    fuel?: number;
+
+    @IsString()
+    @Expose()
+    @ApiProperty({
+        description: 'ground speed'
+    })
+    @IsNotEmpty()
+    groundSpeed?: string;
+    
+    @IsString()
+    @Expose()
+    @ApiProperty({
+        description: 'air speed'
+    })
+    @IsNotEmpty()
+    airSpeed?: string;
+    
+    @IsString()
+    @Expose()
+    @ApiProperty({
+        description: 'flight id'
+    })
+    @IsNotEmpty()
+    flightId?: string;
+    
+
     @IsString()
     @Expose()
     @ApiProperty({
