@@ -1,6 +1,14 @@
 import { BaseEntity, Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { StatusEnum } from "../../../enum/status.enum";
 
+
+/**
+ * This is Extended  entity
+ * Contains Extended fields . It supports other entities
+ * 
+ * @ignore
+ */
+
 export class ExtendEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
     id?: number;

@@ -8,16 +8,31 @@ import { CustomerDto } from "../dto/customer.dto";
 import { LandmarkEntity } from "../entity/landmark.entity";
 import { CustomerService } from "../service/customer.service";
 
+
+/**
+ * Handles api requests related to customers 
+ */
+
 @Controller({
     version: ['1'],
     path: 'customers'
 })
 @ApiTags('customer-controller')
 @UseInterceptors(ResTransformInterceptor)
+
 export class CustomerController {
     private readonly logger = new Logger(CustomerController.name);
+    /**
+     * Constructor for customer controller 
+     * @param customerService 
+     */
     constructor(private customerService: CustomerService) { }
 
+    /**
+     * Handles api request for customer creation 
+     * @param data 
+     * @returns 
+     */
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @UseInterceptors(new TransformInterceptor(CustomerDto))
@@ -28,6 +43,10 @@ export class CustomerController {
         return this.customerService.create(data);
     }
 
+    /**
+     * Hanldes api request for finding all the customer
+     * @returns 
+     */
     @Get()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Find all customer' })
@@ -36,6 +55,11 @@ export class CustomerController {
         return this.customerService.findAll();
     }
 
+    /**
+     * Find a customer based on id 
+     * @param id 
+     * @returns 
+     */
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Find customer by id' })
@@ -44,6 +68,11 @@ export class CustomerController {
         return this.customerService.findById(id);
     }
 
+    /**
+     * Handles api request for updating customer details 
+     * @param data 
+     * @returns 
+     */
     @Put()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Updated customer' })
@@ -53,6 +82,11 @@ export class CustomerController {
         return this.customerService.update(data);
     }
 
+    /**
+     * Handles api request for customer delete request 
+     * @param id 
+     * @returns 
+     */
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Delete customer by id' })
@@ -61,6 +95,11 @@ export class CustomerController {
         return this.customerService.remove(id);
     }
 
+    /** customer list by pagination 
+     * Find 
+     * @param state 
+     * @returns 
+     */
     @Post('paginate')
     @ApiOperation({ summary: 'Find customer list by pagination' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })

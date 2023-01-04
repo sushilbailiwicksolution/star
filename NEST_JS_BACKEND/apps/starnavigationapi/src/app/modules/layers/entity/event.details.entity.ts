@@ -3,6 +3,12 @@ import { PacketTypeEnum } from '../../../enum/packet.type.enum';
 import { EventParamDetailsEntity } from './event.param.details.entity';
 import { ExtendEntity } from './extend.entity';
 
+
+/**
+ * This is event_details entity
+ * Contains event_details fields 
+ */
+
 @Entity({name: "event_details"})
 export class EventDetailsEntity extends ExtendEntity {
     @Column({length: 100, nullable: false})

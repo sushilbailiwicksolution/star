@@ -3,12 +3,18 @@ import { Column, Entity } from 'typeorm';
 import { UserTypeEnum } from '../../../enum/user.type.enum';
 import { ExtendEntity } from './extend.entity';
 
+
+/**
+ * This is users entity
+ * Contains users fields and creates column based on these fields into database
+ */
+
 @Entity({name: "users"})
 export class UserEntity extends ExtendEntity {
     @Column({length: 100, nullable: false})
     username?: string;
     @Column({length: 100, nullable: false})
-    firstname?: string;
+    password?: string;
     @Column({length: 100, nullable: true})
     lastname?: string;
     @Column({ type: "enum", enum: UserTypeEnum, default: UserTypeEnum.USER })

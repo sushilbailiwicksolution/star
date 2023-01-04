@@ -6,6 +6,12 @@ import { NotificationEmailEntity } from './notification.email.entity';
 import { NotificationTemplateEntity } from './notification.template.entity';
 import { NotificationUserEntity } from './notification.user.entity';
 
+
+/**
+ * This is npotification  entity
+ * Contains notification fields and creates notification in database
+ */
+
 @Entity({ name: "notification" })
 export class NotificationEntity extends ExtendEntity {
     @Column({ length: 64, nullable: false })

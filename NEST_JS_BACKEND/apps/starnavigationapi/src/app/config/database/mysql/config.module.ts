@@ -22,6 +22,10 @@ import { MySqlConfigService } from './configuration.service';
     providers: [ConfigService, MySqlConfigService],
     exports: [ConfigService, MySqlConfigService]
 })
+
+/**
+ * This class is for mysql database connectivity 
+ */
 export class MySqlConfigModule {
 
 }

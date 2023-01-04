@@ -1,6 +1,12 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { GeofenceEntity } from './geofence.entity';
 
+
+/**
+ * This is Geofence Notification entity
+ * Contains Geofence Notification field creates new geofence Notification
+ */
+
 @Entity({ name: "geofence_notifications" })
 export class GeofenceNotificationEntity {
     @PrimaryGeneratedColumn()

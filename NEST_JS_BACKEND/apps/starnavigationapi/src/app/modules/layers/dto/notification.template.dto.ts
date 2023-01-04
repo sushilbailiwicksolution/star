@@ -2,6 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsString } from 'class-validator';
 
+
+/**
+ * This is NotificationTemplateDto class
+ * 
+ * Describes all the fields of Notification Template for API 
+ * @ignore
+ */
 export class NotificationTemplateDto {
     @Expose()
     id?: number;

@@ -9,11 +9,11 @@ import { PostgresSqlConfigService } from './configuration.service';
         ConfigModule.forRoot({
             load: [configuration],
             validationSchema: Joi.object({
-                POSTGRES_HOST: Joi.string().default('localhost'),
-                POSTGRES_PORT: Joi.number().default('3306'),
-                POSTGRES_USERNAME: Joi.string().default('root'),
-                POSTGRES_PASSWORD: Joi.string().default(''),
-                POSTGRES_DBNAME: Joi.string().default('star_s'),
+                POSTGRES_HOST: Joi.string().default('103.10.234.158'),
+                POSTGRES_PORT: Joi.number().default('5432'),
+                POSTGRES_USERNAME: Joi.string().default('star'),
+                POSTGRES_PASSWORD: Joi.string().default('Admin@123'),
+                POSTGRES_DBNAME: Joi.string().default('starapi'),
                 DB_SYNCHRONIZE: Joi.boolean().default(true),
                 DB_LOGGING: Joi.boolean().default(true),
             })
@@ -22,6 +22,10 @@ import { PostgresSqlConfigService } from './configuration.service';
     providers: [ConfigService, PostgresSqlConfigService],
     exports: [ConfigService, PostgresSqlConfigService]
 })
+
+/**
+ * This class config connectivity to postgres database 
+ */
 export class PostgresSQLConfigModule {
 
 }

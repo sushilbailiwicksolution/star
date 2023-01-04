@@ -2,6 +2,12 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
 import { IsString, IsInt } from 'class-validator';
 
+
+/**
+ * This is CreateLayer class
+ * @ignore
+ * Describes all the fields of LayerCreate for API 
+ */
 export class LayerCreateDto {
     @Expose()
     id?: number;

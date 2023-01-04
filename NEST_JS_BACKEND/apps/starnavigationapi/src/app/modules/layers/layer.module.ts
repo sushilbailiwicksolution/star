@@ -43,6 +43,10 @@ import { NotificationService } from './service/notification.service';
 import { NotificationTemplateService } from './service/notification.template.service';
 import { UserService } from './service/user.service';
 
+/**
+ * @ignore
+ */
+
 @Module({
     imports: [
         TypeOrmModule.forFeature([

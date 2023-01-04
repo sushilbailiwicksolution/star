@@ -2,6 +2,12 @@ import { CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGener
 import { NotificationEntity } from './notification.entity';
 import { UserEntity } from './user.entity';
 
+
+/**
+ * This Notification entity
+ * Contains notification fields and creates notification in database 
+ */
+
 @Entity({ name: "notification_users" })
 export class NotificationUserEntity {
     @PrimaryGeneratedColumn()

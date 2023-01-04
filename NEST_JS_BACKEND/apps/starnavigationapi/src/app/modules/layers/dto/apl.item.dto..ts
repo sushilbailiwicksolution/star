@@ -3,6 +3,12 @@ import { Expose } from "class-transformer";
 import { IsBoolean, IsNotEmpty, IsNumber, IsString } from "class-validator";
 import { UserTypeEnum } from "../../../enum/user.type.enum";
 
+
+/**
+ * This is AplItems class
+ * @ignore
+ * Describes all the fields of APlItems for API 
+ */
 export class AplItemDto {
     @Expose()
     @ApiProperty({

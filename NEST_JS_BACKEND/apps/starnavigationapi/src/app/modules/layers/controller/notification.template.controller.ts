@@ -8,17 +8,29 @@ import { TransformInterceptor } from "../../../interceptors/transform.intercepto
 import { NotificationTemplateDto } from "../dto/notification.template.dto";
 import { NotificationTemplateEntity } from "../entity/notification.template.entity";
 import { NotificationTemplateService } from "../service/notification.template.service";
-
+/**
+ * This handles API requests related to NotificationTemplateController.
+ */
 @Controller({
     version: ['1'],
     path: 'notification-template'
 })
 @ApiTags('notification-template-controller')
 @UseInterceptors(ResTransformInterceptor)
+
 export class NotificationTemplateController {
     private readonly logger = new Logger(NotificationTemplateController.name);
+    /**
+     * Constructor for notification template controller 
+     * @param layerService 
+     */
     constructor(private layerService: NotificationTemplateService) { }
 
+    /**
+     * Create notification template
+     * @param data 
+     * @returns 
+     */
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Create notification template' })
@@ -28,6 +40,10 @@ export class NotificationTemplateController {
         return this.layerService.create(data);
     }
 
+    /**
+     * Find all the notification template
+     * @returns 
+     */
     @Get()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Fin all notification template' })
@@ -36,6 +52,11 @@ export class NotificationTemplateController {
         return this.layerService.findAll();
     }
 
+    /**
+     * Find notification based on template id 
+     * @param id 
+     * @returns 
+     */
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Find notification template by id' })
@@ -44,6 +65,12 @@ export class NotificationTemplateController {
         return this.layerService.findById(id);
     }
 
+    /**
+     * Updated notification template
+     * @param id 
+     * @param data 
+     * @returns 
+     */
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Updated notification template' })
@@ -53,14 +80,24 @@ export class NotificationTemplateController {
         return this.layerService.update(id, data);
     }
 
+    /**
+     * Delete Notification by id
+     * @param id 
+     * @returns 
+     */
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
-    @ApiOperation({ summary: 'Delete layer by id' })
+    @ApiOperation({ summary: 'Delete notification by id' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     public async remove(@Param('id') id: number): Promise<NotificationTemplateDto> {
         return this.layerService.remove(id);
     }
 
+    /**
+     * Find notification template list by pagination
+     * @param state 
+     * @returns 
+     */
     @Post('paginate')
     @ApiOperation({ summary: 'Find notification template list by pagination' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })

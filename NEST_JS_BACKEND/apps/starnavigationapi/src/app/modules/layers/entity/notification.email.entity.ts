@@ -1,6 +1,12 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { NotificationEntity } from './notification.entity';
 
+
+/**
+ * This is notification email  entity
+ * Contains notification email fields 
+ */
+
 @Entity({name: "notification_emails"})
 export class NotificationEmailEntity {
     @PrimaryGeneratedColumn()

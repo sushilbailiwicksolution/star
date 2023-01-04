@@ -2,6 +2,12 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { ExtendEntity } from './extend.entity';
 import { FlighPlanEntity } from './flight.plan.entity';
 
+
+/**
+ * This is FlightLocation entity
+ * Contains FlightLocation fields.  Creates new flight in database. 
+ */
+
 @Entity({name: "fligh_location"})
 export class FlighLocationEntity extends ExtendEntity {
     sequence?: number;

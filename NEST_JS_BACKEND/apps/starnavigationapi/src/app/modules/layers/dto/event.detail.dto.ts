@@ -4,7 +4,17 @@ import { IsDateString, IsDefined, IsNotEmpty, IsNotEmptyObject, IsNumber, IsObje
 import { PacketTypeEnum } from "../../../enum/packet.type.enum";
 import { EventParamDetailDto } from "./event.param.detail.dto";
 
+
+/**
+ * This is EventDetails class
+ * 
+ * @ignore
+ */
 export class EventDetailDto {
+    /**
+    * Describes all the fields of EventDetails for API 
+
+     */
     @IsString()
     @Expose()
     @ApiProperty({

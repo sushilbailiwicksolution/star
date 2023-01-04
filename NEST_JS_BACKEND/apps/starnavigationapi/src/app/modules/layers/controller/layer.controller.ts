@@ -8,6 +8,10 @@ import { LayerCreateDto } from "../dto/layer.create.dto";
 import { LayerEntity } from "../entity/layer.entity";
 import { LayerService } from "../service/layer.service";
 
+
+/**
+ * This is LayerController class. handles API request related to Layer
+ */
 @Controller({
     version: ['1'],
     path: 'layers'
@@ -16,8 +20,18 @@ import { LayerService } from "../service/layer.service";
 @UseInterceptors(ResTransformInterceptor)
 export class LayerController {
     private readonly logger = new Logger(LayerController.name);
+    /**
+     * Constructor for layer services 
+     * @param layerService 
+     * 
+     */
     constructor(private layerService: LayerService) { }
 
+    /**
+     * This handles layer creation
+     * @param data 
+     * @returns 
+     */
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Create Layer' })
@@ -27,6 +41,10 @@ export class LayerController {
         return this.layerService.create(data);
     }
 
+    /**
+     * Handles find all the layer rquest
+     * @returns 
+     */
     @Get()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Fin all layers' })
@@ -34,6 +52,12 @@ export class LayerController {
     public async findAll() {
         return this.layerService.findAll();
     }
+
+    /**
+     * Find layer by id 
+     * @param id 
+     * @returns 
+     */
 
     @Get(':id')
     @HttpCode(HttpStatus.OK)
@@ -43,6 +67,12 @@ export class LayerController {
         return this.layerService.findById(id);
     }
 
+    /**
+     * Update a layer
+     * @param id 
+     * @param data 
+     * @returns 
+     */
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Updated Layer' })
@@ -52,6 +82,11 @@ export class LayerController {
         return this.layerService.update(id, data);
     }
 
+    /**
+     * Handles layer deletion 
+     * @param id 
+     * @returns 
+     */
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Delete layer by id' })
@@ -60,6 +95,11 @@ export class LayerController {
         return this.layerService.remove(id);
     }
 
+    /**
+     * Find layer list  by pagination 
+     * @param state 
+     * @returns 
+     */
     @Post('paginate')
     @ApiOperation({ summary: 'Find layer list by pagination' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })

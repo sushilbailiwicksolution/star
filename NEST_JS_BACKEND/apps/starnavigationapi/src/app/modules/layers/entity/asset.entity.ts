@@ -1,6 +1,11 @@
 import { Column, Entity } from 'typeorm';
 import { ExtendEntity } from './extend.entity';
 
+/**
+ * This is asset entity
+ * Contains asset fields . Creates asset table in database with respective fields
+ */
+
 @Entity({ name: "asset" })
 export class AssetEntity extends ExtendEntity {
     @Column({ length: 100, nullable: false })

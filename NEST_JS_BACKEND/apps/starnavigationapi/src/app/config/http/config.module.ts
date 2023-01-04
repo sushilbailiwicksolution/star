@@ -4,6 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './configuration';
 import { HttpConfigService } from './configuration.service';
 
+
 @Module({
     imports: [
         ConfigModule.forRoot({
@@ -17,6 +18,10 @@ import { HttpConfigService } from './configuration.service';
     providers: [ConfigService, HttpConfigService],
     exports: [ConfigService, HttpConfigService]
 })
+
+/**
+ * Contains http timeout and maxredirects
+ */
 export class HttpConfigModule {
 
 }

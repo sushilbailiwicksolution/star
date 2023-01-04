@@ -5,6 +5,12 @@ import { ExtendEntity } from './extend.entity';
 import { GeofenceAssetEntity } from './genfence.asset.entity';
 import { GeofenceNotificationEntity } from './geofence.notification.entity';
 
+
+/**
+ * This is Geofence entity
+ * Contains Geofence fields creates new entry in database
+ */
+
 @Entity({name: "geofence"})
 export class GeofenceEntity extends ExtendEntity {
     @Column({length: 100, nullable: false})

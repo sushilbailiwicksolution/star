@@ -4,6 +4,11 @@ import { DatabaseType, getMetadataArgsStorage } from 'typeorm';
 import { MySqlConfigModule } from '../../../config/database/mysql/config.module';
 import { MySqlConfigService } from '../../../config/database/mysql/configuration.service';
 
+
+/**
+ * @module This is TypeOrm module for database connectivity
+ * @class This class is exported as MysqlDatabaseProviderModule
+ */
 @Module({
     imports: [
         TypeOrmModule.forRootAsync({

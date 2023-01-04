@@ -4,6 +4,12 @@ import { DatabaseType, getMetadataArgsStorage } from 'typeorm';
 import { PostgresSQLConfigModule } from '../../../config/database/postgres/config.module';
 import { PostgresSqlConfigService } from '../../../config/database/postgres/configuration.service';
 
+/**
+ * @description  This module is for Connecting to postgres database
+ * @module TypeOrmModule is for database connectivity
+ * @class This class is exported as PostgresDatabaseProviderModule
+ */
+
 @Module({
     imports: [
         TypeOrmModule.forRootAsync({

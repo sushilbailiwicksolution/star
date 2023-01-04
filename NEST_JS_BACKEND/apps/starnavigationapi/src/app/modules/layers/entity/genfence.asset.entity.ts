@@ -2,6 +2,12 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, Prim
 import { AssetEntity } from './asset.entity';
 import { GeofenceEntity } from './geofence.entity';
 
+/**
+ * This is geofence_assets entity
+ * Contains geofence_assets fields 
+ */
+
+
 @Entity({ name: "geofence_assets" })
 export class GeofenceAssetEntity {
     @PrimaryGeneratedColumn()

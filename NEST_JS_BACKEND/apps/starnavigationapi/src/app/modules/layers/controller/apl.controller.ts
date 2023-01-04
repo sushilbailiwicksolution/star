@@ -7,15 +7,29 @@ import { AplDto } from "../dto/apl.dto";
 import { LandmarkEntity } from "../entity/landmark.entity";
 import { AplService } from "../service/apl.service";
 
+
+/**
+ * Handles requests related to apl 
+ */
+
 @Controller({
     version: ['1'],
     path: 'assets/apl'
 })
 @ApiTags('apl-controller')
+
 export class AplController {
     private readonly logger = new Logger(AplController.name);
+    /**
+     * Constructor for apl controller 
+     * @param aplService 
+     */
     constructor(private aplService: AplService) { }
-
+/**
+ * Post method of apl for apl creation 
+ * @param data 
+ * @returns 
+ */
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @UseInterceptors(new TransformInterceptor(AplDto))
@@ -28,6 +42,10 @@ export class AplController {
         return this.aplService.create(data);
     }
 
+    /**
+     * Get method of apl. Finds all the apl in database
+     * @returns 
+     */
     @Get()
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(AplDto))
@@ -37,6 +55,11 @@ export class AplController {
         return this.aplService.findAll();
     }
 
+    /**
+     * Get apl by id . Finds apl  based on id provided
+     * @param id 
+     * @returns 
+     */
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(AplDto))
@@ -46,6 +69,12 @@ export class AplController {
         return this.aplService.findById(id);
     }
 
+    /**
+     * Put method of apl . Updates apl based on id and data
+     * @param id 
+     * @param data 
+     * @returns 
+     */
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     @UseInterceptors(new TransformInterceptor(AplDto))
@@ -56,6 +85,11 @@ export class AplController {
         return this.aplService.update(id, data);
     }
 
+    /**
+     * Delete api request of apl. Deletes apl by id
+     * @param id 
+     * @returns 
+     */
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(AplDto))
@@ -64,7 +98,12 @@ export class AplController {
     public async remove(@Param('id') id: number): Promise<AplDto> {
         return this.aplService.remove(id);
     }
-
+ 
+    /**
+     * Find apl list by pagination
+     * @param state 
+     * @returns 
+     */
     @Post('paginate')
     @ApiOperation({ summary: 'Find apl list by pagination' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })

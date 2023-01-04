@@ -3,12 +3,28 @@ import { Expose } from 'class-transformer';
 import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ExtendDto } from './extend.dto';
 
+
+
+/**
+ * This is AssetDto class
+ * @ignore
+ * Describes all the fields of AssetDto for API 
+ */
 export class AssetDto extends ExtendDto {
+
+    /**
+     *Asset esn field . It is of string type
+     */
+    prototype?: any;
     @IsString()
     @Expose()
     @ApiProperty({
         description: 'asset esn'
     })
+
+    /**
+     * Vehicle type . It stores string 
+     */
     @IsNotEmpty()
     esn?: string;
     @IsString()
@@ -16,6 +32,9 @@ export class AssetDto extends ExtendDto {
     @ApiProperty({
         description: 'vehicle type'
     })
+    /**
+     * Device type , store string 
+     */
     @IsNotEmpty()
     vehicletype?: string;
     @IsString()
@@ -25,6 +44,10 @@ export class AssetDto extends ExtendDto {
     })
     @IsNotEmpty()
     deviceType?: string;
+
+    /**
+     * Country id, stores number type
+     */
     @Expose()
     @ApiProperty({
         description: 'country id'
@@ -32,6 +55,10 @@ export class AssetDto extends ExtendDto {
     @IsNumber()
     countryId?: number;
     @Expose()
+
+    /**
+     * Customer id , stores number 
+     */
     @ApiProperty({
         description: 'customer id'
     })
@@ -39,6 +66,9 @@ export class AssetDto extends ExtendDto {
     customerId?: number;
     @IsString()
     @Expose()
+    /**
+     * Alias, stores string 
+     */
     @ApiProperty({
         description: 'alias'
     })
@@ -46,11 +76,18 @@ export class AssetDto extends ExtendDto {
     alias?: string;
     @IsString()
     @Expose()
+    /**
+     * Description stores string 
+     */
     @ApiProperty({
         description: 'description'
     })
     description?: string;
     @Expose()
+
+    /**
+     * Stores symbol stroke size 
+     */
     @ApiProperty({
         description: 'Symbol stroke size'
     })
@@ -58,6 +95,10 @@ export class AssetDto extends ExtendDto {
     symbolStrokeSize?: number;
     @IsString()
     @Expose()
+
+    /**
+     * Symbol stroke color 
+     */
     @ApiProperty({
         description: 'symbol stroke color'
     })
@@ -65,6 +106,9 @@ export class AssetDto extends ExtendDto {
     symbolStrokeColor?: string;
     @IsString()
     @Expose()
+    /**
+     * Track color 
+     */
     @ApiProperty({
         description: 'track color'
     })
@@ -72,6 +116,9 @@ export class AssetDto extends ExtendDto {
     trackColor?: string;
     @IsString()
     @Expose()
+    /**
+     * Symbol color
+     */
     @ApiProperty({
         description: 'symbol color'
     })
@@ -79,36 +126,56 @@ export class AssetDto extends ExtendDto {
     symbolColor?: string;
     @IsString()
     @Expose()
+    /**
+     * Name of asset 
+     */
     @ApiProperty({
         description: 'name of asset'
     })
     @IsNotEmpty()
     name?: string;
     @Expose()
+    /**
+     * Symbol size 
+     */
     @ApiProperty({
         description: 'Symbol size'
     })
     @IsNumber()
     symbolSize?: number;
     @Expose()
+
+    /**
+     * track width
+     */
     @ApiProperty({
         description: 'Track width'
     })
     @IsNumber()
     trackwidth?: number;
     @Expose()
+
+    /**
+     * Symbol stroke size
+     */
     @ApiProperty({
         description: 'Symbol stroke size'
     })
     @IsBoolean()
     twoWayMessaging?: boolean;
     @Expose()
+    /**
+     * Two way message max length 
+     */
     @ApiProperty({
         description: 'two way message max length'
     })
     @IsNumber()
     twoWayMessageMaxLength?: number;
     @Expose()
+    /**
+     * Web link 
+     */
     @ApiProperty({
         description: 'Web link'
     })
@@ -117,6 +184,9 @@ export class AssetDto extends ExtendDto {
     weblink?: string;
     @IsString()
     @Expose()
+    /**
+     * Asset serial number 
+     */
     @ApiProperty({
         description: 'asset serial number'
     })
@@ -124,6 +194,10 @@ export class AssetDto extends ExtendDto {
     assetSerialNumber?: string;
     @IsString()
     @Expose()
+
+    /**
+     * Asset registration number 
+     */
     @ApiProperty({
         description: 'asset registration number'
     })
@@ -131,6 +205,9 @@ export class AssetDto extends ExtendDto {
     assetRegistrationNumber?: string;
     @IsString()
     @Expose()
+    /**
+     * Asset make 
+     */
     @ApiProperty({
         description: 'asset make'
     })
@@ -138,6 +215,10 @@ export class AssetDto extends ExtendDto {
     assetMake?: string;
     @IsString()
     @Expose()
+
+    /**
+     * Asset model
+     */
     @ApiProperty({
         description: 'asset model'
     })
@@ -145,6 +226,10 @@ export class AssetDto extends ExtendDto {
     assetModel?: string;
     @IsString()
     @Expose()
+
+    /**
+     * Asset color 
+     */
     @ApiProperty({
         description: 'asset color'
     })
@@ -152,6 +237,10 @@ export class AssetDto extends ExtendDto {
     assetColor?: string;
     @IsString()
     @Expose()
+
+    /**
+     * Vehicle serial number
+     */
     @ApiProperty({
         description: 'vehicle serial number'
     })
@@ -159,12 +248,18 @@ export class AssetDto extends ExtendDto {
     vehicleSerialNumber?: string;
     @IsString()
     @Expose()
+    /**
+     * phone 
+     */
     @ApiProperty({
         description: 'phone'
     })
     @IsNotEmpty()
     phone?: string;
     @Expose()
+    /**
+     * Device state 
+     */
     @ApiProperty({
         description: 'device state'
     })

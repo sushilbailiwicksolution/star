@@ -4,6 +4,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './configuration';
 import { AppConfigService } from './configuration.service';
 
+
+
 @Module({
     imports: [
         ConfigModule.forRoot({
@@ -15,13 +17,17 @@ import { AppConfigService } from './configuration.service';
                     .default('development'),
                 APP_URL: Joi.string().default('http://my-app.test'),
                 APP_PORT: Joi.number().default(3333),
-                FRONTEND_APP_PATH: Joi.string().default('/home/star/nestjs/client'),
+                FRONTEND_APP_PATH: Joi.string().default('/client'),
             })
         })
     ],
     providers: [ConfigService, AppConfigService],
     exports: [ConfigService, AppConfigService]
 })
+
+/**
+ * AppConfigModule class defines at which url the app is running 
+ */
 export class AppConfigModule {
 
 }

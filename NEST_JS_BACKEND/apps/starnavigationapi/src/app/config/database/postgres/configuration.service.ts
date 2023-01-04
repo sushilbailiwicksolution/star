@@ -3,9 +3,12 @@ import { ConfigService } from '@nestjs/config';
 /**
  * Service dealing with app config based operations.
  *
- * @class
+ * @ignore 
  */
 @Injectable()
+/**
+ * This class returns with all the configService required to make connection 
+ */
 export class PostgresSqlConfigService {
     constructor(private configService: ConfigService) { }
 

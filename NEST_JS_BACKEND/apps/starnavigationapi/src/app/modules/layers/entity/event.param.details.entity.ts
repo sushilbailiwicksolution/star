@@ -3,6 +3,12 @@ import { PacketTypeEnum } from '../../../enum/packet.type.enum';
 import { EventDetailsEntity } from './event.details.entity';
 import { ExtendEntity } from './extend.entity';
 
+
+/**
+ * This is event_param_details entity
+ * Contains event_param fields 
+ */
+
 @Entity({name: "event_param_details"})
 export class EventParamDetailsEntity extends ExtendEntity {
     @Column({ type: "enum", enum: PacketTypeEnum, default: PacketTypeEnum.A })

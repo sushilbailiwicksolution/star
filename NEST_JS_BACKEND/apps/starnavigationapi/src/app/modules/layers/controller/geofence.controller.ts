@@ -8,16 +8,31 @@ import { GeofenceDto } from "../dto/geofence.dto";
 import { GeofenceEntity } from "../entity/geofence.entity";
 import { GeofenceService } from "../service/geofence.service";
 
+
+/**
+ * Handles geofence API request
+ */
 @Controller({
     version: ['1'],
     path: 'geofence'
 })
 @ApiTags('geofence-controller')
 @UseInterceptors(ResTransformInterceptor)
+
+
 export class GeofenceController {
     private readonly logger = new Logger(GeofenceController.name);
+    /**
+     * Constructor for geofence controller 
+     * @param geofenceService 
+     */
     constructor(private geofenceService: GeofenceService) { }
 
+    /**
+     * Create new geofence
+     * @param data 
+     * @returns 
+     */
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Create geofence' })
@@ -27,6 +42,11 @@ export class GeofenceController {
         return this.geofenceService.create(data);
     }
 
+    /**
+     * Find all geofence
+     * @returns 
+     */
+
     @Get()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Find all geofence' })
@@ -35,6 +55,12 @@ export class GeofenceController {
         return this.geofenceService.findAll();
     }
 
+    /**
+     * Find geofence template by id 
+     * @param id 
+     * @returns 
+     */
+
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Find geofence template by id' })
@@ -42,6 +68,13 @@ export class GeofenceController {
     public async findOne(@Param('id') id) {
         return this.geofenceService.findById(id);
     }
+
+    /**
+     * Update geofence template by id and new data
+     * @param id 
+     * @param data 
+     * @returns 
+     */
 
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
@@ -52,6 +85,11 @@ export class GeofenceController {
         return this.geofenceService.update(id, data);
     }
 
+    /**
+     * Delete geofence by id 
+     * @param id 
+     * @returns 
+     */
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Delete geofence by id' })
@@ -60,6 +98,11 @@ export class GeofenceController {
         return this.geofenceService.remove(id);
     }
 
+    /**
+     * Find notification template list by pagination
+     * @param state 
+     * @returns 
+     */
     @Post('paginate')
     @ApiOperation({ summary: 'Find notification template list by pagination' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })

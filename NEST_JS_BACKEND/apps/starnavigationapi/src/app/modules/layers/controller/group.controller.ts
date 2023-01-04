@@ -7,15 +7,30 @@ import { GroupDto } from "../dto/group.dto";
 import { LandmarkEntity } from "../entity/landmark.entity";
 import { GroupService } from "../service/group.service";
 
+
+/**
+ * Handles api request related to group
+ */
 @Controller({
     version: ['1'],
     path: 'groups'
 })
 @ApiTags('groups')
+
+
 export class GroupController {
     private readonly logger = new Logger(GroupController.name);
+    /**
+     * Constructor for group controller
+     * @param groupService 
+     */
     constructor(private groupService: GroupService) { }
 
+    /**
+     * Create a group
+     * @param data 
+     * @returns 
+     */
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @UseInterceptors(new TransformInterceptor(GroupDto))
@@ -26,6 +41,10 @@ export class GroupController {
         return this.groupService.create(data);
     }
 
+    /**
+     * Find all the group
+     * @returns 
+     */
     @Get()
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(GroupDto))
@@ -35,6 +54,11 @@ export class GroupController {
         return this.groupService.findAll();
     }
 
+    /**
+     * Find a group by id 
+     * @param id 
+     * @returns 
+     */
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(GroupDto))
@@ -44,6 +68,12 @@ export class GroupController {
         return this.groupService.findById(id);
     }
 
+    /**
+     * Update a group with new data based on id 
+     * @param id 
+     * @param data 
+     * @returns 
+     */
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     @UseInterceptors(new TransformInterceptor(GroupDto))
@@ -54,6 +84,11 @@ export class GroupController {
         return this.groupService.update(id, data);
     }
 
+    /**
+     * Delete a group based on id
+     * @param id 
+     * @returns 
+     */
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(GroupDto))
@@ -63,6 +98,11 @@ export class GroupController {
         return this.groupService.remove(id);
     }
 
+    /**
+     * Find group list by pagination 
+     * @param state 
+     * @returns 
+     */
     @Post('paginate')
     @ApiOperation({ summary: 'Find group list by pagination' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })

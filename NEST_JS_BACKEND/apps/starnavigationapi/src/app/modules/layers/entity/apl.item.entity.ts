@@ -2,6 +2,11 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { AplEntity } from './apl.entity';
 import { ExtendEntity } from './extend.entity';
 
+/**
+ * This is apl_items entity
+ * Contains apl_items fields 
+ */
+
 @Entity({name: "apl_items"})
 export class AplItemEntity extends ExtendEntity {
     @Column({nullable: true})

@@ -2,6 +2,14 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
 import { IsString } from 'class-validator';
 
+
+/**
+ * This is LandmarkCreate class
+ * 
+ * Describes all the fields of LandmarkCreate for API 
+ * 
+ * @ignore
+ */
 export class LandmarkCreateDto {
     @Expose()
     id?: number;

@@ -3,6 +3,10 @@ import { Injectable } from '@nestjs/common';
 import { SelectQueryBuilder } from 'typeorm';
 import { StateDto } from '../dto/state.interface';
 
+/**
+ * @ignore
+ */
+
 @Injectable()
 export class QueryBuilder {
     public getQuery(state: StateDto, queryBuilder: SelectQueryBuilder<any>): SelectQueryBuilder<any> {

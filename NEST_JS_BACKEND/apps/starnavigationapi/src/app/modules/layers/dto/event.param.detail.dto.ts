@@ -3,6 +3,14 @@ import { Expose } from "class-transformer";
 import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 import { PacketTypeEnum } from "../../../enum/packet.type.enum";
 
+
+/**
+ * This is EventParam class
+ * 
+ * Describes all the fields of EventParam for API 
+ * 
+ * @ignore
+ */
 export class EventParamDetailDto {
     @Expose()
     @ApiProperty({

@@ -4,6 +4,12 @@ import { IsNotEmpty, IsString } from "class-validator";
 import { UserTypeEnum } from "../../../enum/user.type.enum";
 import { ExtendDto } from "./extend.dto";
 
+
+/**
+ * This is User Dto class
+ * @ignore
+ * Describes all the fields of UserDto for API 
+ */
 export class UserDto extends ExtendDto{
     @IsString()
     @Expose()
@@ -15,10 +21,10 @@ export class UserDto extends ExtendDto{
     @IsString()
     @Expose()
     @ApiProperty({
-        description: 'firstname'
+        description: 'password'
     })
     @IsNotEmpty()
-    firstname?: string;
+    password?: string;
     @IsString()
     @Expose()
     @ApiProperty({

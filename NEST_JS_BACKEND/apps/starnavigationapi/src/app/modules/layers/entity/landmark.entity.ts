@@ -3,6 +3,12 @@ import { ExtendEntity } from './extend.entity';
 import { GeoObjectEntity } from './geo.object.entity';
 import { LayerEntity } from './layer.entity';
 
+
+/**
+ * This is landmark entity
+ * Contains Landmark fields  creates landmark in database
+ */
+
 @Entity({name: "landmark"})
 export class LandmarkEntity extends ExtendEntity {
     @Column({length: 64})

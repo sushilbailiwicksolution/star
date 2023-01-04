@@ -1,7 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-
+/**
+ * This class conains name , env, url to which app is running 
+ * @constructor configService
+ */
 @Injectable()
+
 export class AppConfigService {
     constructor(private configService: ConfigService) { }
 

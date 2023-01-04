@@ -3,9 +3,12 @@ import { ConfigService } from '@nestjs/config';
 /**
  * Service dealing with app config based operations.
  *
- * @class
+ * @ignore
  */
 @Injectable()
+/**
+ * ALl the details required to make connection with mysql database is inside this class.
+ */
 export class MySqlConfigService {
     constructor(private configService: ConfigService) { }
 

@@ -8,15 +8,31 @@ import { EventDetailsEntity } from "../entity/event.details.entity";
 import { LandmarkEntity } from "../entity/landmark.entity";
 import { EventDetailService } from "../service/event.detail.service";
 
+
+/**
+ * Handles Event API request
+ */
 @Controller({
     version: ['1'],
     path: 'event-details'
 })
 @ApiTags('event-details-controller')
+
+
 export class EventDetailController {
     private readonly logger = new Logger(EventDetailController.name);
+
+    /**
+     * Constructor for aplservice 
+     * @param aplService 
+     */
     constructor(private aplService: EventDetailService) { }
 
+    /**
+     * Create new event 
+     * @param data 
+     * @returns 
+     */
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @UseInterceptors(new TransformInterceptor(EventDetailDto))
@@ -29,6 +45,10 @@ export class EventDetailController {
         return this.aplService.create(data);
     }
 
+    /**
+     * Find all the event details 
+     * @returns 
+     */
     @Get()
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(EventDetailDto))
@@ -38,6 +58,11 @@ export class EventDetailController {
         return this.aplService.findAll();
     }
 
+    /**
+     * Find event detail by id 
+     * @param id 
+     * @returns 
+     */
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(EventDetailDto))
@@ -47,6 +72,12 @@ export class EventDetailController {
         return this.aplService.findById(id);
     }
 
+    /**
+     * Updates event detail
+     * @param id 
+     * @param data 
+     * @returns 
+     */
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     @UseInterceptors(new TransformInterceptor(EventDetailDto))
@@ -57,6 +88,12 @@ export class EventDetailController {
         return this.aplService.update(id, data);
     }
 
+    /**
+     * Delete event by id 
+     * @param id 
+     * @returns 
+     */
+
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
     @UseInterceptors(new TransformInterceptor(EventDetailDto))
@@ -66,6 +103,11 @@ export class EventDetailController {
         return this.aplService.remove(id);
     }
 
+    /**
+     * Find event detail list by pagination
+     * @param state 
+     * @returns 
+     */
     @Post('paginate')
     @ApiOperation({ summary: 'Find event detail list by pagination' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })

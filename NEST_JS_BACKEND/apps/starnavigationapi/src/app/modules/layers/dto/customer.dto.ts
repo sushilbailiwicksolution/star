@@ -3,6 +3,12 @@ import { Expose } from "class-transformer";
 import { IsNotEmpty, IsString } from "class-validator";
 import { ExtendDto } from "./extend.dto";
 
+
+/**
+ * This is CustomerDto class
+ * @ignore
+ * Describes all the fields of CustomerDto for API 
+ */
 export class CustomerDto extends ExtendDto {
     @IsString()
     @Expose()

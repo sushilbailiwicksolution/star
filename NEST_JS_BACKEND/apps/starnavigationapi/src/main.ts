@@ -8,7 +8,9 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { AppModule } from './app/app.module';
-
+/**
+ * @ignore
+ */
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'application-service/secured';
@@ -17,19 +19,34 @@ async function bootstrap() {
   app.enableVersioning({
     type: VersioningType.URI,
   });
-  const port = process.env.PORT || 3333;
+
+  /**
+   * Display API using swagger to a port 
+   * @function 
+   */
+  const port = process.env.PORT || 3377;
+  // const port = 3333;
   const config = new DocumentBuilder()
     .setTitle('Star Api')
-    .setDescription('The star API description')
-    .setVersion('1.0')
+    .setDescription('Star API Documentation')
+    .setVersion('2.0')
     .addTag('star')
     .build();
+    /**
+     * @param app is argument passed to createDocument of swaggerModule. It contains all the api components.
+     */
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup(globalPrefix, app, document);
   app.enableCors({});
+  /**
+   * @param port is where our Swagger API is running 
+   */
   await app.listen(port);
+  /**
+   * Logger is simply message function . It display port  
+   */
   Logger.log(
-    `🚀 Application is running on: http://localhost: ${port}/${globalPrefix}`
+    `🚀 Application is running on PORT: ${port} URIs:- ${globalPrefix}`
   );
 }
 bootstrap();

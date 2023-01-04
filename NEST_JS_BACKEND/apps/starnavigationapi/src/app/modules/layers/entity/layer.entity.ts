@@ -2,6 +2,12 @@ import { Column, Entity, OneToMany } from 'typeorm';
 import { ExtendEntity } from './extend.entity';
 import { GeofenceEntity } from './geofence.entity';
 
+
+/**
+ * This is Layer entity
+ * Contains layer fields creates layer in database 
+ */
+
 @Entity({name: "layers"})
 export class LayerEntity extends ExtendEntity {
     @Column({length: 64})
