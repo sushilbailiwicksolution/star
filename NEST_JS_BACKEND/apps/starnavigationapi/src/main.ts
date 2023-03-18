@@ -24,7 +24,7 @@ async function bootstrap() {
    * Display API using swagger to a port 
    * @function 
    */
-  const port = process.env.PORT || 3377;
+  const port = process.env.APP_PORT || 3377;
   // const port = 3333;
   const config = new DocumentBuilder()
     .setTitle('Star Api')
