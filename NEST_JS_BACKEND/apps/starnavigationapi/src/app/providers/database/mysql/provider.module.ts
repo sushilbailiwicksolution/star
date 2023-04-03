@@ -13,6 +13,8 @@ import { MySqlConfigService } from '../../../config/database/mysql/configuration
     imports: [
         TypeOrmModule.forRootAsync({
             imports: [MySqlConfigModule],
+            inject: [MySqlConfigService],
+            name: "default",
             useFactory: async (mysqlConfigService: MySqlConfigService) => ({
                 type: 'mysql' as DatabaseType,
                 host: mysqlConfigService.host,
@@ -22,10 +24,25 @@ import { MySqlConfigService } from '../../../config/database/mysql/configuration
                 database: mysqlConfigService.dbname,
                 logging: mysqlConfigService.logging,
                 synchronize: mysqlConfigService.synchronize,
-                entities: getMetadataArgsStorage().tables.map(tbl => tbl.target)
-            }),
+                entities: getMetadataArgsStorage().tables.filter(t => 'sample'!==t.name).map(tbl => tbl.target)
+            })
+        } as TypeOrmModuleAsyncOptions),
+        TypeOrmModule.forRootAsync({
+            imports: [MySqlConfigModule],
             inject: [MySqlConfigService],
-            } as TypeOrmModuleAsyncOptions)
+            name: 'secondary',
+            useFactory: async (mysqlConfigService: MySqlConfigService) => ({
+                type: 'mysql' as DatabaseType,
+                host: process.env.DATABASE_SHOST,
+                port: process.env.DATABASE_SPORT,
+                username: process.env.DATABASE_SUSERNAME,
+                password: process.env.DATABASE_SPASSWORD,
+                database: process.env.DATABASE_SDBNAME,
+                logging: process.env.DB_SSYNCHRONIZE,
+                synchronize: process.env.DB_SLOGGING,
+                entities: getMetadataArgsStorage().tables.filter(t => 'sample'===t.name).map(tbl => tbl.target)
+            })
+        } as TypeOrmModuleAsyncOptions)
     ]
 })
 export class MysqlDatabaseProviderModule {}

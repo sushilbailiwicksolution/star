@@ -6,7 +6,8 @@ import { AppService } from './app.service';
 import { AppConfigModule } from './config/app/config.module';
 import { LoggerMiddleware } from './middleware/logs.middleware';
 import { LayerModule } from './modules/layers/layer.module';
-import { PostgresDatabaseProviderModule } from './providers/database/postgres/provider.module';
+//import { PostgresDatabaseProviderModule } from './providers/database/postgres/provider.module';
+import { MysqlDatabaseProviderModule } from './providers/database/mysql/provider.module';
 
 /**
  * @description This module serve the client folder on root URL
@@ -19,7 +20,7 @@ import { PostgresDatabaseProviderModule } from './providers/database/postgres/pr
       rootPath: join('', 'client')
     }),
    
-    PostgresDatabaseProviderModule,
+    MysqlDatabaseProviderModule,
     LayerModule,
     AppConfigModule,
   ],
