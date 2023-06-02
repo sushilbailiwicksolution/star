@@ -33,4 +33,26 @@ export class MySqlConfigService {
     get logging(): string {
         return this.configService.get<string>('mysql.logging');
     }
+    get shost(): string {
+        return this.configService.get<string>('mysql.shost');
+    }
+    get sport(): number {
+        return Number(this.configService.get<number>('mysql.sport'));
+    }
+    get susername(): string {
+        return this.configService.get<string>('mysql.susername');
+    }
+    get spassword(): string {
+        return this.configService.get<string>('mysql.spassword');
+    }
+    get sdbname(): string {
+        return this.configService.get<string>('mysql.sdbname');
+    }
+    get ssynchronize(): boolean {
+        return this.configService.get<boolean>('mysql.ssynchronize');
+    }
+    get slogging(): string {
+        return this.configService.get<string>('mysql.slogging');
+    }
+
 }

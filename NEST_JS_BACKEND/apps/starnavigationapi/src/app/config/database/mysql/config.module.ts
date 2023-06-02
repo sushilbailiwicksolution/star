@@ -9,13 +9,20 @@ import { MySqlConfigService } from './configuration.service';
         ConfigModule.forRoot({
             load: [configuration],
             validationSchema: Joi.object({
-                MYSQL_HOST: Joi.string().default('localhost'),
-                MYSQL_PORT: Joi.number().default('3306'),
-                MYSQL_USERNAME: Joi.string().default('root'),
-                MYSQL_PASSWORD: Joi.string().default(''),
-                MYSQL_DBNAME: Joi.string().default('star_s'),
-                DB_SYNCHRONIZE: Joi.boolean().default(true),
-                DB_LOGGING: Joi.boolean().default(true),
+                MYSQL_HOST: Joi.string().default(process.env.DATABASE_HOST),
+                MYSQL_PORT: Joi.number().default(process.env.DATABASE_PORT),
+                MYSQL_USERNAME: Joi.string().default(process.env.DATABASE_USERNAME),
+                MYSQL_PASSWORD: Joi.string().default(process.env.DATABASE_PASSWORD),
+                MYSQL_DBNAME: Joi.string().default(process.env.DATABASE_DBNAME),
+                DB_SYNCHRONIZE: Joi.boolean().default(process.env.DB_SYNCHRONIZE),
+                DB_LOGGING: Joi.boolean().default(process.env.DB_LOGGING),
+                MYSQL_SHOST: Joi.string().default(process.env.DATABASE_SHOST),
+                MYSQL_SPORT: Joi.number().default(process.env.DATABASE_SPORT),
+                MYSQL_SUSERNAME: Joi.string().default(process.env.DATABASE_SUSERNAME),
+                MYSQL_SPASSWORD: Joi.string().default(process.env.DATABASE_SPASSWORD),
+                MYSQL_SDBNAME: Joi.string().default(process.env.DATABASE_SDBNAME),
+                DB_SSYNCHRONIZE: Joi.boolean().default(process.env.DB_SSYNCHRONIZE),
+                DB_SLOGGING: Joi.boolean().default(process.env.DB_SLOGGING),
             })
         })
     ],

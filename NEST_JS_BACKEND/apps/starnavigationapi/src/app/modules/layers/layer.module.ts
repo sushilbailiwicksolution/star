@@ -46,6 +46,7 @@ import { NewUserService } from './service/newUser.service';
 import { NotificationService } from './service/notification.service';
 import { NotificationTemplateService } from './service/notification.template.service';
 import { UserService } from './service/user.service';
+import { SampleEntity } from './entity/sample.entity';
 
 /**
  * @ignore
@@ -59,7 +60,8 @@ import { UserService } from './service/user.service';
             NotificationTemplateEntity, GeofenceEntity, AplEntity, AplItemEntity, AssetEntity, CustomerEntity,
             EventDetailsEntity, EventParamDetailsEntity, FlighLocationEntity, FlighPlanEntity, UserEntity, GroupEntity,
             CustomerEntity, NotificationUserEntity, GeofenceNotificationEntity, GeofenceAssetEntity, AssetEntity
-        ])
+        ]),
+        TypeOrmModule.forFeature([SampleEntity],'secondary')
     ],
     providers: [
       NewLayerService,NewUserService,
