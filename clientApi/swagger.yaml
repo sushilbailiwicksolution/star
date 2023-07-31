@@ -1,0 +1,465 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'Node.js Flight and Report API'
+  description: 'Node.js API with Swagger documentation'
+basePath: /
+schemes:
+  - http
+paths:
+  /help:
+    get:
+      description: 'Returns information about available APIs'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              apis:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    api:
+                      type: string
+                    params:
+                      type: string
+                    use:
+                      type: string
+  /getEvents/{ptype}:
+    get:
+      description: 'Handles get request for getEvents based on packet type'
+      produces:
+        - application/json
+      parameters:
+        - name: ptype
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+  /getEventParams/{pid}:
+    get:
+      description: 'Handles get request for getEventParams based on pid passed'
+      produces:
+        - application/json
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getGridMapping/{circle}/{type}/{gridids}:
+    get:
+      description: 'Get Associated Grids for 20M, 100M, 1KM'
+      produces:
+        - application/json
+      parameters:
+        - name: circle
+          in: path
+          required: true
+          type: string
+        - name: type
+          in: path
+          required: true
+          type: string
+        - name: gridids
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getFlights/{type}/{paramValue}:
+    get:
+      description: 'Handles get request for getFlights'
+      produces:
+        - application/json
+      parameters:
+        - name: type
+          in: path
+          required: true
+          type: string
+        - name: paramValue
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getFlightsForAsset/{assetid}/{dates}:
+    get:
+      description: 'Handles get request for getFlightForAsset'
+      produces:
+        - application/json
+      parameters:
+        - name: assetid
+          in: path
+          required: true
+          type: string
+        - name: dates
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getLatestNFlights/{assetid}/{limit}:
+    get:
+      description: 'Handles get request for getLatestNflights based on assetid and limit'
+      produces:
+        - application/json
+      parameters:
+        - name: assetid
+          in: path
+          required: true
+          type: string
+        - name: limit
+          in: path
+          required: true
+          type: integer
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getFlightDetails/{flightid}:
+    get:
+      description: 'Handles get request for getFlightDetails based on flightid'
+      produces:
+        - application/json
+      parameters:
+        - name: flightid
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /saveGeoFence:
+    post:
+      description: 'Saves geofence data in the database'
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                asset_id:
+                  type: string
+                event_on:
+                  type: string
+                eventSeverity:
+                  type: string
+                Landmark:
+                  type: string
+                emails:
+                  type: string
+              required:
+                - asset_id
+                - event_on
+                - eventSeverity
+                - Landmark
+                - emails
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+
+
+  /eventTypes:
+    get:
+      description: 'Get event_type using the database'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /severity:
+    get:
+      description: 'API for severity level Dropdown'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                severity_level:
+                  type: string
+
+  /getEventList:
+    post:
+      description: 'Added eventList based on aircraft and ptype'
+      produces:
+        - application/json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                // Add properties as needed based on your actual request body structure
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /summaryCount:
+    get:
+      description: 'Summary count data'
+      produces:
+        - application/json
+      parameters:
+        - name: customerId
+          in: query
+          required: false
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              totalassets:
+                type: integer
+              movingcount:
+                type: integer
+              activecount:
+                type: integer
+              inactivecount:
+                type: integer
+              stoppedcount:
+                type: integer
+              totalevents:
+                type: integer
+              totalalarms:
+                type: integer
+
+  /graph/dropdown:
+    get:
+      description: 'API to get graph dropdown data'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getLatestAssetData:
+    get:
+      description: 'Get the latest flight and data for an asset'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getLatestFlightsForAssetDateOrLimit:
+    post:
+      description: 'Get latest flights for asset based on choice (date or limit)'
+      produces:
+        - application/json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                // Add properties as needed based on your actual request body structure
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getFlightGraphData/{flightid}:
+    get:
+      description: 'Get flight graph data based on flightid'
+      produces:
+        - application/json
+      parameters:
+        - name: flightid
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getEventForLatestFlight/{flightid}:
+    get:
+      description: 'Get event data for the latest flight based on flightid'
+      produces:
+        - application/json
+      parameters:
+        - name: flightid
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getLocation/{address}:
+    get:
+      description: 'Get geo-location data based on address'
+      produces:
+        - application/json
+      parameters:
+        - name: address
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /eventNotification/dropdown:
+    get:
+      description: 'API to get event notification dropdown data'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getReport/{rType}/{fid}:
+    get:
+      description: 'Get Report'
+      produces:
+        - application/json
+      parameters:
+        - name: rType
+          in: path
+          required: true
+          type: string
+        - name: fid
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: object
+            properties:
+              // Add properties as needed based on your actual response structure
+
+  /getReport/{rType}/{fid}/{rName}/pdf:
+    get:
+      description: 'Get PDF Report'
+      produces:
+        - application/pdf
+      parameters:
+        - name: rType
+          in: path
+          required: true
+          type: string
+        - name: fid
+          in: path
+          required: true
+          type: string
+        - name: rName
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
