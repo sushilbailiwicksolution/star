@@ -2,9 +2,8 @@ const turf = require('@turf/turf');
 var Pool = require('pg').Pool
 var nodemailer = require('nodemailer');
 
-const user='star.info@nmstech.in';
-const pass='qwfxexwyprftbrll';
-
+const user = process.env.useremail;
+const pass= process.env.userpass;
 
 //Configuration for stardb database 
 const db_username = 'star'
