@@ -1,0 +1,21 @@
+create table geofence_details(
+  id SERIAL PRIMARY KEY,
+  asset_id varchar,
+  name varchar,
+  event_on int,
+  bufferDistance numeric(9,4),
+  description varchar,
+  minAltitude numeric(10,5),
+  maxAltitude numeric(10,5),
+  minVelocity numeric(3,2),
+  maxVelocity numeric(3,2),
+  eventSeverity varchar,
+  scheduleStartTime varchar,
+  scheduleEndTime varchar,
+  customerId int,
+  emails_id int,
+  emails_email varchar,
+  landmark_lat numeric(13,10),
+  landmark_long numeric(13,10),
+  layerId int 
+)

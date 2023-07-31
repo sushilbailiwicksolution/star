@@ -1,0 +1,26 @@
+node:internal/modules/cjs/loader:1024
+  throw err;
+  ^
+
+Error: Cannot find module 'pg'
+Require stack:
+- /home/star/nodejs/tcp_server/db.js
+- /home/star/nodejs/tcp_server/kafka_heartbeat_consumer.js
+- /home/star/nodejs/tcp_server/consumer_hb.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1021:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:866:27)
+    at Module.require (node:internal/modules/cjs/loader:1093:19)
+    at require (node:internal/modules/cjs/helpers:108:18)
+    at Object.<anonymous> (/home/star/nodejs/tcp_server/db.js:1:12)
+    at Module._compile (node:internal/modules/cjs/loader:1191:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1245:10)
+    at Module.load (node:internal/modules/cjs/loader:1069:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:904:12)
+    at Module.require (node:internal/modules/cjs/loader:1093:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/star/nodejs/tcp_server/db.js',
+    '/home/star/nodejs/tcp_server/kafka_heartbeat_consumer.js',
+    '/home/star/nodejs/tcp_server/consumer_hb.js'
+  ]
+}

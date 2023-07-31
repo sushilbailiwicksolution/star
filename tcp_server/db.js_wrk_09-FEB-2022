@@ -1,0 +1,186 @@
+var Pool = require('pg').Pool
+
+const db_username = 'postgres'
+const db_password = 'Admin@321'
+const db_host     = '127.0.0.1'
+const db_port     = 5432
+const db_name     = 'stardb'
+
+
+const pool = new Pool({
+    user: db_username,
+    host: db_host,
+    database: db_name,
+    password: db_password,
+    port: db_port
+})
+
+
+const saveDataToPSql = ( data )=>{
+
+    console.log( data );
+
+
+    //24699|H|2019-04-16 19:31:08|16|1|43.7348|79.6499|11000.0000|45.0000|35.9901|2019-04-16 19:31:08|2019-04-16 19:31:08
+    //|7|1107|310.0000|10107110074|43.7348|10107190075|79.6499|10107 270076|45.0000|10107800085|35.9901|10103920100|11000.0000|510|1681.0000\n
+    //ID|PacketType|Data/Time|AircraftID|EventID|GPS_Lat|GPS_Long|Altitude|Speed|Heading|StartTime|StopTime|ParamCount|ParamID|ParamValue
+
+    var EVENT_TABLE = 'event_details';
+    var EVENT_PARAMS_DETAIL = 'event_params_detail';
+
+    var id;
+    var packetType;
+    var dateTime;
+    var aircraftId;
+    var eventId;
+    var gpsLat;
+    var gpsLong;
+    var altitude;
+    var speed;
+    var heading;
+    var startTime;
+    var stopTime;
+    var paramCount;
+    var paramId;
+    var paramValue;
+
+    var dataArray = data.split("|");
+   
+    if( dataArray != null && dataArray != 'undefined' ){
+       id         = dataArray[0];
+       packetType = dataArray[1];
+       dateTime   = dataArray[2];
+       aircraftId = dataArray[3];
+       eventId    = dataArray[4];
+       gpsLat     = dataArray[5];
+       gpsLong    = dataArray[6];
+       altitude   = dataArray[7];
+       speed      = dataArray[8];
+       heading    = dataArray[9];
+       startTime  = dataArray[10];
+       stopTime   = dataArray[11];
+       paramCount = dataArray[12];
+    }
+
+    var eventInserted = false;
+
+    let date_ob = new Date();
+    let date = ("0" + date_ob.getDate()).slice(-2);
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+    let year = date_ob.getFullYear();
+    let hours = date_ob.getHours();
+    let minutes = date_ob.getMinutes();
+    let seconds = date_ob.getSeconds();
+    var currentDate = year+"-"+month+"-"+date+" "+hours+":"+minutes+":"+seconds;
+
+    var query = "INSERT INTO "+EVENT_TABLE+" (id, data_insert_date_time, packet_type, date_time, aircraftid, eventid, gps_lat, gps_long, altitude, speed, heading, start_time, stop_time, param_count) VALUES ("+id+", '"+currentDate+"', '"+packetType+"', '"+dateTime+"', '"+aircraftId+"', '"+eventId+"', '"+gpsLat+"', '"+gpsLong+"', '"+altitude+"', '"+speed+"', '"+heading+"', '"+startTime+"', '"+stopTime+"', '"+paramCount+"')";
+    console.log("["+Date(Date.now()).toString()+"] Query is [%s]", query);
+
+    pool.query(query, (error, results)=>{
+         if( error ){
+             console.log("["+Date(Date.now()).toString()+"] Error: "+error.code)
+             console.log("["+Date(Date.now()).toString()+"] Error: "+error)
+             eventInserted = false;
+         }else{
+
+             console.log("["+Date(Date.now()).toString()+"] Result ["+results+"]");
+
+             //1107|310.0000|10107110074|43.7348|10107190075|79.6499|10107 270076|45.0000|10107800085|35.9901|10103920100|11000.0000|510|1681.0000
+
+             for( var i = 13; i < dataArray.length; i++ ){
+               var paramId    = dataArray[i]; //13 15 17 19 21 23
+               console.log("Value of i ["+i+"] "+paramId)
+               var paramValue = dataArray[++i]; //14 16 18 20 22 24
+               console.log("AFI Value of i ["+i+"] "+paramValue)
+               query = "INSERT INTO "+EVENT_PARAMS_DETAIL+" (id, param_insert_date_time, packet_type, param_id, param_value) VALUES("+id+", '"+currentDate+"', '"+packetType+"', '"+paramId+"', '"+paramValue+"' )"
+               console.log("["+Date(Date.now()).toString()+"] Query is [%s]", query);
+
+               pool.query(query, (error, results)=>{
+                  if( error ){
+                     console.log("["+Date(Date.now()).toString()+"] Error: "+error.code)
+                     console.log("["+Date(Date.now()).toString()+"] Error: "+error)
+                     eventInserted = false;
+                  }else{
+                     console.log("["+Date(Date.now()).toString()+"] ["+i+"] Number of records inserted into "+EVENT_PARAMS_DETAIL+" table ["+results.rowCount+"]");
+                     if( i == 13 && ( eventId == 2001 || eventId == 2002 ) ){
+                        const isFlightDataInserted = saveFlightData(packetType, currentDate, aircraftId, eventId, startTime, stopTime, year+"-"+month+"-"+date+"-"+hours+"-"+minutes );
+                        if( isFlightDataInserted ){
+                           console.log("["+Date(Date.now()).toString()+"] Flight Data Saved Successfully ["+i+"]")
+                        }else{
+                           console.log("["+Date(Date.now()).toString()+"] Flight Data Not Saved ["+i+"]")
+                        }
+                     }
+                     eventInserted = true;
+                  }
+               });
+             }
+
+             eventInserted = true;
+         }
+    });
+
+    return;
+}
+
+function saveFlightData( packetType, currentDate, aircraftId, eventId, startTime, stopTime, flightDate ){
+  var FLIGHT_DETAILS_TABLE = 'flight_details';
+
+  var flightId = aircraftId+"-"+flightDate;
+
+  var query = "";
+
+  query = "INSERT INTO " + FLIGHT_DETAILS_TABLE + "(data_insert_date_time,aircraftid,asset_id,eventid,start_event_time,stop_event_time,current_status) VALUES('"+currentDate+"', '"+flightId+"', '"+aircraftId+"', '"+eventId+"', '"+startTime+"', '"+stopTime+"', 'IN-AIR')";
+
+  if( packetType == 'P' && eventId == 2001 ){//INSERT
+     pool.query(query, (error, results)=>{
+       if( error ){
+         console.log("["+Date(Date.now()).toString()+"] Flight Details Error: "+error.code)
+         console.log("["+Date(Date.now()).toString()+"] Flight Details Error: "+error)
+         return false;
+       }else{
+         console.log("["+Date(Date.now()).toString()+"] Number of records inserted into "+FLIGHT_DETAILS_TABLE+" table ["+results.rowCount+"]. Going to return true");
+         return true;
+       }
+     });
+  }else if( packetType == 'P' && eventId == 2002 ){
+     var selQuery = "SELECT aircraftid FROM " + FLIGHT_DETAILS_TABLE + " WHERE asset_id = '"+aircraftId+"' AND current_status = 'IN-AIR'";
+     pool.query(selQuery, (error, results)=>{
+        if( error ){
+           //ERROR
+           return false;
+        }else{
+           if( results.rowCount > 0 ){
+              const data = results.rows;
+              flightId = data[0].aircraftid;
+              query = "UPDATE "+FLIGHT_DETAILS_TABLE+" SET stop_event_time = '"+stopTime+"', current_status='ON-GROUND' WHERE aircraftid='"+flightId+"'";
+              console.log("["+Date(Date.now()).toString()+"] Flight Update Query["+query+"]");
+              pool.query(query, (error, results)=>{
+                 if( error ){
+                   return false;
+                 }else{
+                   if( results.rowCount > 0 ){
+                       console.log("["+Date(Date.now()).toString()+"] Flight Data For Flight Id["+flightId+"] Has Been Updated. Going to return true");
+                       return true;
+                   }else{
+                       return false;
+                   }
+                 }
+              });
+           }else{
+             return false;
+           }
+        }
+     });
+  }
+}
+
+
+function currentDate(){
+
+
+}
+
+
+module.exports = {
+    saveDataToPSql
+}
