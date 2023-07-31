@@ -1,0 +1,16 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".+\\.jsx?$",
+    "excludePattern": "(node_modules/|docs|src/Components/Plan/map\\.js|src/Components/View/MapViewContainer\\.js)"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./docs"
+  }
+}

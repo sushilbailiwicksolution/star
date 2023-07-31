@@ -1,0 +1,287 @@
+.custom-card {
+    position: absolute;
+    bottom: 0;
+    inset-inline: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .custom-card-container {
+    background: #2d285a;
+    border-radius: 0.8rem;
+    height: 0px;
+    overflow: hidden;
+    transition: height 1s;
+  }
+  
+  .custom-card-container.show-top {
+    height: 350px;
+    transition: height 1s;
+  }
+  
+  .custom-card-container.show-mapcard-top {
+    height: 250px;
+    transition: height 1s;
+    background-color: #24204b;
+  }
+  
+  .custom-card-body {
+    overflow: auto;
+    height: 100%;
+  }
+  
+  .map-box-container {
+    padding: 15px;
+  }
+  
+  .custom-card-body .table td {
+    border-top: none;
+  }
+  
+  .custom-card-body .table th {
+    border-bottom-width: 1px;
+  }
+  
+  button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+  .modal-right {
+    position: absolute;
+    right: 0;
+    inset-block: 0;
+    width: 0px;
+    background: #2d285a;
+    z-index: 99;
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    transition: width 1s;
+  }
+  
+  .modal-right.show-modal {
+    width: 450px;
+    transition: width 1s;
+  }
+  
+  .modal-right .modal-right-content {
+    overflow: hidden;
+    color: #fff;
+    text-align: left;
+    padding-block: 20px;
+  }
+  
+  .modal-right .modal-right-content .modal-right-body {
+    max-height: calc(100vh - 70px);
+    overflow: auto;
+    width: 450px;
+  }
+  
+  .modal-right .modal-right-content .modal-heading {
+    padding-inline: 10px;
+    margin-bottom: 10px;
+    min-width: 450px;
+  }
+  
+  .modal-right .modal-right-content .active-state {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-bottom: 2px solid red;
+    margin: 0px;
+    padding-bottom: 6px;
+  }
+  
+  .modal-btn {
+    background: #24204b !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+  }
+  
+  .modal-right .modal-btn {
+    position: absolute;
+    left: -40px;
+    border-radius: 5px 0px 0px 5px;
+    top: 200px;
+  }
+  
+  .map-card {
+    border: 2px solid #171430;
+  }
+  
+  .map-card .map-header {
+    padding: 5px;
+  }
+  
+  .map-card .map-body {
+    width: 100%;
+    height: 300px;
+    background: #78c68d;
+  }
+  
+  .modal-right .modal-right-content .modal-right-body .alert {
+    border-radius: 0px;
+  }
+  
+  .modal-right .modal-right-content .modal-right-body .alert .close {
+    font-size: 20px;
+  }
+  
+  .modal-message-top form {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .modal-message-top form select,
+  .modal-message-top form textarea {
+    font-size: 16px;
+    height: auto !important;
+  }
+  
+  .modal-message-bottom {
+    background: #24204b;
+    min-height: 300px;
+    margin-top: 20px;
+  }
+  
+  .modal-message-bottom span {
+    text-align: center;
+    display: block;
+    font-style: italic;
+    opacity: 0.5;
+    padding-top: 20px;
+  }
+  
+  .asset-list {
+    border-radius: 0px;
+    margin-inline: -1.5rem;
+    max-height: calc(100vh - 230px);
+    overflow: auto;
+  }
+  
+  .asset-list .list-group-item {
+    background: transparent;
+    color: #cac5ff;
+    border: none;
+    border-bottom: 1.5px solid #171430;
+  }
+  
+  .asset-list .list-group-item:last-child {
+    border-bottom: none;
+  }
+  
+  .asset-list .list-group-item:hover {
+    background: #2f2a5c;
+  }
+  
+  .asset-list .selectedAsset {
+    background: #2f2a5c;
+  }
+  
+  .asset-list .list-group-item:active {
+    background: #2c2855;
+  }
+  
+  .asset-list .list-row {
+    display: flex;
+    font-size: 13px;
+    text-align: left;
+    align-items: center;
+  }
+  
+  .asset-list .list-row img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .asset-list .list-row h5 {
+    margin-bottom: 3px;
+  }
+  
+  .asset-list .list-row p {
+    margin-bottom: 3px;
+  }
+  
+  .asset-list .list-row .list-child-2 {
+    max-width: calc(50% - 60px);
+    width: 100%;
+  }
+  
+  .asset-list .list-row .list-child-3 {
+    width: 100%;
+    max-width: 50%;
+  }
+
+  .asset-list .list-row p {
+    font-size: 10px;
+  }
+  
+  .noheight-wrapper-view {
+    overflow: hidden;
+  }
+  
+  .map-header {
+    padding: 8px 10px;
+    background: #24204b;
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .map-footer {
+    padding: 8px 10px;
+    background: rgb(36, 32, 75, 90%);
+    border-radius: 0px 0px 10px 10px;
+    margin-top: -44px;
+    z-index: 99;
+    position: relative;
+  }
+  
+  .map-input {
+    background: #ffffff20 !important;
+    border: none !important;
+    color: #fff !important;
+    height: 25px !important;
+    font-size: 12px !important;
+    width: 200px;
+  }
+  
+  .map-input option {
+    color: #000 !important;
+  }
+  
+  .map-input::placeholder {
+    color: #fff !important;
+  }
+  
+  .map-input:focus,
+  .map-input.focus {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .map-box-list .list-group-item {
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+  
+  .map-box-list .list-group-item:last-child {
+    border-bottom: none;
+  }
+
+  .countTimer {
+    border: 3px solid white;
+    border-radius: 50%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 7px;
+  }
+  
