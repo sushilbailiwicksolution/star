@@ -3131,7 +3131,49 @@ table:last-of-type th:nth-child(23) {
 
 
 
-
+  async function sendEmailAlertWithPDF() {
+    const user = 'star.info@nmstech.in';
+    const pass = 'qwfxexwyprftbrll';
+    const emailList = 'manish.mishra@bailiwicksolution.com';
+    const subject = 'Event Definition file';
+    const message = 'This is an email containing report file.';
+    const xlsxFilePath = 'SW-ISMS-002 NC Event Definitions TROO.xlsx'; // Replace with the actual path to your XLSX file
+  
+    // Read the XLSX file content
+    const xlsxContent = fs.readFileSync(xlsxFilePath);
+  
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: user,
+        pass: pass,
+      },
+    });
+  
+    const mailOptions = {
+      from: user,
+      to: emailList,
+      subject: subject,
+      text: message,
+      attachments: [
+        {
+          filename: 'SW-ISMS-002 NC Event Definitions TROO.xlsx',
+          content: xlsxContent,
+          contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          contentDisposition: 'attachment',
+        },
+      ],
+    };
+  
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(`[${Date(Date.now()).toString()}] Error sending email alert: ${error}`);
+      } else {
+        console.log(`[${Date(Date.now()).toString()}] Info: Email alert sent to ${emailList}`);
+      }
+    });
+  }
+ 
 
 
 module.exports = {
@@ -3155,5 +3197,6 @@ module.exports = {
     getOtherGridIdsByAGridId,
     // Report API methods
     getAllPDFReport,
-    getReport
+    getReport,
+    sendEmailAlertWithPDF
 }
