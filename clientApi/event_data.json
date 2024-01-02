@@ -1,0 +1,242 @@
+ [
+    {
+      "customer": "test",
+      "aircraft": "161",
+      "time": "2022-07-05-17",
+      "type": "Approach",
+      "severity": "low",
+      "location": {
+        "lat": 25.276987,
+        "lng": 55.296249
+      },
+      "heading": "-116.611",
+      "velocity": 200,
+      "ConfirmedBy": "",
+      "Comment": null,
+      "Message": null
+    },
+    {
+      "customer": "test",
+      "aircraft": "16",
+      "time": "2022-07-05-17",
+      "type": "Arrival",
+      "severity": "high",
+      "location": {
+        "lat": 24.735118,
+        "lng": 46.690491
+      },
+      "heading": "57.6765",
+      "velocity": 250,
+      "ConfirmedBy": "",
+      "Comment": null,
+      "Message": null
+    },
+    {
+      "customer": "test",
+      "aircraft": "161",
+      "time": "2022-07-05-17",
+      "type": "Alarm On",
+      "severity": "medium",
+      "location": {
+        "lat": 26.5119,
+        "lng": 50.027
+      },
+      "heading": "57.6765",
+      "velocity": 180,
+      "ConfirmedBy": "",
+      "Comment": null,
+      "Message": null
+    },
+    {
+      "customer": "test",
+      "aircraft": "161",
+      "time": "2022-07-05-17",
+      "type": "Approach",
+      "severity": "low",
+      "location": {
+        "lat": 25.276987,
+        "lng": 55.296249
+      },
+      "heading": "-116.611",
+      "velocity": 500,
+      "ConfirmedBy": "",
+      "Comment": null,
+      "Message": null
+    },
+    {
+      "customer": "test",
+      "aircraft": "16",
+      "time": "2022-07-05-18",
+      "type": "Alarm On",
+      "severity": "high",
+      "location": {
+        "lat": 24.466667,
+        "lng": 54.366669
+      },
+      "heading": "57.6765",
+      "velocity": 550,
+      "ConfirmedBy": "",
+      "Comment": null,
+      "Message": null
+    },
+    {
+      "customer": "test",
+      "aircraft": "161",
+      "time": "2023-03-05-12",
+      "type": "Approach",
+      "severity": "low",
+      "location": {
+        "lat": 26.0667,
+        "lng": 50.5577
+      },
+      "heading": "-99.3629",
+      "velocity": 450,
+      "ConfirmedBy": "",
+      "Comment": null,
+      "Message": null
+    },
+    {
+      "customer": "test",
+      "aircraft": "161",
+      "time": "2023-03-05-19",
+      "type": "Descent",
+      "severity": "medium",
+      "location": {
+        "lat": 26.2172,
+        "lng": 50.4615
+      },
+      "heading": "-100.011",
+      "velocity": 600,
+      "ConfirmedBy": "",
+      "Comment": null,
+      "Message": null
+    },  {
+    "customer": "test",
+    "aircraft": "161",
+    "time": "2022-07-05-17",
+    "type": "Approach",
+    "severity": "low",
+    "location": {
+      "lat": 25.276987,
+      "lng": 55.296249
+    },
+    "heading": "-116.611",
+    "velocity": 200,
+    "ConfirmedBy": "",
+    "Comment": null,
+    "Message": null
+  },
+  {
+    "customer": "test",
+    "aircraft": "16",
+    "time": "2022-07-05-17",
+    "type": "Arrival",
+    "severity": "high",
+    "location": {
+      "lat": 24.735118,
+      "lng": 46.690491
+    },
+    "heading": "57.6765",
+    "velocity": 250,
+    "ConfirmedBy": "",
+    "Comment": null,
+    "Message": null
+  },
+  {
+    "customer": "test",
+    "aircraft": "161",
+    "time": "2022-07-05-17",
+    "type": "Alarm On",
+    "severity": "medium",
+    "location": {
+      "lat": 26.5119,
+      "lng": 50.027
+    },
+    "heading": "57.6765",
+    "velocity": 180,
+    "ConfirmedBy": "",
+    "Comment": null,
+    "Message": null
+  },
+  {
+    "customer": "test",
+    "aircraft": "161",
+    "time": "2022-07-05-17",
+    "type": "Approach",
+    "severity": "low",
+    "location": {
+      "lat": 25.276987,
+      "lng": 55.296249
+    },
+    "heading": "-116.611",
+    "velocity": 500,
+    "ConfirmedBy": "",
+    "Comment": null,
+    "Message": null
+  },
+  {
+    "customer": "test",
+    "aircraft": "16",
+    "time": "2022-07-05-18",
+    "type": "Alarm On",
+    "severity": "high",
+    "location": {
+      "lat": 24.466667,
+      "lng": 54.366669
+    },
+    "heading": "57.6765",
+    "velocity": 550,
+    "ConfirmedBy": "",
+    "Comment": null,
+    "Message": null
+  },
+  {
+    "customer": "test",
+    "aircraft": "161",
+    "time": "2023-03-05-12",
+    "type": "Alarm On",
+    "severity": "low",
+    "location": {
+      "lat": 26.0667,
+      "lng": 50.5577
+    },
+    "heading": "-99.3629",
+    "velocity": 450,
+    "ConfirmedBy": "",
+    "Comment": null,
+    "Message": null
+  },
+  {
+    "customer": "test",
+    "aircraft": "161",
+    "time": "2023-03-05-19",
+    "type": "Descent",
+    "severity": "medium",
+    "location": {
+      "lat": 26.2172,
+      "lng": 50.4615
+    },
+    "heading": "-100.011",
+    "velocity": 600,
+    "ConfirmedBy": "",
+    "Comment": null,
+    "Message": null
+},
+{
+  "customer": "test",
+  "aircraft": "16",
+  "time": "2023-03-06-11",
+  "type": "Alarm On",
+  "severity": "medium",
+  "location": {
+    "lat": 24.466667,
+    "lng": 54.366669
+  },
+  "heading": "-116.611",
+  "velocity": 300,
+  "ConfirmedBy": "",
+  "Comment": null,
+  "Message": null
+}
+  ]
+  
