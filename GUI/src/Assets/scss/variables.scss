@@ -1,0 +1,64 @@
+/********** Font **********/
+// Font family
+$cl-primary-font-regular:'Gotham Book', Arial;
+$cl-primary-font-medium:'Gotham Medium', Arial;
+$cl-primary-font-bold:'Gotham Bold', Arial;
+$cl-primary-font-light:'Gotham Light', Arial;
+
+// Font size
+$cl-base-font: 1.4rem;  /* =14px */
+
+// Font sizes
+$cl-font-10: 1rem;
+$cl-font-12: 1.2rem;
+$cl-font-14: 1.4rem;
+$cl-font-16: 1.6rem;
+$cl-font-18: 1.8rem;
+$cl-font-20: 2.0rem;
+$cl-font-22: 2.2rem;
+
+// Heading
+$cl-heading-h1: 4.2rem;  
+$cl-heading-h2: 3.2rem;  
+$cl-heading-h3: 2.6rem;  
+$cl-heading-h4: 2.0rem;  
+$cl-heading-h5: 1.8rem;  
+$cl-heading-h6: 1.6rem;  
+
+
+/********** Colors **********/
+$cl-primary: #43425d;
+$cl-primary-dark: #393374;
+$cl-primary-darker: #24204b;
+$cl-primary-darkest: #171430;
+$cl-dropdown-bg: #394279;
+$cl-dropdown-hover-bg: #8288ac;
+
+$cl-secondary: #EF476F;
+$cl-secondary-dark: #D41944;
+
+$cl-tartiary: #0099FF;
+$cl-tartiary-dark: #1175BC;
+
+$cl-supporting1: #FFC43D;
+$cl-supporting1-dark: #EBA427;
+
+$cl-supporting2: #50009B;
+$cl-supporting2-dark: #3B0A6B;
+
+$cl-gray-light: #E9E9F0;
+$cl-gray-lighter: #c6c6c6;
+$cl-grey-text: #707070;
+$cl-gray: #535353;
+$cl-gray-dark: #383838;
+$cl-black: #000000;
+$cl-white: #ffffff;
+$cl-red: #fd0000;
+$cl-green: #01dd4a;
+
+$cl-btn-small-height: 3rem;
+$cl-btn-small-padding: 0 1.2rem;
+$cl-btn-hover-shadow: -2px 0px 2px -1px #616161;
+
+
+

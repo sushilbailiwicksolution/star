@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* Define the animation */
+@keyframes moveText {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  50% {
+    transform: translateX(50px); /* Middle position */
+  }
+  100% {
+    transform: translateX(0); /* End position */
+  }
+}
+
+/* Your CSS file */
+.dropzone-container {
+  border: 2px dashed #ddd; 
+  margin-left: 62px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #c32121;
+}
+
+.dropzone-container p {
+  margin: 0;
+}
+/* CSS for the animation */
+.animated-text {
+  animation: fadeInOut 2s infinite alternate;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
