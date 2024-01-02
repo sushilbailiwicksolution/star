@@ -52,6 +52,9 @@ export class GeofenceEntity extends ExtendEntity {
 
     @Column({name: 'g_landmark_id'})
     landmarkId?: number;
+
+    @Column({ name: 'aircraft', length: 100, nullable: true })
+    aircraft?: string;
     
     @OneToMany('GeofenceNotificationEntity', 'notification', {onDelete: 'CASCADE', eager: true, cascade: true })
     notifications?: GeofenceNotificationEntity[];

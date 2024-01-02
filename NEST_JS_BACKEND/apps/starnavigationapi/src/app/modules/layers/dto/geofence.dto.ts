@@ -201,4 +201,12 @@ export class GeofenceDto extends ExtendDto {
      * Buffer distance 
      */
     bufferDistance?: number = 0;
+
+    @IsString()
+    @Expose()
+    @ApiProperty({
+        description: 'Aircraft'
+    })
+    @IsNotEmpty()
+    aircraft?: string;
 }
