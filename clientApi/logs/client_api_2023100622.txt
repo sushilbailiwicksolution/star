@@ -1,0 +1,7 @@
+PostgresSQL API App Listening On Port at https://star-ads-app.com:3378
+File Location: undefined
+Uploaded file: events (10).xlsx
+<Buffer 50 4b 03 04 14 00 00 00 00 00 00 00 00 00 a4 01 84 b8 b5 02 00 00 b5 02 00 00 1a 00 00 00 78 6c 2f 5f 72 65 6c 73 2f 77 6f 72 6b 62 6f 6f 6b 2e 78 6d ... 25512 more bytes> buffer
+File Location: undefined
+Uploaded file: events_16_2023-10-07 (1).xlsx
+<Buffer 50 4b 03 04 14 00 00 00 00 00 00 00 00 00 a4 01 84 b8 b5 02 00 00 b5 02 00 00 1a 00 00 00 78 6c 2f 5f 72 65 6c 73 2f 77 6f 72 6b 62 6f 6f 6b 2e 78 6d ... 16710 more bytes> buffer

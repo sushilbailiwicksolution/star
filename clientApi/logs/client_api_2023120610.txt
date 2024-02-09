@@ -1,0 +1,955 @@
+PostgresSQL API App Listening On Port at https://star-ads-app.com:3378
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 10:59:43 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 10:59:44 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 10:59:47 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 10:59:47 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:00:32 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:00:32 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:00:32 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+[Wed Dec 06 2023 11:00:38 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:00:38 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:02:59 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:02:59 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+[Wed Dec 06 2023 11:02:59 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+[Wed Dec 06 2023 11:03:02 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:03:02 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:07:30 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:07:30 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 11:08:14 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:08:18 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 11:08:19 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:08:19 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:13:59 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:13:59 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:13:59 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:16:01 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:16:01 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:20:04 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:20:04 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+[Wed Dec 06 2023 11:20:04 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+798.0000
+[Wed Dec 06 2023 11:20:07 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:20:07 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:20:55 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:20:55 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+[Wed Dec 06 2023 11:20:55 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:23:20 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:23:21 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:25:46 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:25:47 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:26:29 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:26:29 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+[Wed Dec 06 2023 11:26:53 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:26:54 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:28:17 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:28:17 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:31:27 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:31:27 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+[Wed Dec 06 2023 11:31:27 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+798.0000
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Wed Dec 06 2023 11:31:35 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:31:37 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='162' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:31:37 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"162-2023-06-13-15","to_timestamp":"2023-06-13T15:00:00.000Z"}}
+1.0000
+[Wed Dec 06 2023 11:31:41 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='161' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:31:41 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"161-2023-06-06-13","to_timestamp":"2023-06-06T13:00:00.000Z"},"1":{"aircraftid":"161-2023-06-07-09","to_timestamp":"2023-06-07T09:00:00.000Z"},"2":{"aircraftid":"161-2023-06-07-11","to_timestamp":"2023-06-07T11:00:00.000Z"},"3":{"aircraftid":"161-2023-06-09-11","to_timestamp":"2023-06-09T11:00:00.000Z"},"4":{"aircraftid":"161-2023-06-14-11","to_timestamp":"2023-06-14T11:00:00.000Z"},"5":{"aircraftid":"161-2023-06-27-07","to_timestamp":"2023-06-27T07:00:00.000Z"},"6":{"aircraftid":"161-2023-06-28-15","to_timestamp":"2023-06-28T15:00:00.000Z"},"7":{"aircraftid":"161-2023-06-29-13","to_timestamp":"2023-06-29T13:00:00.000Z"},"8":{"aircraftid":"161-2023-07-10-09","to_timestamp":"2023-07-10T09:00:00.000Z"},"9":{"aircraftid":"161-2023-09-26-06","to_timestamp":"2023-09-26T06:00:00.000Z"},"10":{"aircraftid":"161-2023-10-05-15","to_timestamp":"2023-10-05T15:00:00.000Z"},"11":{"aircraftid":"161-2023-10-05-16","to_timestamp":"2023-10-05T16:00:00.000Z"},"12":{"aircraftid":"161-2023-10-09-09","to_timestamp":"2023-10-09T09:00:00.000Z"},"13":{"aircraftid":"161-2023-10-23-13","to_timestamp":"2023-10-23T13:00:00.000Z"},"14":{"aircraftid":"161-2023-11-23-11","to_timestamp":"2023-11-23T10:00:00.000Z"},"15":{"aircraftid":"161-2023-11-23-11","to_timestamp":"2023-11-23T11:00:00.000Z"},"16":{"aircraftid":"161-2023-11-23-12","to_timestamp":"2023-11-23T11:00:00.000Z"},"17":{"aircraftid":"161-2023-11-23-12","to_timestamp":"2023-11-23T12:00:00.000Z"},"18":{"aircraftid":"161-2023-11-23-13","to_timestamp":"2023-11-23T13:00:00.000Z"},"19":{"aircraftid":"161-2023-11-23-14","to_timestamp":"2023-11-23T14:00:00.000Z"},"20":{"aircraftid":"161-2023-11-24-06","to_timestamp":"2023-11-24T06:00:00.000Z"},"21":{"aircraftid":"161-2023-11-24-07","to_timestamp":"2023-11-24T07:00:00.000Z"},"22":{"aircraftid":"161-2023-11-27-07","to_timestamp":"2023-11-27T07:00:00.000Z"},"23":{"aircraftid":"161-2023-11-28-05","to_timestamp":"2023-11-28T05:00:00.000Z"},"24":{"aircraftid":"161-129-2023-12-01-13","to_timestamp":"2023-12-01T13:00:00.000Z"},"25":{"aircraftid":"161-129-2023-12-02-11","to_timestamp":"2023-12-02T11:00:00.000Z"},"26":{"aircraftid":"161-129-2023-12-05-07","to_timestamp":"2023-12-05T07:00:00.000Z"},"27":{"aircraftid":"161-129-2023-12-05-12","to_timestamp":"2023-12-05T12:00:00.000Z"}}
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+798.0000
+130.0000
+798.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+798.0000
+130.0000
+798.0000
+130.0000
+[Wed Dec 06 2023 11:57:01 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 11:57:03 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:57:03 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 11:59:01 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 11:59:01 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+798.0000
+798.0000
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:02:07 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:02:09 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:02:11 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:02:11 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+798.0000
+798.0000
+[Wed Dec 06 2023 12:04:28 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:04:28 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+[Wed Dec 06 2023 12:04:59 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:05:11 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:05:17 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:05:17 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:05:55 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:05:55 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+[Wed Dec 06 2023 12:06:02 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:06:02 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+[Wed Dec 06 2023 12:06:07 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:06:07 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+798.0000
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:09:06 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:09:08 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:09:11 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:09:11 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 12:13:57 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[ '16' ]
+[Wed Dec 06 2023 12:13:59 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:14:05 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:14:05 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Wed Dec 06 2023 12:14:22 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:14:32 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='165' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:14:32 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"165-2023-06-13-15","to_timestamp":"2023-06-13T15:00:00.000Z"}}
+1.0000
+[Wed Dec 06 2023 12:14:51 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[ '16' ]
+[Wed Dec 06 2023 12:14:54 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+totalassets
+totalevents: 102
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Wed Dec 06 2023 12:15:01 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:15:05 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='162' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:15:05 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"162-2023-06-13-15","to_timestamp":"2023-06-13T15:00:00.000Z"}}
+1.0000
+[Wed Dec 06 2023 12:15:09 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='161' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:15:09 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"161-2023-06-06-13","to_timestamp":"2023-06-06T13:00:00.000Z"},"1":{"aircraftid":"161-2023-06-07-09","to_timestamp":"2023-06-07T09:00:00.000Z"},"2":{"aircraftid":"161-2023-06-07-11","to_timestamp":"2023-06-07T11:00:00.000Z"},"3":{"aircraftid":"161-2023-06-09-11","to_timestamp":"2023-06-09T11:00:00.000Z"},"4":{"aircraftid":"161-2023-06-14-11","to_timestamp":"2023-06-14T11:00:00.000Z"},"5":{"aircraftid":"161-2023-06-27-07","to_timestamp":"2023-06-27T07:00:00.000Z"},"6":{"aircraftid":"161-2023-06-28-15","to_timestamp":"2023-06-28T15:00:00.000Z"},"7":{"aircraftid":"161-2023-06-29-13","to_timestamp":"2023-06-29T13:00:00.000Z"},"8":{"aircraftid":"161-2023-07-10-09","to_timestamp":"2023-07-10T09:00:00.000Z"},"9":{"aircraftid":"161-2023-09-26-06","to_timestamp":"2023-09-26T06:00:00.000Z"},"10":{"aircraftid":"161-2023-10-05-15","to_timestamp":"2023-10-05T15:00:00.000Z"},"11":{"aircraftid":"161-2023-10-05-16","to_timestamp":"2023-10-05T16:00:00.000Z"},"12":{"aircraftid":"161-2023-10-09-09","to_timestamp":"2023-10-09T09:00:00.000Z"},"13":{"aircraftid":"161-2023-10-23-13","to_timestamp":"2023-10-23T13:00:00.000Z"},"14":{"aircraftid":"161-2023-11-23-11","to_timestamp":"2023-11-23T10:00:00.000Z"},"15":{"aircraftid":"161-2023-11-23-11","to_timestamp":"2023-11-23T11:00:00.000Z"},"16":{"aircraftid":"161-2023-11-23-12","to_timestamp":"2023-11-23T11:00:00.000Z"},"17":{"aircraftid":"161-2023-11-23-12","to_timestamp":"2023-11-23T12:00:00.000Z"},"18":{"aircraftid":"161-2023-11-23-13","to_timestamp":"2023-11-23T13:00:00.000Z"},"19":{"aircraftid":"161-2023-11-23-14","to_timestamp":"2023-11-23T14:00:00.000Z"},"20":{"aircraftid":"161-2023-11-24-06","to_timestamp":"2023-11-24T06:00:00.000Z"},"21":{"aircraftid":"161-2023-11-24-07","to_timestamp":"2023-11-24T07:00:00.000Z"},"22":{"aircraftid":"161-2023-11-27-07","to_timestamp":"2023-11-27T07:00:00.000Z"},"23":{"aircraftid":"161-2023-11-28-05","to_timestamp":"2023-11-28T05:00:00.000Z"},"24":{"aircraftid":"161-129-2023-12-01-13","to_timestamp":"2023-12-01T13:00:00.000Z"},"25":{"aircraftid":"161-129-2023-12-02-11","to_timestamp":"2023-12-02T11:00:00.000Z"},"26":{"aircraftid":"161-129-2023-12-05-07","to_timestamp":"2023-12-05T07:00:00.000Z"},"27":{"aircraftid":"161-129-2023-12-05-12","to_timestamp":"2023-12-05T12:00:00.000Z"}}
+130.0000
+798.0000
+130.0000
+130.0000
+798.0000
+130.0000
+130.0000
+798.0000
+130.0000
+130.0000
+798.0000
+130.0000
+130.0000
+798.0000
+130.0000
+130.0000
+798.0000
+130.0000
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:20:57 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:20:58 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:20:58 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+[Wed Dec 06 2023 12:21:17 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:21:17 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[Wed Dec 06 2023 12:28:31 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:28:31 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+[Wed Dec 06 2023 12:28:32 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+[Wed Dec 06 2023 12:28:52 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:28:53 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:29:05 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:29:05 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+[Wed Dec 06 2023 12:29:41 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:29:41 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+[Wed Dec 06 2023 12:29:49 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+totalassets
+totalevents: 521
+798.0000
+[Wed Dec 06 2023 12:30:37 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:30:38 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:31:00 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='166' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:31:00 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"166-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"}}
+1.0000
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:31:07 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:31:21 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:31:38 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+798.0000
+798.0000
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:32:37 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:32:40 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:40:09 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:40:13 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:40:15 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:40:15 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:41:58 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:42:01 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:44:07 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:44:07 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+798.0000
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:49:27 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:49:32 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:49:38 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Wed Dec 06 2023 12:49:53 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:49:53 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[Wed Dec 06 2023 12:50:00 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+[Wed Dec 06 2023 12:50:03 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+totalassets
+totalevents: 102
+[Wed Dec 06 2023 12:50:20 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='16' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('06-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('06-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Wed Dec 06 2023 12:50:20 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"16-2023-06-06-15","to_timestamp":"2023-06-06T15:00:00.000Z"},"1":{"aircraftid":"16-2023-06-06-19","to_timestamp":"2023-06-06T19:00:00.000Z"},"2":{"aircraftid":"16-2023-06-07-14","to_timestamp":"2023-06-07T14:00:00.000Z"},"3":{"aircraftid":"16-2023-06-07-17","to_timestamp":"2023-06-07T17:00:00.000Z"},"4":{"aircraftid":"16-2023-06-11-04","to_timestamp":"2023-06-11T04:00:00.000Z"},"5":{"aircraftid":"16-2023-06-12-12","to_timestamp":"2023-06-12T12:00:00.000Z"},"6":{"aircraftid":"16-2023-06-18-12","to_timestamp":"2023-06-18T12:00:00.000Z"},"7":{"aircraftid":"16-2023-06-19-10","to_timestamp":"2023-06-19T10:00:00.000Z"},"8":{"aircraftid":"16-2023-06-19-18","to_timestamp":"2023-06-19T18:00:00.000Z"},"9":{"aircraftid":"16-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"},"10":{"aircraftid":"16-2023-06-20-13","to_timestamp":"2023-06-20T13:00:00.000Z"},"11":{"aircraftid":"16-2023-06-22-11","to_timestamp":"2023-06-22T11:00:00.000Z"},"12":{"aircraftid":"16-2023-06-22-16","to_timestamp":"2023-06-22T16:00:00.000Z"},"13":{"aircraftid":"16-2023-06-25-08","to_timestamp":"2023-06-25T08:00:00.000Z"},"14":{"aircraftid":"16-2023-06-25-10","to_timestamp":"2023-06-25T10:00:00.000Z"},"15":{"aircraftid":"16-2023-06-27-14","to_timestamp":"2023-06-27T14:00:00.000Z"},"16":{"aircraftid":"16-2023-06-27-20","to_timestamp":"2023-06-27T20:00:00.000Z"},"17":{"aircraftid":"16-2023-07-18-16","to_timestamp":"2023-07-18T16:00:00.000Z"},"18":{"aircraftid":"16-2023-07-18-19","to_timestamp":"2023-07-18T19:00:00.000Z"},"19":{"aircraftid":"16-2023-07-22-02","to_timestamp":"2023-07-22T02:00:00.000Z"},"20":{"aircraftid":"16-2023-07-23-17","to_timestamp":"2023-07-23T17:00:00.000Z"},"21":{"aircraftid":"16-2023-07-23-19","to_timestamp":"2023-07-23T19:00:00.000Z"},"22":{"aircraftid":"16-2023-07-23-22","to_timestamp":"2023-07-23T22:00:00.000Z"},"23":{"aircraftid":"16-2023-07-24-17","to_timestamp":"2023-07-24T17:00:00.000Z"},"24":{"aircraftid":"16-2023-07-25-16","to_timestamp":"2023-07-25T16:00:00.000Z"},"25":{"aircraftid":"16-2023-07-25-21","to_timestamp":"2023-07-25T21:00:00.000Z"},"26":{"aircraftid":"16-2023-10-20-16","to_timestamp":"2023-10-20T16:00:00.000Z"},"27":{"aircraftid":"16-2023-10-25-06","to_timestamp":"2023-10-25T06:00:00.000Z"},"28":{"aircraftid":"16-2023-10-25-10","to_timestamp":"2023-10-25T10:00:00.000Z"},"29":{"aircraftid":"16-2023-10-25-19","to_timestamp":"2023-10-25T19:00:00.000Z"},"30":{"aircraftid":"16-2023-10-26-23","to_timestamp":"2023-10-26T23:00:00.000Z"},"31":{"aircraftid":"16-2023-10-29-05","to_timestamp":"2023-10-29T05:00:00.000Z"},"32":{"aircraftid":"16-2023-10-30-13","to_timestamp":"2023-10-30T13:00:00.000Z"},"33":{"aircraftid":"16-2023-11-03-02","to_timestamp":"2023-11-03T02:00:00.000Z"},"34":{"aircraftid":"16-2023-11-03-20","to_timestamp":"2023-11-03T20:00:00.000Z"},"35":{"aircraftid":"16-2023-11-23-07","to_timestamp":"2023-11-23T07:00:00.000Z"},"36":{"aircraftid":"16-2023-11-24-18","to_timestamp":"2023-11-24T18:00:00.000Z"},"37":{"aircraftid":"16-2023-11-27-08","to_timestamp":"2023-11-27T08:00:00.000Z"},"38":{"aircraftid":"16-2023-11-27-13","to_timestamp":"2023-11-27T13:00:00.000Z"},"39":{"aircraftid":"16-2023-11-28-07","to_timestamp":"2023-11-28T07:00:00.000Z"},"40":{"aircraftid":"16-2023-11-28-09","to_timestamp":"2023-11-28T09:00:00.000Z"},"41":{"aircraftid":"16-796.0000-2023-12-04-06","to_timestamp":"2023-12-04T06:00:00.000Z"},"42":{"aircraftid":"16-797.0000-2023-12-04-10","to_timestamp":"2023-12-04T10:00:00.000Z"}}
+798.0000
+[Wed Dec 06 2023 12:50:28 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+error: invalid input syntax for type integer: "undefined"
+    at /home/star/api/node_modules/pg-pool/index.js:45:11
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async getSummaryCountData (/home/star/api/db.js:1551:28) {
+  length: 147,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '320',
+  routine: 'pg_strtoint32'
+}
+[ '16' ]
+[Wed Dec 06 2023 12:50:30 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+totalassets
+totalevents: 102

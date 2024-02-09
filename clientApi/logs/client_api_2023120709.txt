@@ -1,0 +1,647 @@
+PostgresSQL API App Listening On Port at https://star-ads-app.com:3378
+1.0000
+1.0000
+1.0000
+1.0000
+PostgresSQL API App Listening On Port at https://star-ads-app.com:3378
+1.0000
+[
+  { id: 1, eventId: '2', event_type: 'General Tweet' },
+  { id: 2, eventId: '2017', event_type: 'Landing Stream' },
+  {
+    id: 3,
+    eventId: '4033',
+    event_type: 'Thrust high on ground during taxi in'
+  },
+  {
+    id: 4,
+    eventId: '4051',
+    event_type: 'High speed on arrival below 2500 ft radio height'
+  },
+  {
+    id: 5,
+    eventId: '4045',
+    event_type: 'Pitch low initial climb below 400ft AFE'
+  },
+  { id: 6, eventId: '2009', event_type: 'Cruise' },
+  {
+    id: 7,
+    eventId: '4019',
+    event_type: 'Excessive bank angle in final approach between 400 and 100ft AFE'
+  },
+  {
+    id: 8,
+    eventId: '4047',
+    event_type: 'High rate of descent in approach between 2000 and 1000ft AFE'
+  },
+  { id: 9, eventId: '4005', event_type: 'Tail Strike' },
+  {
+    id: 10,
+    eventId: '4026',
+    event_type: 'Excessive bank angle in climb between 400 and 1000ft AFE'
+  },
+  { id: 11, eventId: '4006', event_type: 'ENG 1 N1 Exceedance' },
+  { id: 12, eventId: '2006', event_type: 'Taxi Out' },
+  { id: 13, eventId: '4014', event_type: 'Oil Temprature High' },
+  { id: 14, eventId: '1', event_type: 'General Heart Beat' },
+  { id: 15, eventId: '4016', event_type: 'Low pitch rate at take off' },
+  {
+    id: 16,
+    eventId: '4044',
+    event_type: 'Pitch high initial climb below 400ft AFE'
+  },
+  { id: 17, eventId: '4064', event_type: 'Delayed braking at landing' },
+  {
+    id: 18,
+    eventId: '4028',
+    event_type: 'Significant roll during flare below 10ft RA Landing'
+  },
+  {
+    id: 19,
+    eventId: '4031',
+    event_type: 'Thrust asymmetry in Reverse'
+  },
+  {
+    id: 20,
+    eventId: '4022',
+    event_type: 'Excessive bank angle above 1000ft AFE Approach'
+  },
+  { id: 21, eventId: '4010', event_type: 'EGT Exceedance' },
+  {
+    id: 22,
+    eventId: '4037',
+    event_type: 'Engine shutdown in flight Descent'
+  },
+  {
+    id: 23,
+    eventId: '4013',
+    event_type: 'Max. Continnuous Eng1\\\\Eng2'
+  },
+  { id: 24, eventId: '2020', event_type: 'Gen Warning' },
+  { id: 25, eventId: '4042', event_type: 'Long flare' },
+  {
+    id: 26,
+    eventId: '4036',
+    event_type: 'Engine shutdown in flight Cruise'
+  },
+  { id: 27, eventId: '2008', event_type: 'Climb' },
+  {
+    id: 28,
+    eventId: '4058',
+    event_type: 'Speed exceedence Mmo Descent'
+  },
+  {
+    id: 29,
+    eventId: '4030',
+    event_type: 'Thrust asymmetry in Approach'
+  },
+  { id: 30, eventId: '2018', event_type: 'Climb Engine Trend Stream' },
+  { id: 31, eventId: '4008', event_type: 'ENG 1 N2 Exceedance' },
+  {
+    id: 32,
+    eventId: '4059',
+    event_type: 'Speed exceedence Mmo Approach'
+  },
+  { id: 33, eventId: '4003', event_type: 'Fire' },
+  { id: 34, eventId: '4001', event_type: 'Pitch Exceedance' },
+  { id: 35, eventId: '4039', event_type: 'Long Holding' },
+  {
+    id: 36,
+    eventId: '4018',
+    event_type: 'Excessive bank angle in final approach below 100ft AFE'
+  },
+  { id: 37, eventId: '2012', event_type: 'Landing' },
+  {
+    id: 38,
+    eventId: '4057',
+    event_type: 'Speed exceedence Mmo Cruise'
+  },
+  {
+    id: 39,
+    eventId: '4040',
+    event_type: 'Heading deviation at take-off from 100 kts to lift off'
+  },
+  { id: 40, eventId: '2001', event_type: 'Start Recording' },
+  { id: 41, eventId: '2022', event_type: 'Tank Fault' },
+  { id: 42, eventId: '4063', event_type: 'Rejected take off' },
+  {
+    id: 43,
+    eventId: '4032',
+    event_type: 'Thrust high on ground during taxi out'
+  },
+  { id: 44, eventId: '2019', event_type: 'Cruise Engine Trend Stream' },
+  {
+    id: 45,
+    eventId: '4029',
+    event_type: 'Excessive EGT at take-off or GA'
+  },
+  {
+    id: 46,
+    eventId: '4024',
+    event_type: 'Excessive bank angle in climb below 100ft AFE'
+  },
+  { id: 47, eventId: '2021', event_type: 'Fire Warning' },
+  {
+    id: 48,
+    eventId: '4055',
+    event_type: 'Speed exceedence Vmo Approach'
+  },
+  { id: 49, eventId: '4009', event_type: 'ENG 2 N2 Exceedance' },
+  {
+    id: 50,
+    eventId: '4038',
+    event_type: 'Engine shutdown in flight Approach'
+  },
+  {
+    id: 51,
+    eventId: '4025',
+    event_type: 'Excessive bank angle in climb between 100 and 400ft AFE'
+  },
+  { id: 52, eventId: '4012', event_type: 'In Flight Eng1\\\\Eng2' },
+  {
+    id: 53,
+    eventId: '4021',
+    event_type: 'Excessive bank angle above 1000ft AFE Climb'
+  },
+  { id: 54, eventId: '4052', event_type: 'Speed exceedence Vmo Climb' },
+  { id: 55, eventId: '4017', event_type: 'High pitch rate at landing' },
+  {
+    id: 56,
+    eventId: '4049',
+    event_type: 'High rate of descent in approach between 500 and 50ft AFE'
+  },
+  { id: 57, eventId: '4004', event_type: 'Excessive Banking' },
+  { id: 58, eventId: '4007', event_type: 'ENG 2 N1 Exceedance' },
+  { id: 59, eventId: '2011', event_type: 'Approach' },
+  {
+    id: 60,
+    eventId: '4020',
+    event_type: 'Excessive bank angle on approach between 1000 and 400ft AFE'
+  },
+  { id: 61, eventId: '4002', event_type: 'Roll Exceedance' },
+  { id: 62, eventId: '2014', event_type: 'Engine Off' },
+  { id: 63, eventId: '2013', event_type: 'Taxi In' },
+  { id: 64, eventId: '2004', event_type: 'Pushback' },
+  {
+    id: 65,
+    eventId: '4054',
+    event_type: 'Speed exceedence Vmo Descent'
+  },
+  { id: 66, eventId: '4011', event_type: 'On Ground Eng 1\\\\Eng2' },
+  {
+    id: 67,
+    eventId: '4015',
+    event_type: 'High pitch rate at take off'
+  },
+  {
+    id: 68,
+    eventId: '4053',
+    event_type: 'Speed exceedence Vmo Cruise'
+  },
+  {
+    id: 69,
+    eventId: '4035',
+    event_type: 'Engine shutdown in flight Climb'
+  },
+  {
+    id: 70,
+    eventId: '4023',
+    event_type: 'Excessive bank angle above 1000ft AFE Descent'
+  },
+  {
+    id: 71,
+    eventId: '4050',
+    event_type: 'Low rate of climb after take off or go around'
+  },
+  {
+    id: 72,
+    eventId: '4066',
+    event_type: 'Climb out speed low between 100 and 1500ft AFE'
+  },
+  {
+    id: 73,
+    eventId: '4061',
+    event_type: 'Exceedance of flaps/slats limit speed in Descent'
+  },
+  {
+    id: 74,
+    eventId: '4060',
+    event_type: 'Exceedance of flaps/slats limit speed after take off'
+  },
+  { id: 75, eventId: '4065', event_type: 'Climb speed high' },
+  { id: 76, eventId: '2016', event_type: 'Takeoff Stream' },
+  { id: 77, eventId: '4043', event_type: 'Short flare' },
+  { id: 78, eventId: '2015', event_type: 'WowCondition' },
+  { id: 79, eventId: '2005', event_type: 'Engine Start' },
+  { id: 80, eventId: '4056', event_type: 'Speed exceedence Mmo Climb' },
+  {
+    id: 81,
+    eventId: '4034',
+    event_type: 'Early power set up at line up'
+  },
+  {
+    id: 82,
+    eventId: '4046',
+    event_type: 'High rate of descent in approach above 2000ft AFE'
+  },
+  {
+    id: 83,
+    eventId: '4027',
+    event_type: 'Significant roll during flare below 10ft RA Approach'
+  },
+  {
+    id: 84,
+    eventId: '4062',
+    event_type: 'Exceedance of flaps/slats limit speed in approach'
+  },
+  {
+    id: 85,
+    eventId: '4048',
+    event_type: 'High rate of descent in approach between 1000 and 500ft AFE'
+  },
+  {
+    id: 86,
+    eventId: '4041',
+    event_type: 'Heading deviation at landing above 60 kts'
+  },
+  { id: 87, eventId: '2007', event_type: 'Takeoff' },
+  { id: 88, eventId: '2002', event_type: 'Stop Recording' },
+  { id: 89, eventId: '2010', event_type: 'Descent' }
+]
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+[Thu Dec 07 2023 09:10:44 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+totalassets
+totalevents: 521
+[Thu Dec 07 2023 09:10:47 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='166' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('07-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('07-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Thu Dec 07 2023 09:10:47 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"166-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"}}
+1.0000
+[ '16' ]
+totalassets
+totalevents: 102
+[Thu Dec 07 2023 09:10:57 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+[Thu Dec 07 2023 09:13:23 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+totalassets
+totalevents: 102
+[Thu Dec 07 2023 09:29:54 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Thu Dec 07 2023 09:29:56 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='162' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('07-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('07-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Thu Dec 07 2023 09:29:56 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"162-2023-06-13-15","to_timestamp":"2023-06-13T15:00:00.000Z"}}
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Thu Dec 07 2023 09:33:14 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Thu Dec 07 2023 09:49:53 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='166' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('07-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('07-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Thu Dec 07 2023 09:49:53 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"166-2023-06-20-11","to_timestamp":"2023-06-20T11:00:00.000Z"}}
+1.0000
+[Thu Dec 07 2023 09:50:08 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[ '16' ]
+totalassets
+totalevents: 102
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Thu Dec 07 2023 09:50:15 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[Thu Dec 07 2023 09:50:18 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='164' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('07-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('07-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Thu Dec 07 2023 09:50:18 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"164-2023-06-13-15","to_timestamp":"2023-06-13T15:00:00.000Z"}}
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+1.0000
+[Thu Dec 07 2023 10:02:02 GMT+0000 (Coordinated Universal Time)] Query is [SELECT DISTINCT(aircraftid) , to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp FROM flight_details WHERE asset_id='165' AND to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp >= to_timestamp('07-06-2023 00', 'DD-MM-YYYY HH24')::timestamp and to_timestamp(stop_event_time, 'YYYY-MM-DD HH24')::timestamp <= to_timestamp('07-12-2023 23', 'DD-MM-YYYY HH24')::timestamp ORDER BY to_timestamp(start_event_time, 'YYYY-MM-DD HH24')::timestamp ASC]
+[Thu Dec 07 2023 10:02:02 GMT+0000 (Coordinated Universal Time)] Returning JSON as {"0":{"aircraftid":"165-2023-06-13-15","to_timestamp":"2023-06-13T15:00:00.000Z"}}
+1.0000
+1.0000
+1.0000
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Report Configuration Query [select event_id, event_name, report_label, param_id, unit_label, priority, section, block_priority from report_events_eofsr_engi_cond_moni where event_status='a' order by block_priority, priority]
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10100670051']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10100670051']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2006' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 first
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2006' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1227 and param_id = '10100590050']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 first
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2006' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1227 and param_id = '10100590050']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110930037']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110930037']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2001' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 first
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2005' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1138 and param_id = '10002170073']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 first
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2013' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 first
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2012' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 first
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10103920100']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10103920100']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10104090102']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10104090102']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10104160103']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10104160103']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10104300106']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10104300106']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2014' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1295 and param_id = '10110990045']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2014' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1295 and param_id = '10110990045']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10104450068']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10104450068']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110780015']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110780015']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:30 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110780016']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110780016']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110840026']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110840026']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110840027']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110840027']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110830024']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110830024']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110830025']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110830025']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300630120']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300630120']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300630121']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300630121']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300640122']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300640122']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300640123']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300640123']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300260126']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300260126']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300260127']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300260127']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300460125']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300460125']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10300460124']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10300460124']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:31 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110970041']
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110970041']
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2007' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1229 and param_id = '10110970042']
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Query To Get Flight Data [select a.id as mid, a.eventid, a.aircraftid as asset_id, a.packet_type, b.aircraftid as flight_id, a.data_insert_date_time, a.start_time from event_details as a, flight_details as b where b.aircraftid='161-129-2023-12-07-08' and a.eventid = '2009' and a.data_insert_date_time >= b.start_event_time and a.data_insert_date_time <= to_char((to_timestamp(b.stop_event_time,'YYYY-MM-DD HH24:MI:SS' )+ INTERVAL '1 hours'),'YYYY-MM-DD HH24:MI:SS') and a.packet_type='P']
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Query To Get Param Values [select param_id, param_value from event_params_detail where packet_type='P' and id = 1243 and param_id = '10110970042']
+[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] Section Value second_moqa_1 second_2
+ -- Test1 --
+ -- Test1 --[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] {"taxi_out_time":"2023-12-07 08:50:07","taxi_off_time":"2023-12-07 08:50:09","Date":"2023-12-07 08:48:37","flightID":"0","gate_in_time":"2023-12-07 08:51:14","landing_Time":"2023-12-07 08:51:10"}
+ -- Test2 --
+ -- Test3 --[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] [{}]
+{
+  origin: ' King Khalid International Airport, Riyadh Saudi Arabia',
+  destination: ' Dubai - United Arab Emirates',
+  reg_no: '161',
+  aircraft_reg_no: '161-129-2023-12-07-08'
+} location
+ -- EOFSR_ENGI_COND_MONI --
+ -- EOFSR_ENGI_COND_MONI --0Gross Weight
+ -- EOFSR_ENGI_COND_MONI --1Zero Fuel Weight
+ -- EOFSR_ENGI_COND_MONI --2Fuel Quantity-Fuel on Board
+ -- EOFSR_ENGI_COND_MONI --3Before Engine Start Oil Quantity
+ -- EOFSR_ENGI_COND_MONI --4After Engine Shut Down Oil Quantity
+ -- EOFSR_ENGI_COND_MONI --5Altitude
+ -- EOFSR_ENGI_COND_MONI --6Mach Number
+ -- EOFSR_ENGI_COND_MONI --7Speed/IAS
+ -- EOFSR_ENGI_COND_MONI --8Total Air Temperature
+ -- EOFSR_ENGI_COND_MONI --9Total Fuel Used
+ -- EOFSR_ENGI_COND_MONI --10Static Air Temperature
+ -- EOFSR_ENGI_COND_MONI --11N1 Engine 1
+ -- EOFSR_ENGI_COND_MONI --12N1 Engine 2
+ -- EOFSR_ENGI_COND_MONI --13EGT Engine 1
+ -- EOFSR_ENGI_COND_MONI --14EGT Engine 2
+ -- EOFSR_ENGI_COND_MONI --15N2 Engine 1
+ -- EOFSR_ENGI_COND_MONI --16N2 Engine 2
+ -- EOFSR_ENGI_COND_MONI --17Vib N1 Eng 1
+ -- EOFSR_ENGI_COND_MONI --18Vib N1 Eng 2
+ -- EOFSR_ENGI_COND_MONI --19Vib N2 Eng 1
+ -- EOFSR_ENGI_COND_MONI --20Vib N2 Eng 2
+ -- EOFSR_ENGI_COND_MONI --21AC Pack 1
+ -- EOFSR_ENGI_COND_MONI --22AC Pack 2
+ -- EOFSR_ENGI_COND_MONI --23Eng. Bleed ENG 2
+ -- EOFSR_ENGI_COND_MONI --24Eng. Bleed ENG 1
+ -- EOFSR_ENGI_COND_MONI --25Fuel Flow ENG 1
+ -- EOFSR_ENGI_COND_MONI --26Fuel Flow ENG 2
+ -- report_data_second_combined_str --[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] 
+ -- Test3 --[Thu Dec 07 2023 10:48:32 GMT+0000 (Coordinated Universal Time)] 
+[Thu Dec 07 2023 10:51:57 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[
+  '162', '163',
+  '164', '165',
+  '166', '167',
+  '168', '161'
+]
+totalassets
+totalevents: 521
+[Thu Dec 07 2023 10:53:21 GMT+0000 (Coordinated Universal Time)] Required Parameters Not Found In Request
