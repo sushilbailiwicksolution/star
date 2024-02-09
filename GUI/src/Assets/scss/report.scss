@@ -1,0 +1,77 @@
+.h-100vh-80px {
+    min-height: calc(100vh - 80px);
+}
+
+.sidebar-wrapper .user-list ul li:last-child {
+    border-bottom: none;
+}
+
+input#toggle-sidebar:checked~.col-lg-3 {
+    flex: 0 0 0%;
+    max-width: 0%;
+    transition-duration: 0.3s;
+}
+
+input#toggle-sidebar:checked~.report-list {
+    max-width: calc(100% - 30px);
+    flex: auto;
+}
+
+.col-lg-3,
+.col-lg-9 {
+    transition-duration: 0.3s;
+}
+
+input#toggle-sidebar:checked~.col-lg-3 .checked-toggle {
+    width: 0px;
+    overflow: hidden;
+}
+
+.checked-toggle {
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 100%;
+    transition-duration: 0.3s;
+}
+
+.checked-toggle li {
+    white-space: nowrap;
+}
+
+#toggle-sidebar {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.toggle-btn {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    margin-left: calc(100% - 30px);
+    top: 21rem;
+    background-color: #24204b;
+    z-index: 2;
+    border-radius: 0px 6px 6px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+.toggle-btn i {
+    animation: rotating 2s linear infinite;
+}
+
+input#toggle-sidebar:checked~.col-lg-3 label.toggle-btn {
+    // margin-left: 0px;
+    margin-left: -13px;
+}
+
+.report-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 130px);
+}
